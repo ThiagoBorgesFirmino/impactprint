@@ -1,0 +1,284 @@
+{h1}
+{workflow}
+{grid}
+{edicao}
+
+<script language="javascript">
+
+	function alterarVendaStatus(){
+		$('#divVendaStatus').hide('slow');	
+		$('#divVendaStatusEdit').show('slow');	
+	}
+	
+	function cancelarVendaStatus(){
+		$('#divVendaStatusEdit').hide('slow');	
+		$('#divVendaStatus').show('slow');	
+	}
+	
+	function alterarVendaStatusEnviar(){
+		enviar('vendasAlterarVendaStatus');
+	}
+	
+	function VendaStatus_id_change(){
+	
+		var objVendaStatus = document.getElementById('VendaStatus_id');
+		var objVendaStatusSelected = objVendaStatus.options[objVendaStatus.selectedIndex];
+		
+		if(objVendaStatusSelected.text.toUpperCase()=='REPROVADO'){
+			document.getElementById('divReprovadoMotivo').style.display = '';
+		}
+		else {
+			if(objVendaStatusSelected.text.toUpperCase()=='APROVADO'){
+			
+			}
+			document.getElementById('divReprovadoMotivo').style.display = 'none';
+		}
+	}
+	
+	function see(venda_id){
+		document.forms[0].elements['venda_id'].value = venda_id;
+		enviar('vendasVer');
+	}
+	
+	function protocolo(venda_id){
+		document.forms[0].elements['venda_id'].value = venda_id;
+		enviar('protocoloVer');
+	}
+
+	function send(venda_id,data_envio){
+		// if(data_envio!=''){
+			if(confirm('Deseja enviar este documento para: {cadastro->email}?')){
+				document.forms[0].elements['venda_id'].value = venda_id;
+				enviar('vendasEnviar');
+			}		
+		// }
+	}
+	function sendPDF(venda_id,data_envio){
+		// if(data_envio!=''){
+			if(confirm('Deseja enviar este documento para: {cadastro->email}?')){
+				document.forms[0].elements['venda_id'].value = venda_id;
+				enviar('vendasEnviarPDF');
+			}		
+		// }
+	}
+	
+	function vendastatusChange(objSelect){
+	
+		var txt = objSelect.options[objSelect.selectedIndex].text;
+		if(txt.toUpperCase()=='FINALIZADO' 
+		&& (document.getElementById('venda_nota_fiscal').value == '')){
+			alert('Digite o número da nota fiscal');
+			for(var i=0, n = objSelect.options.length; i<n; i ++){
+				if(objSelect.options[i].value == '{venda->vendastatus_id}'){
+					objSelect.options[i].selected = true;
+					return;
+				}
+			}
+		}
+		else if(txt.toUpperCase()=='CANCELADO' 
+		&& (document.getElementById('venda_data_entrega').value == '' || document.getElementById('venda_data_entrega').value == '00/00/0000')){
+			alert('Digite a data de entrega');
+			for(var i=0, n = objSelect.options.length; i<n; i ++){
+				if(objSelect.options[i].value == '{venda->vendastatus_id}'){
+					objSelect.options[i].selected = true;
+					return;
+				}
+			}
+		}
+	
+	}
+	
+</script>
+
+<input type="hidden" name="id" value="{venda->id}"/>
+<input type="hidden" name="venda_id" value=""/>
+<input type="hidden" name="proposta_id" value=""/>
+<input type="hidden" name="pedidoitem_id" value=""/>
+<input type="hidden" name="cadastro_id" value=""/>
+<input type="hidden" name="cont" value=""/>
+
+<input type="hidden" class="button button-cancelar" value="sair" onclick="enviar('')"/>
+
+<div class="well" id="menu-topo">
+	<div style="float:left">										  
+		<input type="button" class="btn btn-primary" value="Salvar" onclick="enviar('salvar')"/>
+		<input type="button" class="btn btn-primary" value="Sair" onclick="enviar('sair')"/>
+	</div>
+	<br clear="all"/>
+</div>
+
+<h1>Pedido: {venda->id}</h1>
+
+<div class="well">
+	<h2>Status do Pedido:</h2>
+	<div id="divVendaStatus">
+		Status atual: {vendastatus->descricao} <a href="javascript:alterarVendaStatus()"><small>(alterar)</small></a>
+	</div>
+	<div id="divVendaStatusEdit" style="display:none">
+		<select name="vendastatus_id" id="vendastatus_id" onchange="vendastatusChange(this)">
+			<!-- BEGIN BLOCK_LIST_VENDASTATUS -->
+			<option value="{list_vendastatus->id}">{list_vendastatus->descricao}</option>
+			<!-- END BLOCK_LIST_VENDASTATUS -->
+		</select> <input type="button" class="button button-gravar" value="Salvar" onclick="alterarVendaStatusEnviar()"/>
+	</div>
+</div>
+<div class="well">
+	<table class="table">
+		<tr>
+			<td>
+				<h2>Dados da empresa</h2>
+				<b>Empresa:</b> {config->EMPRESA}
+				<br /><b>CNPJ:</b> {config->CNPJ} <!-- <b>IE:</b> {venda->info_empresa_inscricao_estadual} -->
+				<br /><b>Endereço:</b> {config->LOGRADOURO}, {config->NUMERO} {config->COMPLEMENTO}
+				<br /><b>Bairro:</b>{config->BAIRRO} <b>Cidade:</b> {config->CIDADE} <b>UF:</b> {config->ESTADO}
+				<br /><b>CEP:</b> {config->CEP}
+				<br /><b>Telefone:</b> {config->TELEFONE}
+				<br /><b>E-mail:</b> {config->EMAIL_CONTATO}
+				<br /><b>Contato:</b> {config->CONTATO}
+			</td>
+			<td>
+				<h2>Dados do cliente</h2>
+				<b>Empresa:</b> {venda->info_cliente_empresa}
+				<br /><b>CNPJ:</b> {venda->info_cliente_cnpj} <!-- <b>IE:</b> {venda->info_cliente_inscricao_estadual}-->
+				<br /><b>Endereço:</b> {venda->info_cliente_logradouro}, {venda->info_cliente_numero} {venda->info_cliente_complemento} 
+				<br /><b>Bairro:</b> {venda->info_cliente_bairro} <b>Cidade:</b> {venda->info_cliente_cidade} <b>UF:</b> {venda->info_cliente_uf}
+				<br /><b>CEP:</b> {venda->info_cliente_cep}
+				<br /><b>Telefone:</b> {venda->info_cliente_fone_res} {venda->info_cliente_fone_com} {venda->info_cliente_fone_cel}
+				<br /><b>E-mail:</b> {venda->info_cliente_email}
+				<br /><b>Contato:</b> {venda->info_cliente_nome}
+			</td>
+		</tr>
+	</table>
+</div>
+
+<!--
+{venda}
+{vendedor}
+{orcamento}
+-->
+<div class="well">
+	<h2>Itens</h2>
+	<table width="100%" class="grid" id="tablePropostas">
+		<tr>
+			<th align="left">Ref.</th>
+			<th align="left">Nome</th>
+			<th align="left" width="200px">Info</th>
+			<th>Quantidade</th>
+			<th>R$ Preço</th>
+			<!-- <th>% IPI</th> -->
+			<th>R$ Sub-Total</th>
+		</tr>
+		<!-- BEGIN BLOCK_LIST_PEDIDOITEMVENDA -->
+		<tr>
+			<td>{list_pedidoitem->referencia}</td>
+			<td>{list_pedidoitem->nome}</td>
+			<td>{list_pedidoitem->descricao_html}</td>
+			<td>{list_pedidoitem->item_qtd}</td>
+			<td>{list_pedidoitem->preco}</td>
+			<!-- <td>{list_pedidoitem->ipi}</td>		 -->
+			<td>{list_pedidoitem->sub_total}</td>
+		</tr>
+		<!-- END BLOCK_LIST_PEDIDOITEMVENDA -->
+	</table>
+	<table width="100%" border="0">
+		<tr>
+			<td align="right"><small>Nota fiscal:</small></td>
+			<td><input size="10" type="text" class="form-control" name="venda[nota_fiscal]" id="venda_nota_fiscal" value="{venda->nota_fiscal}"/>
+				
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><small>Data envio pedido:</small></td>
+			<td><input size="12" type="text" class="form-control" name="venda[data_envio_pedido]" id="venda_data_envio_pedido" value="{venda->data_envio_pedido_formatado}" readonly class="disabled"/>
+				<script language="javascript">$(document.getElementById('venda_data_envio_pedido')).mask("99/99/9999");</script>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><small>Prazo de entrega:</small></td>
+			<td><input size="12" type="text" class="form-control" name="venda[data_previsao_entrega]" id="venda_data_previsao_entrega" value="{venda->data_previsao_entrega_formatado}"/>
+				<script language="javascript">$(document.getElementById('venda_data_previsao_entrega')).mask("99/99/9999");</script>
+			</td>
+		</tr>
+		<tr style="display:none">
+			<td align="right"><small>Data da entrega:</small></td>
+			<td><input size="12" type="text" class="form-control" name="venda[data_entrega]" id="venda_data_entrega" value="{venda->data_entrega_formatado}"/>
+				<script language="javascript">$(document.getElementById('venda_data_entrega')).mask("99/99/9999");</script>
+			</td>
+		</tr>
+		<tr>
+			<td align="right"><small>Opção de frete:</small></td>
+			<td><input size="12" type="text" class="form-control" name="venda[frete]"  value="{venda->info_frete}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>Observações:</small></td>
+			<td><textarea cols="60" rows="3" class="form-control" name="venda[obs]">{venda->info_obs}</textarea></td>
+		</tr>
+		<tr>
+			<td align="right"><small>Observações internas:</small></td>
+			<td><textarea cols="60" rows="3" class="form-control" name="venda[obs_interna]">{venda->info_obs_interna}</textarea></td>
+		</tr>
+		<tr>
+			<td align="right"><small>Forma de pagamento:</small></td>
+			<td>{venda->info_forma_pagamento}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>Local de entrega:</small></td>
+			<td>
+				<!-- BEGIN BLOCK_ENDERECO_ENTREGA_MESMO -->O mesmo<!-- END BLOCK_ENDERECO_ENTREGA_MESMO -->
+				<!-- BEGIN BLOCK_ENDERECO_ENTREGA -->
+				{venda->info_local_entrega_html}
+				<!-- END BLOCK_ENDERECO_ENTREGA -->
+			</td>
+		</tr>
+		<!--tr>
+			<td align="right"><small>local de cobrança:</small></td>
+			<td>{venda->info_local_cobranca}</td>
+		</tr-->
+		<tr>
+			<td align="right"><small>Total das mercadorias:</small></td>
+			<td>{venda->info_total_item}</td>
+		</tr>
+		<!-- <tr>
+			<td align="right"><small>Total de icms:</small></td>
+			<td>{venda->info_total_icms}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>Total com impostos:</small></td>
+			<td>{venda->total_venda}</td>
+		</tr> -->
+		<!--tr>
+			<td align="right"><small>Vendedor responsável:</small></td>
+			<td>{venda->info_vendedor}</td>
+		</tr-->
+
+	</table>
+</div>
+
+<div class="well">
+
+	<h2>Enviar dados da venda por e-mail</h2>
+
+	<table class="grid">
+		<tr>
+			<th>Data envio</th>
+			<th width="120px">Visualizar</th>
+			<th width="120px">Enviar ao cliente</th>
+			<th width="120px">Enviar com PDF</th>
+		</tr>
+		<tr>
+			<td>{venda->data_envio_email_formatado}</td>
+			<td align="center"><a href="javascript:see({venda->id})"><img src="{path}admin/assets/eye.png" /></a>&nbsp;</td>
+			<td align="center"><a href="javascript:send({venda->id})"><img src="{path}admin/assets/send.png" /></a>&nbsp;</td>
+			<td align="center"><a href="javascript:sendPDF({venda->id})"><img src="{path}admin/assets/send.png" /></a>&nbsp;</td>
+		</tr>
+	</table>
+	
+	<!-- table class="grid">
+		<tr>
+			<th>Imprimr Protocolo</th>
+		</tr>
+		<tr>
+			<td><a href="javascript:protocolo({venda->id})">imprimir protocolo</a></td>
+		</tr>
+	</table -->
+</div>

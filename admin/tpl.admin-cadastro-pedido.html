@@ -1,0 +1,313 @@
+{h1}
+{workflow}
+{grid}
+{edicao}
+
+<script language="javascript">
+
+	function formata(v) {
+		var s = new String(v);
+		if(s.indexOf('.')==-1) {
+			return s+',00';
+		}
+		else {
+			var x = s.split('.');
+			if(x[1].length>=2){
+				return x[0]+','+x[1].substr(0,2);
+			}
+			else{
+				return x[0]+','+x[1]+'0';
+			}
+		}
+	}
+
+	function updateSubTotal(objTr){
+
+		var preco = toFloat(document.getElementsByName('proposta[item]['+objTr.rowIndex+'][preco]')[0].value);
+		//var ipi = toFloat(document.getElementsByName('proposta[item]['+objTr.rowIndex+'][ipi]')[0].value);
+		var ipi = 0;
+		var qtd = toFloat(document.getElementsByName('proposta[item]['+objTr.rowIndex+'][item_qtd]')[0].value);
+																					 
+		document.getElementsByName('proposta[item]['+objTr.rowIndex+'][sub_total]')[0].value = formata((preco*qtd)*((ipi/100)+1));
+	}
+														
+	function toFloat(p){
+		return new Number(new String(p).replace(',','.').replace(' ',''));
+	}
+
+	function see(proposta_id){
+		document.forms[0].elements['proposta_id'].value = proposta_id;
+		enviar('pedidosVerProposta');
+	}
+
+	function send(proposta_id){
+		if(confirm('Deseja enviar esta proposta para: {cadastro->email}?')){
+			document.forms[0].elements['proposta_id'].value = proposta_id;
+			enviar('pedidosEnviarProposta');
+		}
+	}
+
+	var addPedidoItem_Localizado = false;
+	function addPedidoItem(){
+
+		if(addPedidoItem_Localizado){
+			enviar('pedidosAddPedidoItem');		
+		}
+		else{
+
+			$.getJSON('{index}get_item/'+ $('#item_referencia').val() +'/'+ new Date().getSeconds()
+				,function(data){
+					if(toFloat(data.id)>0){
+						addPedidoItem_Localizado = true;
+
+						$('#divPedidoItem').hide('slow');
+						$('#divPedidoItemEdit').show('slow');
+
+						document.forms[0].elements['pedidoitem[item_id]'].value = data.id;
+						document.forms[0].elements['pedidoitem[item_qtd]'].value = data.qtd_minima;
+
+						//alert(data.);
+						//alert();
+						//document.forms.elements['pedidoitem[item_id]'].value = data.id;
+						//alert($('#pedidoitem[item_id]').val());
+						//$('#pedidoitem[item_preco]" id="pedidoitem[item_preco]" value="0"/>
+
+						$('#itemReferencia').html(data.referencia);
+						$('#itemNome').html(data.nome);
+						$('#htmlPreco').html(data.preco);
+						$('#htmlGravacao').html(data.html_gravacao);
+						$('#htmlCor').html(data.html_cor);
+			
+					}
+					else {
+						alert('Nao foi encontrado nenhum item com a referencia3 '+$('#item_referencia').val());
+					}
+				}
+			);
+		}
+	}
+
+	function cancelPedidoItem(){
+		if(addPedidoItem_Localizado){
+			addPedidoItem_Localizado = false;
+			$('#divPedidoItemEdit').hide('slow');
+			$('#divPedidoItem').show('slow');			
+		}
+		$('#item_referencia').val('') ;
+	}
+
+	function delPedidoItem(pedidoItemId){
+		if(confirm('Deseja remover esse item do pedido?')){
+			document.forms[0].elements['pedidoitem_id'].value = pedidoItemId;
+			enviar('delPedidoItem');
+		}
+	}
+
+	function verCliente(){
+		document.forms[0].elements['cadastro_id'].value = {pedido->cadastro_id};
+		enviar('verCliente');
+	}
+
+	function alterarPedidoStatus(){
+		$('#divPedidoStatus').hide('slow');	
+		$('#divPedidoStatusEdit').show('slow');	
+	}
+
+	function cancelarPedidoStatus(){
+		$('#divPedidoStatusEdit').hide('slow');	
+		$('#divPedidoStatus').show('slow');	
+	}
+
+	function alterarVendedor(){
+		$('#divVendedor').hide('slow');	
+		$('#divVendedorEdit').show('slow');	
+	}
+
+	function cancelarVendedor(){
+		$('#divVendedorEdit').hide('slow');	
+		$('#divVendedor').show('slow');	
+	}
+
+	function verDadosCliente(){
+
+	}
+
+</script>
+
+
+<input type="hidden" name="id" value="{pedido->id}"/>
+<input type="hidden" name="proposta_id" value=""/>
+<input type="hidden" name="pedidoitem_id" value=""/>
+<input type="hidden" name="cadastro_id" value=""/>
+
+<input type="hidden" class="button button-cancelar" value="sair" onclick="enviar('')"/>
+
+<div id="menu-topo">
+	<div style="float:left">										  
+		<input type="button" class="button button-cancelar" value="sair" onclick="enviar('')"/>
+	</div>
+	<br clear="all"/>
+</div>
+
+<h1>Pedido: {pedido->id}</h1>
+
+
+<div style="float:left;width:49%" class="box-block">
+	<h2>Status:</h2>
+	<div id="divPedidoStatus">
+		{pedidostatus->descricao} <a href="javascript:alterarPedidoStatus()"><small>(alterar)</small></a>
+	</div>
+	<div id="divPedidoStatusEdit" style="display:none">
+		<select name="pedido[pedidostatus_id]">
+			<!-- BEGIN BLOCK_LIST_PEDIDOSTATUS -->
+			<option value="{list_pedidostatus->id}">{list_pedidostatus->descricao}</option>
+			<!-- END BLOCK_LIST_PEDIDOSTATUS -->
+		</select>
+		<input type="button" class="btn btn-default" value="Alterar" onclick="enviar('pedidosAlterarPedidoStatus')"/> <a href="javascript:cancelarPedidoStatus()">(cancelar)</a>
+	</div>
+</div>
+
+<div style="float:left;width:49%" class="box-block">
+	<h2>Vendedor:</h2>
+	<div id="divVendedor">
+		{vendedor->nome} <!-- BEGIN BLOCK_ALTERAR_VENDEDOR --> <a href="javascript:alterarVendedor()"><small>(alterar)</small></a> <!-- END BLOCK_ALTERAR_VENDEDOR -->
+	</div>
+	<div id="divVendedorEdit"  style="display:none">
+		<select name="pedido[vendedor_id]">
+			<!-- BEGIN BLOCK_LIST_VENDEDOR -->
+			<option value="{list_vendedor->id}">{list_vendedor->nome}</option>
+			<!-- END BLOCK_LIST_VENDEDOR -->
+		</select>
+		<input type="button" class="btn btn-default" value="Alterar" onclick="enviar('pedidosAlterarVendedor')"/> <a href="javascript:cancelarVendedor()">(cancelar)</a>
+	</div>
+</div>
+
+<br clear="all"/>
+
+<div style="float:left;width:49%;height:100px;" class="box-block">
+	<h2>Dados do cliente</h2>
+	Nome: {cadastro->nome}
+	<br />Email: {cadastro->email}
+	<br />Telefone: {cadastro->fone_com} {cadastro->fone_cel}
+	<br />Empresa: {cadastro->empresa}
+	<br /><a href="javascript:verCliente()">(ver tudo)</a>
+</div>
+
+<div style="float:left;width:49%;height:100px;" class="box-block">
+	<h2>Dados do vendedor</h2>
+	Nome: {vendedor->nome}
+	<br />Email: {vendedor->email}
+	<br />Telefone: {vendedor->fone_com} {vendedor->fone_res} {vendedor->fone_cel}
+</div>
+
+<!-- BEGIN BLOCK_ITENS -->
+
+<br clear="all"/>
+<br />
+<div class="box-block">
+	<h2>Itens no pedido</h2>
+
+	<table class="grid">
+		<tr>
+			<th>Referencia</th>
+			<th>Imagem</th>
+			<th>Nome</th>
+			<th>Cor</th>
+			<th>Preço</th>
+			<th>Quantidade</th>
+			<th>Sub-total</th>
+			<th>Excluir</th>
+		</tr>
+		<!-- BEGIN BLOCK_LIST_PEDIDOITEM -->
+		<tr>
+			<td>{list_pedidoitem->referencia}</td>
+			<td><img src="{path}img/produtos/{list_pedidoitem->itemcor_imagem}" /></td>
+			<td>{list_pedidoitem->nome}</td>
+			<td>{list_pedidoitem->cor_nome}</td>
+			<td>{list_pedidoitem->item_preco_formatado}</td>			
+			<td>{list_pedidoitem->item_qtd}</td>
+			<td>{list_pedidoitem->sub_total_formatado}</td>
+			<td><a href="javascript:delPedidoItem({list_pedidoitem->id})">Excluir</a></td>
+		</tr>
+		<!-- END BLOCK_LIST_PEDIDOITEM -->
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td><b>{pedido->qtd_itens}</b></td>
+			<td><b>{pedido->valor_total_formatado}</b></td>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</div>
+
+<!-- END BLOCK_ITENS -->
+
+<br clear="all"/>
+<div class="box-block">
+	<h2>Adicione um item no pedido</h2>
+	<div id="divPedidoItem">
+		<p>Para incluir um item no pedido digite a referencia:</p>
+		<input size="10" type="text" name="item_referencia" id="item_referencia" value=""/>  
+		<input type="button" class="button" value="Adicionar item" onclick="addPedidoItem()">
+	</div>
+
+	<div id="divPedidoItemEdit" style="display:none">
+
+		<p><b>Configure os dados do item e clique em confirmar</b></p>
+
+		<input type="hidden" name="pedidoitem[item_id]" id="pedidoitem[item_id]" />
+		<input type="hidden" name="pedidoitem[pedido_id]" id="pedidoitem[pedido_id]" value="{pedido->id}"/>
+		<input type="hidden" name="pedidoitem[item_preco]" id="pedidoitem[item_preco]" value="0"/>
+
+		<p>Referencia</p>
+		<span id="itemReferencia"></span>
+		<p>Nome</p>
+		<span id="itemNome"></span>
+		<span id="htmlGravacao"></span>
+		<span id="htmlCor"></span>
+		<p>Preço</p>
+		<span id="htmlPreco"></span>
+		<p>Qtd</p>
+		<input type="text" name="pedidoitem[item_qtd]" id="pedidoitem[item_qtd]" value="1"/>
+		<br /><input type="button" class="button" value="Confirmar" onclick="addPedidoItem()"> <a href="javascript:cancelPedidoItem()">(cancelar)</a>
+	</div>
+</div>
+<!-- BEGIN BLOCK_PROPOSTAS -->
+
+<br clear="all"/>
+<br />
+
+<h2>Propostas Criadas</h2>
+
+<table class="grid">
+	<tr>
+		<th>N&uacute;mero</th>
+		<th>Data cria&ccedil;&atilde;o</th>
+		<th>Data envio</th>
+		<th width="70px">Visualizar</th>
+		<th width="70px">Enviar ao cliente</th>
+	</tr>
+	<!-- BEGIN BLOCK_LIST_PROPOSTA -->
+	<tr>
+		<td>{list_proposta->numero}</td>
+		<td>{list_proposta->data_cadastro_format}</td>
+		<td>{list_proposta->data_envio_format}</td>
+		<td><a href="javascript:see({list_proposta->id})"><img src="{path}admin/assets/eye.png" /></a>&nbsp;
+		<td><a href="javascript:send({list_proposta->id})"><img src="{path}admin/assets/send.png" /></a>&nbsp;
+		</td>
+	</tr>
+	<!-- END BLOCK_LIST_PROPOSTA -->
+</table>
+
+<!-- END BLOCK_PROPOSTAS -->
+
+<br clear="all"/>
+<br />
+
+<!-- BEGIN BLOCK_CRIARPROPOSTA -->
+
+
+<!-- END BLOCK_CRIARPROPOSTA -->

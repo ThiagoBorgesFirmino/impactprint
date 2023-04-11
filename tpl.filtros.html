@@ -1,0 +1,58 @@
+<section class="container-filtro">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+				<div class="col-md-6 col-sm-6 col-xs-6 none">
+					<ul class="filtro-ordernar">
+						<li><p>Ordernar:</p></li>
+						{ordenar}
+					</ul>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<table class="filtro-cor  hidden-sm hidden-xs">
+						<tr>
+							<td style="padding-right:25px; width:156px"><p>FILTRAR POR COR</p></td>
+							<td>{html_cores}</td>
+						</tr>
+					</table>
+
+					<div class="filtro-cor filtro-cor-mobile visible-sm visible-xs" style="width:100%">
+						<div class="d-cor">
+							<table>
+								<tr>
+									<td class="text-left"><span>FILTRO POR COR</span></td>
+									<td class="text-right"><span>+</span></td>
+								</tr>
+							</table>
+						</div>
+						<div class="img-cores">
+							<table style="width: 100%;">
+								<form action="">
+									{html_mobile_cores}
+								</form>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 none">
+				<div class="js-filtro">
+					<input type="hidden" name="categoria_id" value="{categoria_id}" />
+					<!-- <input type="text" name="tipo_produto" value="{tipo_produto}" /> -->
+					<input type="hidden" name="cor_id" />
+					<input type="hidden" name="filtro_ordenar" />
+					<input type="hidden" name="filtro_preco" />
+					<input type="hidden" name="filtro_itens" />
+	
+					<!-- BEGIN BLOCK_COLECAO_PARAMETROS -->
+					<!-- <input type="hidden" name="lista_colecao" value="1" />
+					<input type="hidden" name="colecao_id" value="{colecao->id}" /> -->
+					<!--{quantidade_item}-->
+					<!--{html_preco}-->
+					<!-- END BLOCK_COLECAO_PARAMETROS -->
+	
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

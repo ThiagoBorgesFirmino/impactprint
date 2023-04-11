@@ -1,0 +1,717 @@
+{h1}
+{workflow}
+{grid}
+{edicao}
+
+<script language="javascript">
+
+	function formata(v) {
+		var s = new String(v);
+		if(s.indexOf('.')==-1) {
+			return s+',00';
+		}
+		else {
+			var x = s.split('.');
+			if(x[1].length>=2){
+				return x[0]+','+x[1].substr(0,2);
+			}
+			else{
+				return x[0]+','+x[1]+'0';
+			}
+		}
+	}
+
+	function updateSubTotal(objTr, sufix, item_id, gravacao_id, atualizaIpi){
+	
+		var trRowIndex = objTr.rowIndex-1;
+		var qtd = toFloat(document.getElementsByName('proposta[item]['+trRowIndex+'][item_qtd'+sufix+']')[0].value);
+		
+		if(document.getElementById('habilita_sugestao')
+		&& document.getElementById('habilita_sugestao').checked
+		&&(!atualizaIpi)
+		){
+			$.ajax({
+				type: 'GET'
+				,url: '{index}ajax_get_sugestao_preco/'+ new Date().getSeconds()
+				,data: 'item_id='+item_id+'&gravacao_id='+gravacao_id+'&qtd='+qtd
+				,async:false
+				,success: function(msg){
+					document.getElementsByName('proposta[item]['+trRowIndex+'][preco'+sufix+']')[0].value = msg;
+				}
+			});
+		}
+		
+		var preco = toFloat(document.getElementsByName('proposta[item]['+trRowIndex+'][preco'+sufix+']')[0].value);
+		//var ipi = toFloat(document.getElementsByName('proposta[item]['+trRowIndex+'][ipi]')[0].value);
+		var ipi = 0;
+		var qtd = toFloat(document.getElementsByName('proposta[item]['+trRowIndex+'][item_qtd'+sufix+']')[0].value);
+												
+		// o toFixed corrige o bug do javascript de arredondar pra menor
+		var subTotal = (preco*qtd).toFixed(2);
+		if(ipi>0){
+			subTotal = subTotal * ((ipi/100)+1);
+		}
+		
+		// document.getElementsByName('proposta[item]['+objTr.rowIndex+'][sub_total'+sufix+']')[0].value = formata((preco*qtd)*((ipi/100)+1));
+		document.getElementsByName('proposta[item]['+trRowIndex+'][sub_total'+sufix+']')[0].value = formata(subTotal);
+	}
+	
+	function updateSubTotalIPI(objTr, item_id){
+	// function updateSubTotal(objTr, sufix, item_id, atualizaIpi){
+	
+		var trRowIndex = objTr.rowIndex-1;
+	
+		updateSubTotal(objTr,'', item_id);
+		if(document.getElementsByName('proposta[item]['+trRowIndex+'][preco2]').length>0){
+			updateSubTotal(objTr,'2', item_id, true);
+		}
+		if(document.getElementsByName('proposta[item]['+trRowIndex+'][preco3]').length>0){
+			updateSubTotal(objTr,'3', item_id, true);
+		}
+	}
+	
+	function toFloat(p){
+		return new Number(new String(p).replace(',','.').replace(' ',''));
+	}
+
+	function send(proposta_id){
+		if(confirm('Deseja enviar esta proposta para: {cadastro->email}?')){
+			document.forms[0].elements['proposta_id'].value = proposta_id;
+			enviar('pedidosEnviarProposta');
+		}
+	}
+
+	var addPedidoItem_Localizado = false;
+	function addPedidoItem(){
+
+		//alert(1);
+
+		if(addPedidoItem_Localizado){
+		
+			enviar('propostasAddItem');		
+		}
+		else{
+
+			$.getJSON('{index}get_item/'+ $('#item_referencia').val() +'/'+ new Date().getSeconds()
+				,function(data){
+
+					//alert(data);
+
+					if(toFloat(data.id)>0){
+						addPedidoItem_Localizado = true;
+
+						$('#divPedidoItem').hide('slow');
+						$('#divPedidoItemEdit').show('slow');
+
+						document.forms[0].elements['item_id'].value = data.id;
+						
+					
+						$('#itemReferencia').html(data.referencia);
+						$('#itemNome').html(data.nome);
+
+						if(data.html_gravacao){
+							$('#htmlGravacao').html(data.html_gravacao);
+						}
+						if(data.html_cor){
+							$('#htmlCor').html(data.html_cor);
+						}
+						if(data.html_materia_prima){
+							//$('#htmlMateriaPrima').html(data.html_materia_prima);
+						}
+						if(data.html_finalidade){
+							//$('#htmlFinalidade').html(data.html_finalidade);
+						}
+						if(data.html_medida){
+							//$('#htmlMedida').html(data.html_medida);
+						}
+						if(data.html_numero_cores){
+							//$('#htmlNumeroCores').html(data.html_numero_cores);
+						}
+						if(data.html_descricao_projeto){
+							//$('#htmlDescricaoProjeto').html(data.html_descricao_projeto);			
+						}									
+					}
+					else {
+						alert('Nao foi encontrado nenhum item com a referencia5 '+$('#item_referencia').val());
+					}
+				}
+			);
+		}
+	}
+
+	function delPropostaItem(propostaitemindice){
+		if(confirm('Tem certeza que deseja excluir este item da proposta?')){
+			document.forms[0].elements['propostaitemindice'].value = propostaitemindice;
+			enviar('propostasDelItem');
+		}
+	}
+	
+	function cancelPedidoItem(){
+		if(addPedidoItem_Localizado){
+			addPedidoItem_Localizado = false;
+			$('#divPedidoItemEdit').hide('slow');
+			$('#divPedidoItem').show('slow');
+		}
+		$('#item_referencia').val('') ;
+	}
+
+	function observacaoFornecedor(cont){
+		alert(document.getElementById('informacaoFornecedor'+cont).innerHTML);
+		// $('#mostrarObservacao'+cont).hide('slow');	
+		// $('#informacaoFornecedor'+cont).show('slow');	
+	}
+
+	function alterarPropostaStatus(){
+		$('#divPropostaStatus').hide('slow');	
+		$('#divPropostaStatusEdit').show('slow');	
+	}
+	
+	function cancelarPropostaStatus(){
+		$('#divPropostaStatusEdit').hide('slow');	
+		$('#divPropostaStatus').show('slow');	
+	}
+	
+	function alterarPropostaStatusEnviar(){
+	
+		var objReprovadoMotivo = document.getElementById('reprovado_motivo_opt');
+		var objReprovadoMotivoSelected = objReprovadoMotivo.options[objReprovadoMotivo.selectedIndex];
+		
+		if(objReprovadoMotivoSelected.value.toUpperCase() =='OUTROS'){
+			document.getElementById('reprovado_motivo').value = document.getElementById('reprovado_motivo_txt').value;
+		}
+		else {
+			document.getElementById('reprovado_motivo').value = objReprovadoMotivoSelected.value;
+		}
+		
+		enviar('propostasAlterarPropostaStatus');
+	}
+	
+	function propostastatus_id_change(){
+	
+		var objPropostaStatus = document.getElementById('propostastatus_id');
+		var objPropostaStatusSelected = objPropostaStatus.options[objPropostaStatus.selectedIndex];
+		
+		if(objPropostaStatusSelected.text.toUpperCase()=='REPROVADO'){
+			document.getElementById('divReprovadoMotivo').style.display = '';
+		}
+		else {
+			document.getElementById('divReprovadoMotivo').style.display = 'none';
+		}
+		
+	}
+	
+	function reprovado_motivo_opt_change(){
+	
+		var objReprovadoMotivo = document.getElementById('reprovado_motivo_opt');
+		var objReprovadoMotivoSelected = objReprovadoMotivo.options[objReprovadoMotivo.selectedIndex];
+		
+		if(objReprovadoMotivoSelected.value.toUpperCase()=='OUTROS'){
+			document.getElementById('divReprovadoMotivoOutro').style.display='';
+		}
+		else {
+			document.getElementById('divReprovadoMotivoOutro').style.display='none';
+		}
+	
+	}
+	
+	function reprovado_motivo_set(){
+	
+		var objReprovadoMotivo = document.getElementById('reprovado_motivo_opt');
+		var objReprovadoMotivoSelected = objReprovadoMotivo.options[objReprovadoMotivo.selectedIndex];
+		
+		var reprovado_motivo = '{proposta->reprovado_motivo}';
+		
+		for( var i=0; i < objReprovadoMotivo.options.length ;  i ++ ){
+			if(objReprovadoMotivo.options[i].value == reprovado_motivo){
+				objReprovadoMotivo.options[i].selected = true;
+				return;
+			}
+		}
+		
+		document.getElementById('reprovado_motivo_txt').value = reprovado_motivo;
+		
+	}
+
+	function alteraEmpresa(){
+		//var url = ('{index}propostasEditarEmpresa/?action=editar&id={proposta->id}&popup=sim');
+		var url = ('{index}configuracao/');
+		var width = 770;
+		var height = 600;
+		window.open(url,width,height);
+	}
+	
+	function alteraCliente(){
+		var url = ('{index}cadastrocliente/?action=editar&id={cadastro->id}&pop=1');
+		var width = 770;
+		var height = 600;
+		window.open(url,width,height);
+	}
+	
+	function callback(key){
+		switch(key){
+			case 'cliente':
+				window.location = new String('{index}propostas/?action=editar&id={proposta->id}');
+			break;
+			case 'empresa':
+				window.location = new String('{index}propostas/?action=editar&id={proposta->id}');
+			break;
+		}
+	}
+	
+	function mostraPrecoFornecedor(cont){
+		
+	}
+	
+</script>
+
+<input type="hidden" name="id" value="{proposta->id}"/>
+<input type="hidden" name="proposta_id" value=""/>
+<input type="hidden" name="propostaitemindice" id="" value=""/>
+<input type="hidden" name="cadastro_id" value=""/>
+<input type="hidden" name="cont" value=""/>
+
+<input type="hidden" class="button button-cancelar" value="sair" onclick="enviar('')"/>
+
+<div class="well text-center" id="menu-topo">
+	<div style="float:left">			
+		<input type="button" class="btn btn-default" value="Voltar para o orçamento" onclick="window.location='{index}orcamento/?action=editar&id={pedido->id}&pop=1'"/> 	
+		<input type="button" class="btn btn-default" value="Sair" onclick="javascript: enviar('sair');"/> 
+		<!-- input type="button" class="button button-cancelar" value="Voltar para o orçamento" onclick="window.location='{index}orcamentos/?action=editar&id={pedido->id}'"/ --> 
+		<!-- <input type="button" class="button button-gravar" value="Visualizar proposta" onclick="enviar('propostasVerProposta')"/> -->
+		<!-- <input type="button" class="button button-gravar" value="Transformar proposta em pedido" onclick="enviar('propostas2Pedido')"/> -->
+	</div>
+	<br clear="all"/>
+</div>
+
+<h2 class="text-center">
+	Orçamento: {pedido->id}
+	<br><small>Proposta: {proposta->codigo_proposta}</small>
+</h2>
+
+
+<div class="well">
+	<h2>Status da Proposta:</h2>
+	<div id="divPropostaStatus">
+		Status atual: {propostastatus->descricao} <a href="javascript:alterarPropostaStatus()"><small>(alterar)</small></a>
+	</div>
+	<div id="divPropostaStatusEdit" style="display:none">
+		<select name="propostastatus_id" id="propostastatus_id" onchange="propostastatus_id_change()">
+			<!-- BEGIN BLOCK_LIST_PROPOSTASTATUS -->
+			<option value="{list_propostastatus->id}">{list_propostastatus->descricao}</option>
+			<!-- END BLOCK_LIST_PROPOSTASTATUS -->
+		</select>
+		<div id="divReprovadoMotivo" style="display:none">
+			<input type="hidden" name="reprovado_motivo" id="reprovado_motivo" />
+			Motivo: 
+			<select name="reprovado_motivo_opt" id="reprovado_motivo_opt" onchange="reprovado_motivo_opt_change()">
+				<option value="--">Selecione o motivo</option>
+				<option value="Preço">Preço</option>
+				<option value="Entrega">Entrega</option>
+				<option value="Qualidade">Qualidade</option>
+				<option value="Outros">Outros</option>
+			</select>
+			<div id="divReprovadoMotivoOutro" style="display:none">
+				Outro: <input type="text" class="text" name="reprovado_motivo_txt" id="reprovado_motivo_txt" value=""/>
+			</div>
+		</div>
+		<input type="button" class="button" value="Alterar" onclick="alterarPropostaStatusEnviar()"/> <a href="javascript:cancelarPropostaStatus()">(cancelar)</a>
+		<script language="javascript">
+			reprovado_motivo_set();
+		</script>
+	</div>
+</div>
+
+<div class="well">
+	<td>
+		<h2>Dados da empresa</h2>
+		<b>Empresa:</b> {config->EMPRESA}
+		<br /><b>CNPJ:</b> {config->CNPJ} <!-- <b>IE:</b> {venda->info_empresa_inscricao_estadual} -->
+		<br /><b>Endereço:</b> {config->LOGRADOURO}, {config->NUMERO} {config->COMPLEMENTO}
+		<br /><b>Bairro:</b>{config->BAIRRO} <b>Cidade:</b> {config->CIDADE} <b>UF:</b> {config->ESTADO}
+		<br /><b>CEP:</b> {config->CEP}
+		<br /><b>Telefone:</b> {config->TELEFONE}
+		<br /><b>E-mail:</b> {config->EMAIL_CONTATO}
+		<br /><b>Contato:</b> {config->CONTATO}
+	</td>
+
+	&nbsp;<a href="javascript:alteraEmpresa()">Alterar dados</a>
+	
+</div>
+<div class="well">
+	<h2>Dados do cliente</h2>
+	
+	<b>Empresa:</b> {cadastro->empresa}
+	<br /><b>CNPJ:</b> {cadastro->cnpj}
+	<br /><b>Endereço:</b> {cadastro->logradouro}, {cadastro->numero} {cadastro->complemento} 
+	<br />><b>Bairro:</b> {cadastro->bairro} <b>Cidade:</b> {cadastro->cidade} <b>UF:</b> {cadastro->uf}
+	<br /><b>CEP:</b> {cadastro->cep}
+	<br /><b>Telefone:</b>{cadastro->fone_com} {cadastro->fone_cel}
+	<br /><b>E-mail:</b> {cadastro->email}
+	<br /><b>Contato:</b> {cadastro->nome}
+	
+	&nbsp;<a href="javascript:alteraCliente()">Alterar dados</a>
+	
+</div>
+
+<div class="well">
+	<h2>Alterar Proposta</h2>
+	<!-- BEGIN BLOCK_OPCAO_PRECO_SUGESTAO -->
+	<div style="background-color:#cecece">
+		<input type="checkbox" name="habilita_sugestao" id="habilita_sugestao" onclick="habilitaSugestaoPreco()" /> <label for="habilita_sugestao">Habilita sugest&atilde;o de pre&ccedil;o ?</label>
+	</div>
+	<!-- END BLOCK_OPCAO_PRECO_SUGESTAO -->
+	<table width="100%" class="grid" id="tablePropostas">
+		<tr>
+			<th align="left">Ref.</th>
+			<th align="left">Imagem</th>
+			<th align="left">Nome</th>
+			<th align="left">Info</th>
+			<th>Quantidade</th>
+			<th>R$ Preço</th>
+			<!--th>% IPI</th-->
+			<th>R$ Sub-Total</th>
+			<th>&nbsp;</th>
+		</tr>
+		<!-- BEGIN BLOCK_LIST_PEDIDOITEMPROPOSTA -->
+		<tr>
+			<td>
+				<input type="hidden" name="proposta[item][{propostaindice}][referencia]" value="{list_pedidoitem->referencia}" />
+				{list_pedidoitem->referencia}
+			</td>
+			<!-- <td><img src="" width="40px"/></td> -->
+			<td><img src="{list_pedidoitem->imagem}" width="40px"/></td>
+			<td>
+				<input type="hidden" name="proposta[item][{propostaindice}][nome]" value="{list_pedidoitem->nome}" />
+				{list_pedidoitem->nome}
+			</td>
+			<td><textarea name="proposta[item][{propostaindice}][descricao]" class="form-control" cols="20" rows="5" {list_pedidoitem->disabled}>{list_pedidoitem->descricao}</textarea></td>
+			
+			<td>
+				<input size="3" type="text" class="form-control" name="proposta[item][{propostaindice}][item_qtd]"  value="{list_pedidoitem->item_qtd}"  onkeyup="updateSubTotal(this.parentNode.parentNode,'','{list_pedidoitem->item_id}')" {list_pedidoitem->disabled}/><br/>
+				<input size="3" type="text" class="form-control" name="proposta[item][{propostaindice}][item_qtd2]" value="{list_pedidoitem->item_qtd2}" onkeyup="updateSubTotal(this.parentNode.parentNode,'2','{list_pedidoitem->item_id}')" {list_pedidoitem->disabled}/><br/>
+				<input size="3" type="text" class="form-control" name="proposta[item][{propostaindice}][item_qtd3]" value="{list_pedidoitem->item_qtd3}" onkeyup="updateSubTotal(this.parentNode.parentNode,'3','{list_pedidoitem->item_id}')" {list_pedidoitem->disabled}/>
+			</td>
+			<td>
+				<input size="7" type="text" class="form-control" name="proposta[item][{propostaindice}][preco]" value="{list_pedidoitem->preco}" onkeypress="return formataMoeda(this,event);" onkeyup="updateSubTotal(this.parentNode.parentNode,'')"/><br />
+				<input size="7" type="text" class="form-control" name="proposta[item][{propostaindice}][preco2]"  value="{list_pedidoitem->preco2}" onkeypress="return formataMoeda(this,event);" onkeyup="updateSubTotal(this.parentNode.parentNode,'2')"/><br />
+				<input size="7" type="text" class="form-control" name="proposta[item][{propostaindice}][preco3]"  value="{list_pedidoitem->preco3}" onkeypress="return formataMoeda(this,event);" onkeyup="updateSubTotal(this.parentNode.parentNode,'3')"/>
+		  	</td>
+			<td>
+				     <input size="5" type="text" class="form-control" name="proposta[item][{propostaindice}][sub_total]"  readonly value="{list_pedidoitem->sub_total}" {list_pedidoitem->disabled}/>
+				<br/><input size="5" type="text" class="form-control" name="proposta[item][{propostaindice}][sub_total2]" readonly value="{list_pedidoitem->sub_total2}" {list_pedidoitem->disabled}/>
+				<br/><input size="5" type="text" class="form-control" name="proposta[item][{propostaindice}][sub_total3]" readonly value="{list_pedidoitem->sub_total3}" {list_pedidoitem->disabled}/>
+			</td>
+			<td align="center">
+				<!-- BEGIN BLOCK_LIST_PEDIDOITEMPROPOSTA_EXCLUI -->
+				<a style="cursor:pointer"><img onclick="delPropostaItem({propostaindice});" src="{path}admin/assets/x.gif"/></a>
+				<!-- END BLOCK_LIST_PEDIDOITEMPROPOSTA_EXCLUI -->
+				<input type="hidden" name="proposta[item][{propostaindice}][imagem]" value="{list_pedidoitem->imagem}"/>
+			</td>
+		</tr>
+		<!-- END BLOCK_LIST_PEDIDOITEMPROPOSTA -->
+	</table>
+	
+	<!-- BEGIN BLOCK_LIST_PEDIDOITEMPROPOSTA_FORNECEDOR -->
+	<div id="informacaoFornecedor{cont}" style="display:none;">		
+		Fornecedor: {list_item->fornecedor_1}
+		Código: {list_item->codigo_1}
+		Preço: {list_item->preco_1}
+		Data: {list_item->data_1}
+		--
+		Fornecedor: {list_item->fornecedor_2}
+		Código: {list_item->codigo_2}
+		Preço: {list_item->preco_2}
+		Data: {list_item->data_2}
+		--
+		Fornecedor: {list_item->fornecedor_3}
+		Código: {list_item->codigo_3}
+		Preço: {list_item->preco_3}
+		Data: {list_item->data_3}
+		
+	</div>
+	<!-- END BLOCK_LIST_PEDIDOITEMPROPOSTA_FORNECEDOR -->
+	
+	<!-- BEGIN BLOCK_EDICAO_PROPOSTA -->
+	
+	<table width="100%" border="0">
+		<tr>
+			<td align="right">Validade da Proposta:</td>
+			<td><input size="20" type="text" class="form-control" name="proposta[validade_proposta]" value="{proposta->info_validade_proposta}"/></td>
+		</tr>
+		<tr>
+			<td align="right">Prazo de Entrega:</td>
+			<td><input size="20" type="text" class="form-control" name="proposta[prazo_entrega]" value="{proposta->info_prazo_entrega}"/></td>
+		</tr>
+		<tr>
+			<td align="right">Forma de pagamento:</td>			
+			<td>
+				<input type="text" class="form-control" value="{proposta->info_forma_pagamento}" name="proposta[forma_pagamento]" style="width:350px;" />			
+			</td>
+		</tr>
+	
+		<tr>
+			<td align="right"><small>opção de frete:</small></td>
+			<td>
+				<select class="form-control" name="proposta[frete]">
+					<!-- BEGIN BLOCK_OPCAO_FRETE -->
+					<option value="{opcao_frete}" {opcao_frete_selected}>{opcao_frete}</option>
+					<!-- END BLOCK_OPCAO_FRETE -->
+				</select>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td><small>Custo do Frete:</small></td>
+			<td>
+				<input class="form-control" type="text" value="{proposta->info_custo_frete}" name="proposta[custo_frete]" onkeypress="return formataMoeda(this,event)" />
+			</td>
+		</tr>
+		
+		<tr>
+			<td><small>Confecção de arte e fotolito:</small></td>
+			<td>
+				<input class="form-control" type="text" value="{proposta->info_fotolito}" name="proposta[fotolito]" onkeypress="return formataMoeda(this,event)" />
+			</td>
+		</tr>
+		
+		<tr>
+			<td><small>Acréscimo por cor:</small></td>
+			<td>
+				<input class="form-control" type="text" value="{proposta->info_acrescimo}" name="proposta[acrescimo]" onkeypress="return formataMoeda(this,event)" />
+			</td>
+		</tr>
+		
+		<tr>
+			<td><small>substituição tributária:</small></td>
+			<td>
+				<input class="form-control" type="text" value="{proposta->info_substituicao}" name="proposta[substituicao]" onkeypress="return formataMoeda(this,event)" />
+			</td>
+		</tr>
+
+		
+		
+		
+		<tr>
+			<td align="right"><small>observações:</small></td>
+			<td style="padding-top:10px;padding-bottom:10px;display:inline-block;">
+				<textarea cols="60" rows="5" class="form-control" name="proposta[obs]">{proposta->infn_obs}</textarea>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align="right">Observações Adicionais:</td>
+			<td style="padding-top:10px;padding-bottom:10px;display:inline-block;">
+				<textarea cols="70" rows="5" class="form-control" name="proposta[obs_adicionais]">{proposta->infn_obs_adicionais}</textarea>
+			</td>
+		</tr>	
+		
+		<tr>
+			<td align="right">Saudação Personalizada:</td>
+			<td style="padding-top:10px;padding-bottom:10px;display:inline-block;">
+				<textarea cols="70" rows="5" class="form-control" name="proposta[saudacao_personalizada]">{proposta->infn_saudacao_personalizada}</textarea>
+			</td>
+		</tr>
+		
+		<!-- tr>
+			<td align="right"><small>forma de pagamento:</small></td>
+			<td>
+				<select name="proposta[forma_pagamento]" ==>
+					<!-- BEGIN BLOCK_FORMA_PAGAMENTO -->
+					<!-- option value="{forma_pagamento}" {forma_pagamento_selected} >{forma_pagamento}</option -->
+					<!-- END BLOCK_FORMA_PAGAMENTO -->
+				<!-- /select>
+			</td>
+		</tr -->
+		<tr>
+			<td align="right"><small>local de entrega:</small></td>
+			<td><input size="60" type="text" class="form-control" name="proposta[local_entrega]" value="{proposta->info_local_entrega}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>local de cobrança:</small></td>
+			<td><input size="60" type="text" class="form-control" name="proposta[local_cobranca]" value="{proposta->info_local_cobranca}"/></td>
+		</tr>
+		<!-- tr>
+			<td align="right"><small>total das mercadorias:</small></td>
+			<td><input size="30" type="text" name="proposta[total_item]" value="{proposta->info_total_item}" onkeypress="return formataMoeda(this,event)" /></td>
+		</tr>
+		<tr>
+			<td align="right"><small>total de icms:</small></td>
+			<td><input size="30" type="text" name="proposta[total_icms]" value="{proposta->info_total_icms}" onkeypress="return formataMoeda(this,event)" /></td>
+		</tr>
+		<tr>
+			<td align="right"><small>total com impostos:</small></td>
+			<td><input size="30" type="text" name="proposta[total]" value="{proposta->info_total}" onkeypress="return formataMoeda(this,event)" /></td>
+		</tr -->
+		<!--tr>
+			<td align="right"><small>vendedor responsável:</small></td>
+			<td><input size="30" type="text" name="proposta[vendedor]" value="{proposta->info_vendedor}"/></td>
+		</tr-->
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<br />
+				<input type="button" class="btn btn-default" value="Alterar proposta" onclick="enviar('salvar')"/>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- END BLOCK_EDICAO_PROPOSTA -->
+	
+	<!-- BEGIN BLOCK_VISUALIZA_PROPOSTA -->
+	
+	<table width="100%" border="0">
+		<tr>
+			<td align="right"><small>opção de frete:</small></td>
+			<td>&nbsp;{proposta->info_frete}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>validade da proposta:</small></td>
+			<td>&nbsp;{proposta->info_validade_proposta}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>prazo de entrega:</small></td>
+			<td>&nbsp;{proposta->info_prazo_entrega}</td>
+		</tr>
+		<tr>
+			<td align="right" valign="top"><small >observações:</small></td>
+			<td>&nbsp;{proposta->info_obs}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>forma de pagamento:</small></td>
+			<td>&nbsp;{proposta->info_forma_pagamento}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>local de entrega:</small></td>
+			<td>&nbsp;{proposta->info_local_entrega}</td>
+		</tr>
+		<!--tr>
+			<td align="right"><small>local de cobrança:</small></td>
+			<td>{proposta->info_local_cobranca}</td>
+		</tr-->
+		<tr>
+			<td align="right"><small>total das mercadorias:</small></td>
+			<td>&nbsp;{proposta->info_total_item}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>total de icms:</small></td>
+			<td>&nbsp;{proposta->info_total_icms}</td>
+		</tr>
+		<tr>
+			<td align="right"><small>total com impostos:</small></td>
+			<td>&nbsp;{total_pedido}</td>
+		</tr>
+		
+		<!--tr>
+			<td align="right"><small>vendedor responsável:</small></td>
+			<td><input size="10" type="text" name="proposta[vendedor]" value="pedido->vendedor"/></td>
+		</tr>
+		<!--tr>
+			<td align="right"><small>local de entrega:</small></td>
+			<td><input size="10" type="text" name="proposta[local_entrega]" value="{proposta->info_local_entrega}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>local de cobrança:</small></td>
+			<td><input size="10" type="text" name="proposta[local_cobranca]" value="{proposta->info_local_cobranca}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>total das mercadorias:</small></td>
+			<td><input size="10" type="text" name="proposta[total]" value="{proposta->info_total}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>total de icms:</small></td>
+			<td><input size="10" type="text" name="proposta[total_icms]" value="{proposta->info_total_icms}"/></td>
+		</tr>
+		<tr>
+			<td align="right"><small>total com impostos:</small></td>
+			<td><input size="10" type="text" name="proposta[total_impostos]" value="{proposta->info_total_impostos}"/></td>
+		</tr -->
+		
+		<!--tr>
+			<td align="right"><small>vendedor responsável:</small></td>
+			<td><input size="10" type="text" name="proposta[vendedor]" value="pedido->vendedor"/></td>
+		</tr-->
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="button" class="btn btn-default" value="Alterar proposta" onclick="enviar('salvar')"/>
+			</td>
+		</tr>
+	</table>
+	
+	<!-- END BLOCK_VISUALIZA_PROPOSTA -->
+	
+</div>
+<script language="javascript">
+	
+	function habilitaSugestaoPreco(){
+	
+		if(document.getElementById('habilita_sugestao')
+		&& document.getElementById('habilita_sugestao').checked){
+	
+			<!-- BEGIN BLOCK_LIST_PEDIDOITEMPROPOSTA_SCRIPT -->
+			updateSubTotal(document.getElementsByName('proposta[item][{propostaindice}][preco]')[0].parentNode.parentNode,'','{list_pedidoitem->item_id}','{list_pedidoitem->gravacao_id}',false)
+			
+			if(document.getElementsByName('proposta[item][{propostaindice}][preco2]').length>0){
+				updateSubTotal(document.getElementsByName('proposta[item][{propostaindice}][preco2]')[0].parentNode.parentNode,'2','{list_pedidoitem->item_id}','{list_pedidoitem->gravacao_id}',false)
+			}
+			
+			if(document.getElementsByName('proposta[item][{propostaindice}][preco3]').length>0){
+				updateSubTotal(document.getElementsByName('proposta[item][{propostaindice}][preco3]')[0].parentNode.parentNode,'3','{list_pedidoitem->item_id}','{list_pedidoitem->gravacao_id}',false)
+			}
+			
+			if(document.getElementsByName('proposta[item][{propostaindice}][preco4]').length>0){
+				updateSubTotal(document.getElementsByName('proposta[item][{propostaindice}][preco4]')[0].parentNode.parentNode,'4','{list_pedidoitem->item_id}','{list_pedidoitem->gravacao_id}',false)
+			}
+			// updateSubTotal(this.parentNode.parentNode,'3',{list_pedidoitem->item_id},false)"/>
+			<!-- END BLOCK_LIST_PEDIDOITEMPROPOSTA_SCRIPT -->
+		}
+
+	}
+</script>
+
+<!-- BEGIN BLOCK_ADICIONE -->
+
+<div class="well">
+	<h2>Adicione um item na proposta</h2>
+	<div id="divPedidoItem">
+		<p>Para incluir um item na proposta digite a referencia:</p>
+		<input size="10" type="text" class="form-control" name="item_referencia" id="item_referencia" value=""/>  
+		<input type="button" class="btn btn-default" value="Adicionar item" onclick="addPedidoItem()">
+	</div>
+</div>
+
+<!-- END BLOCK_ADICIONE -->
+
+<div id="divPedidoItemEdit" style="display:none" class="box-block">
+
+	<h2>Configure os dados do item e clique em confirmar</h2>
+
+	<input type="hidden" name="item_id" id="item_id" />
+	<input type="hidden" name="pedidoitem[item_id]" id="pedidoitem[item_id]" />
+	<input type="hidden" name="pedidoitem[pedido_id]" id="pedidoitem[pedido_id]" value="{pedido->id}"/>
+	<input type="hidden" name="pedidoitem[item_preco]" id="pedidoitem[item_preco]" value="0"/>
+
+	<p>Referencia</p>
+	<span id="itemReferencia"></span>
+	<p>Nome</p>
+	<span id="itemNome"></span>
+	<span id="htmlCor"></span>
+	<span id="htmlGravacao"></span>
+	<span id="htmlMateriaPrima"></span>	
+	<span id="htmlFinalidade"></span>	
+	<span id="htmlMedida"></span>	
+	<span id="htmlNumeroCores"></span>	
+	<span id="htmlDescricaoProjeto"></span>	
+							
+	<p>Qtd 1</p>
+	<input type="text" class="form-control" name="item_qtd" id="item_qtd" value="0"/>
+
+	<p>Qtd 2</p>
+	<input type="text" class="form-control" name="item_qtd2" id="item_qtd2" value="0"/>
+
+	<p>Qtd 3</p>
+	<input type="text" class="form-control" name="item_qtd3" id="item_qtd3" value="0"/>
+
+	<br /><input type="button" class="button btn btn-info" value="Confirmar" onclick="addPedidoItem()"> <a href="javascript:cancelPedidoItem()">(cancelar)</a>
+</div>

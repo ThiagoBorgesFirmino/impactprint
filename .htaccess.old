@@ -1,0 +1,12 @@
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1
+
+RewriteCond %{HTTPS} off 
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+## Redirecionamento de www para sem www
+RewriteCond %{HTTP_HOST} ^www\.starbrindes\.ajung.br [NC]
+RewriteRule (.*) https://starbrindes.ajung.br/$1 [R=301,L]

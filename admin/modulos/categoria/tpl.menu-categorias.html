@@ -1,0 +1,121 @@
+<header class="header-menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-sm visible-xs text-center d-logo-mobile">
+                        <a href="{index}" title="{config->EMPRESA}">
+                            <img src="{path}img/logo/logo.png" alt="{config->empresa}">
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 visible-sm visible-xs d-minha-conta-mobile">
+                        <div class="col-md-10 col-sm-10 col-xs-10 padding_0">
+                            <a href="{index}minhaconta"><div class="icone_login_mobile"></div><span>MINHA CONTA</span></a>
+                        </div>
+                        <div class="col-md-2 col-sm-2 col-xs-2">
+                            <a href="#" class="fecha_mobile">X</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 conteudo-menu">
+                        <div class="divi-menu">
+                            <div class="d-menu produtos">
+                                <a href="#" id='menu-prod' title="Departamentos" class="hidden-sm hidden-xs" >
+                                    <div class="icone-menu"></div>
+                                    <i class="fa fa-angle-down fa-categoria" aria-hidden="true"></i>&nbsp;&nbsp;Departamentos
+                                </a>
+                                <span class="visible-sm visible-xs" style="color: #484848;">DEPARTAMENTOS</span>
+                            </div>
+                            <ul class="menu-prod hidden-md hidden-lg">
+    
+                                <!-- BEGIN BLOCK_CATEGORIAS_0 -->
+                                <li class="{linkfilho} link_" data-id="{categoria0->id}"><a href="{categoria0->link}" class="link-categoria" data-id="{categoria0->id}" title="{categoria0->nome}">{categoria0->nome} <i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-down icon_angle_{categoria0->id} fa-categoria" aria-hidden="true"></i></a>
+                                                                    
+                                    <!-- BEGIN BLOCK_CATEGORIA_SUB -->
+                                    <div class="sub-menu sub-cat sub_{categoria0->id}" id="{categoria0->id}" data-id="{categoria0->id}">
+                                        <div class="menu-sub">
+                                            <div class="d1-menu-sub grid">
+                                                <div class="grid-sizer col-xs-4 hidden-sm hidden-xs"></div>
+                                                
+                                                <!-- BEGIN BLOCK_CATEGORIAS_1 -->
+                                                <div class="d2-menu-sub grid-item col-xs-4">
+                                                    <div class="menu-s grid-item-content">
+                                                        <ul>
+                                                            <li class="{linkfilho}"><a href="{categoria1->link}" class="link-subcategoria" data-id="{categoria1->id}" title="{categoria1->nome}"><span>{categoria1->nome} </span><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-down icon_angle_sub_{categoria1->id} fa-categoria" aria-hidden="true"></i></a>
+                                                                <ul class="ul-sub ul-sub_{categoria1->id}" id="{categoria1->id}" data-id="{categoria1->id}">
+                                                                <!-- BEGIN BLOCK_CATEGORIAS_2 -->
+                                                                    <li style="display:block;" class="sublink_{categoria1->id}"><a href="{categoria2->link}" title="{categoria2->nome}">{categoria2->nome}</a></li>
+                                                                <!-- END BLOCK_CATEGORIAS_2 -->                                           
+                                                                </ul>
+                                                            </li>
+                                                        </ul>                                  
+                                                    </div>
+                                                </div>
+                                                <!-- END BLOCK_CATEGORIAS_1 -->
+                                                
+                                            </div>
+        
+                                            <div class="produto-submenu hidden-sm hidden-xs" style="padding-bottom: 77px;"> 
+                                                <div class="produto-menu">{produto_destaque}</div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <!-- END BLOCK_CATEGORIA_SUB -->                               
+    
+                                </li>
+                                <!-- END BLOCK_CATEGORIAS_0 -->
+                            </ul>
+                           
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left menu-empresa visible-sm visible-xs padding_0">
+                            <ul>
+                                <li><a href="{index}sobre" title="Empresa">EMPRESA</a></li>
+                                <li><a href="{index}blog" title="Blog">BLOG</a></li>
+                                <!-- <li><a href="{index}sac" title="Sac">SAC</a></li> -->
+                                <li><a href="{index}contato" title="Contato">CONTATO</a></li>
+                               
+                               
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <!-- <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                            <div class="d-busca-header form-group">
+                                <form name="busca" id="formBusca" action="{index}buscar" method="GET" class="" style="height:40px;">
+                                    <input type="text" name="busca" id="input_busca_form" class="input_busca_form form-control"  onkeyup='javascript: smartSearch(this);' autocomplete="off" placeholder="O que você está procurando?"/>
+                                    <div class="icon-busca">
+                                        <div class="icone-from-busca"  onclick="document.getElementById('formBusca').submit();"></div>
+                                    </div>
+                                    <div class="search_result" id="search_result" style="display: none;"></div>
+                                </form>
+                            </div>
+                        </div> -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding_0 hidden-sm hidden-xs">
+                            <ul class="ul-pedido-header">
+                                <li><a href="{index}minhaconta/#favoritos" title="Favoritos"><div class="icone_favorito"></div></a></li>
+                                <li><a href="{index}orcamento" title="Carrinho">{carrinho->texto_itens}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class=" d-buscar-mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="d-busca-header form-group">
+                        <form name="busca" id="formBuscaMobile" action="{index}buscar" method="GET" class="" style="height:40px;">
+                            <input type="text" name="busca" id="input_busca_form_2" class="input_busca_form form-control"  onkeyup='javascript: smartSearch2(this);' autocomplete="off" placeholder="O que você está procurando?"/>
+                            <div class="icon-busca">
+                                <div class="icone-from-busca"  onclick="document.getElementById('formBuscaMobile').submit();"></div>
+                            </div>
+                            <div class="search_result_mobile" id="search_result2" style="display: none; background: #FFF;"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

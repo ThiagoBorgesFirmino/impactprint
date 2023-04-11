@@ -1,0 +1,51 @@
+<div class="formulario-contato">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 form">
+                <form class="formulario" method="POST" id="formContato">
+
+
+                    <input type="hidden" name="enviar" value="1" />
+                    <h2 class="_contact">Envie uma mensagem</h2>
+					<hr class="linha"></hr>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="contato[nome]" value="{contato->nome}" placeholder="Nome ou Razão Social*" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="contato[email]" value="{contato->email}" placeholder="E-mail*" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control so_num" type="telefone" name="contato[fone_com]" value="{contato->fone_com}" placeholder="Telefone" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="contato[departamento]" value="{contato->departamento}" placeholder="Departamento" />
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="contato[mensagem]" placeholder="Mensagem*" rows="5">{contato->mensagem}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <p class="bt-obrigatorio"><small>* Obrigatório</small></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn bt-contato" value="ENVIAR" title="Enviar" />
+                    </div>
+                </form>
+			<div style="display:none;margin-top:20px;" class="js-contato-msg alert"></div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-xs-12 address hidden-sm hidden-xs">
+                <div>
+                    <h3 class="_contact">Entre em contato</h3>
+					<hr class="linha"></hr>
+                    <address class="_about_contact">
+                        <p>Tel.: {config->TELEFONE}</p>
+                        <p>Whatsapp: {config->TELEFONE2}</p>
+                        <p><a href="mailto:{config->EMAIL_CONTATO}">{config->EMAIL_CONTATO}</a></p>
+                        <p>{config->HORARIO_ATENDIMENTO}</p>
+                        <p>{config->LOGRADOURO}, {config->NUMERO} - {config->BAIRRO}</p>
+                        <p>{config->CIDADE} - {config->ESTADO} - CEP: {config->CEP}.</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

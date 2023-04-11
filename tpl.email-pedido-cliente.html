@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Source+Sans+Pro:200,300,400,600,700,900&display=swap" rel="stylesheet">
+
+	<title></title>
+	<style media="screen,print">
+		body {margin:0px;padding:0px;background:#ececec;}
+		a{text-decoration: none;}
+	</style>
+</head>
+<body>
+	<center>
+	<!-- head -->
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;text-align:center;background:#FFF;padding-top:25px;padding-bottom:25px;border-top-left-radius:10px;border-top-right-radius:10px;">
+		<tr>
+			<td>
+				<a href="{config->URL}" title="{config->EMPRESA}"><img src="{config->URL}img/logo/logo-email.png?a=123" alt="{config->EMPRESA}" width="280px" style="margin-bottom:15px;width:280px;"/></a>
+				<hr style="width:97%;margin:0 auto;"></hr>
+			</td>
+		</tr>
+	</table>
+	<!-- head -->
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;vertical-align:center;background:#FFF;" align="center">
+		<tr>
+			<td style="width:100%;text-align:center;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:21px;">OBRIGADO POR SOLICITAR UM OR&Ccedil;AMENTO</span>
+			</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;padding-top:15px;background:#FFF">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#666666 !important;font-size:18px;">Ol&aacute; {cadastro->nome}.</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;padding-top:15px;background:#FFF">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">A {config->EMPRESA} agradece o seu contato.</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Em breve voc&ecirc; receber&aacute; o or&ccedil;amento solicitado.</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;padding-top:15px;padding-bottom:15px;background:#FFF">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:18px;"><strong>Seus dados:</strong></span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Empresa:</strong> {cadastro->empresa}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Nome:</strong> {cadastro->nome}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Telefone:</strong> {cadastro->fone_res}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>E-mail:</strong> {cadastro->email}</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<!-- Footer -->
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;background-color:#FFF;border-top:1px solid #CCC;padding-left:15px;padding-right:15px;padding-top:10px;padding-bottom:10px;">
+		<tr>
+			<td>
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;">Atenciosamente</span><br/>
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:400;color:#074182 !important;font-size:14px;">Equipe {config->EMPRESA}</span>
+			</td>
+			<td rowspan="2" style="text-align:right;vertical-align: top;" >
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;">Endereço</span><br/>
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">{config->LOGRADOURO}, {config->NUMERO} - {config->BAIRRO}</span><br/>
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">CEP: {config->CEP} - {config->CIDADE} - {config->ESTADO}</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Tel.: &#9679; {config->TELEFONE}</span><br/>
+				<a href="mailto:{config->EMAIL_CONTATO}" style="font-family: 'Source Sans Pro', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">{config->EMAIL_CONTATO}</a>
+			</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" width="600px" style="width:600px;margin:0 auto;background-color:#666;padding:5px 0px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td style="width:60%;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;">{config->EMPRESA} Todos os direitos reservados.</span>
+			</td>
+			<td  style="text-align:right;padding:0 12px;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;display:block;text-align:right">Desenvolvimento <a href="http://ajung.com.br" style="color:#FFF;">A. Jung</a></span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<!-- Footer -->
+	</center>
+</body>
+</html>

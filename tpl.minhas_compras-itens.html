@@ -1,0 +1,29 @@
+﻿<div class="well">
+    <table class="table table-condensed">
+        <tr>
+		<th>PRODUTO</th>
+		<th>DESCRIÇÃO</th>
+        <th>REFERÊNCIA</th>
+        <th>QTD 1</th>
+        <th>QTD 2</th>
+		<!-- BEGIN BLOCK_PRECO_ESPECIAL_TITULO -->
+        <th>PREÇO R$</th>
+		<!-- END BLOCK_PRECO_ESPECIAL_TITULO -->
+    </tr>
+	<!-- BEGIN BLOCK_PEDIDOITEM -->
+	<tr>
+		<td>
+			<a href="{item->link}" target="_blank"><img src="{path}timthumb/timthumb.php/?src={path}img/produtos/{item->imagem}&w=80" alt="" /></a>
+		</td>
+		<td>{item->nome}</td>
+		<td>{item->referencia}</td>
+		<td>{pedidoitem->item_qtd}</td>
+        <td>{pedidoitem->item_qtd2}</td>
+		<!-- BEGIN BLOCK_PRECO_ESPECIAL -->
+		<td>{sub_total}</td>
+		<!-- END BLOCK_PRECO_ESPECIAL -->
+	</tr>
+	<!-- END BLOCK_PEDIDOITEM -->
+    </table>
+</div>
+<br clear="all"/>

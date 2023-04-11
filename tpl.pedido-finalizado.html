@@ -1,0 +1,63 @@
+<section class="pedido-finalizado">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<br/>
+				<i class="fa fa-check-circle" aria-hidden="true"></i>
+				<br/>
+				<span>Obrigado por orçar com a {config->EMPRESA}</span><br/>
+				<span>Em breve você receberá o orçamento no e-mail informado.</span>
+				<br/><br/>
+				<a href="{index}brindes" style="text-decoration: underline">Veja mais produto!</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+	
+	
+
+<!-- BEGIN BLOCK_LIST_PEDIDO -->
+<!-- BEGIN BLOCK_ITEMCOR -->
+<!-- <p><img src="{path}img/cores/{list_pedido->cor_imagem}" title="{list_pedido->cor_nome}" alt="{list_pedido->cor_nome}" style="width:65px;height:58px;" /></p> -->
+<!-- END BLOCK_ITEMCOR -->
+<!-- END BLOCK_LIST_PEDIDO -->
+<!--{menu} {pedido}{cadastro}-->
+<!-- BEGIN BLOCK_IMAGEM_ESPECIAIS -->
+<!-- END BLOCK_IMAGEM_ESPECIAIS -->
+<!-- BEGIN BLOCK_TITULOS_ESPECIAIS -->
+<!-- END BLOCK_TITULOS_ESPECIAIS -->
+<!-- BEGIN XBLOCK_LIST_PEDIDO -->
+<!-- BEGIN XBLOCK_ITEMCOR -->
+<!-- END XBLOCK_ITEMCOR -->
+<!-- BEGIN XBLOCK_QTD_2 -->
+<!-- END XBLOCK_QTD_2 -->
+<!-- BEGIN XBLOCK_QTD_3 -->
+<!-- END XBLOCK_QTD_3 -->
+<!-- BEGIN XBLOCK_PRECO_ESPECIAL -->
+<!-- END XBLOCK_PRECO_ESPECIAL -->
+<!-- END XBLOCK_LIST_PEDIDO -->
+			
+
+	<script>
+		$(document).ready(function(){
+			setTimeout(function(){
+				if($(window).width()>800){
+					_sizeLi = $(".categoria-pedido-finalizado ul li").size();
+					_widthUl = $(".categoria-pedido-finalizado ul").width();
+					_result = _widthUl/_sizeLi; 
+					_result = (_result*100)/_widthUl;
+					
+					$(".categoria-pedido-finalizado ul li").css("width",_result+"%");
+					$(".p_item").css("width",_result+"%");
+				}
+			},400);
+		});
+		
+		// setTimeout(function(){
+		// 	_top = $('#menu_pedido_finaliza').position().top+$('header').height();
+		// 	$('html,body').animate({scrollTop:_top}, 600);
+		// },140);
+	</script>
+	
+</section>

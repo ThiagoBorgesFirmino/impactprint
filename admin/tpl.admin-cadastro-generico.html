@@ -1,0 +1,44 @@
+{h1}
+{edicao}
+{grid}
+
+<script language="javascript">
+
+    // Usado na tela de manutenção de categorias
+	function categoriasUp(_id){
+		document.forms.formPrincipal.elements['id'].value = _id;
+		enviar('categoriasUp');
+	}
+
+	function categoriasDown(_id){
+		document.forms.formPrincipal.elements['id'].value = _id;
+		enviar('categoriasDown');	
+	}
+
+	function categoriasDel(_id, _descricao){
+		if(confirm('Tem certeza que quer excluir esta categoria "'+_descricao+'"?')){
+			document.forms.formPrincipal.elements['id'].value = _id;
+			enviar('categoriasDel');
+		}
+	}
+
+    // Usado na tela de manutenção de modulos
+    function modulosUp(_id){
+        document.forms.formPrincipal.elements['id'].value = _id;
+        enviar('modulosUp');
+    }
+
+    function modulosDown(_id){
+        document.forms.formPrincipal.elements['id'].value = _id;
+        enviar('modulosDown');
+    }
+
+    function modulosDel(_id){
+        if(confirm('Tem certeza que quer excluir este modulo?')){
+            document.forms.formPrincipal.elements['id'].value = _id;
+            enviar('modulosDel');
+        }
+    }
+
+
+</script>

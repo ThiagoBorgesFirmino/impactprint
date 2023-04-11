@@ -1,0 +1,314 @@
+<section>
+	{h1}
+	
+	<input type="hidden" value="sobreempresa_principal" name="tipo" />
+	
+	<!-- BEGIN BLOCK_CAD_EMPRESA_BANNER -->
+	<div class="form-group">
+		<label for="banner_sobreempresa">Banner ( {tamanho_banner->width} x {tamanho_banner->height}px )</label>
+		<input type="file" id="banner_sobreempresa" name="banner_sobreempresa" />
+		<!-- BEGIN BLOCK_IMG_EMPRESA -->
+		<br />
+		<img src="{path}upload/sobreempresa/{sobreempresa->img1}" style="width:40%;" />
+		<!-- END BLOCK_IMG_EMPRESA -->
+	</div>
+	<!-- END BLOCK_CAD_EMPRESA_BANNER -->
+	
+	<!-- BEGIN BLOCK_CAD_EMPRESA_BANNER_MOBILE -->
+	<!--div class="form-group">
+		<label for="banner_mobile_sobreempresa">Banner Mobile ({tamanho_banner_mobile->width} x {tamanho_banner_mobile->height})</label>
+		<input type="file" id="banner_mobile_sobreempresa" name="banner_mobile_sobreempresa">
+		<!-- BEGIN BLOCK_IMG_EMPRESA5 -->
+		<!--br/>
+		<img src="{path}img/sobreempresa/{sobreempresa->img6}" style="width:40%" alt=""-->
+		<!-- END BLOCK_IMG_EMPRESA5 -->
+	<!--/div-->
+	<!-- END BLOCK_CAD_EMPRESA_BANNER_MOBILE -->
+		
+	
+	<!-- <div class="form-group">
+		<label for="imagem_video">Imagem do Video ( {imagem_video_tamanho->width} x {imagem_video_tamanho->height}px )</label>
+		<input type="file" id="imagem_video" name="imagem_video" />
+		< BEGIN BLOCK_IMG_VIDEO -->
+		<!-- <br />
+		<img src="{path}img/sobreempresa/{sobreempresa->img2}" style="width:15%;" /> -->
+		<!-- END BLOCK_IMG_VIDEO >
+	</div> -->
+
+	<!-- <div class="form-group">
+		<label for="linkyoutube">Link video</label>
+		<input type="text" id="linkyoutube" name="linkyoutube[url]" class="form-control" value="{linkyoutube->url}" />
+	</div> -->
+	
+	<div class="form-group">
+		<label for="sobreempresa_titulo">Título</label>
+		<input type="text" id="sobreempresa_titulo" name="sobreempresa[titulo]" class="form-control" value="{sobreempresa->titulo}" />
+	</div>
+	
+	<!-- BEGIN BLOCK_CAD_EMPRESA_TEXTO -->
+	<div class="form-group">
+		<label for="sobreempresa_conteudo">Texto Sobre</label>
+		<textarea id="sobreempresa_conteudo" name="sobreempresa[conteudo]" class="form-control ckeditor">{sobreempresa->conteudo}</textarea>
+	</div>
+	<!-- END BLOCK_CAD_EMPRESA_TEXTO -->
+	<!--div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label for="banner_meio">Central</label><br>
+				<label for="">({tamanho_destaque_m->width} x {tamanho_destaque_m->height})</label>
+				<input type="file" id="banner_meio" name="banner_meio"-->
+				<!-- BEGIN BLOCK_IMG_EMPRESA3 -->
+				<!--br />
+				<img src="{path}img/sobreempresa/{sobreempresa->img4}" style="width:40%;" /-->
+				<!-- END BLOCK_IMG_EMPRESA3 -->
+			<!--/div>
+		</div>
+	</div-->
+
+
+	<div class="row" style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;">
+		<div style="text-align: center">
+			<span style="font-size: 20px"><strong>Destaques Sobre</strong></span>
+		</div>
+		<br>
+		<div class="col-md-4" style="border-right: 1px solid #ccc; text-align: center">
+			<div class="form-group">
+				<label for="banner_esq_sup">Esquerda</label><br>
+				<label for="">({tamanho_destaque->width} x {tamanho_destaque->height})</label>
+				<input type="file" id="banner_esq_sup" name="banner_esq_sup">
+				<!-- BEGIN BLOCK_IMG_EMPRESA1 -->
+				<br />
+				<img src="{path}upload/sobreempresa/{sobreempresa->img2}" style="width:40%;" /><br>
+				<!-- END BLOCK_IMG_EMPRESA1 -->
+				<div style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;">
+					<div class="form-group">
+						<label for="sobreempresa_titulo">Título</label>
+						<input type="text" id="sobreempresa_titulo1" name="sobreempresa[titulo1]" class="form-control" value="{sobreempresa->titulo1}" />
+					</div>
+					
+					<div class="form-group">
+						<label for="sobreempresa_conteudo">Texto Sobre</label>
+						{custom1}
+						<!-- <textarea id="sobreempresa_conteudo1" name="sobreempresa[custom1]" class="form-control ckeditor">{sobreempresa->custom1}</textarea> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-4" style="text-align: center">
+			<div class="form-group">
+				<label for="banner_esq_inf">Central</label><br>
+				<label for="">({tamanho_destaque->width} x {tamanho_destaque->height})</label>
+				<input type="file" id="banner_esq_inf" name="banner_esq_inf">
+				<!-- BEGIN BLOCK_IMG_EMPRESA2 -->
+				<br />
+				<img src="{path}upload/sobreempresa/{sobreempresa->img3}" style="width:40%;" /><br>
+				<!-- END BLOCK_IMG_EMPRESA2 -->
+				<div style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;">
+					<div class="form-group">
+						<label for="sobreempresa_titulo">Título</label>
+						<input type="text" id="sobreempresa_titulo2" name="sobreempresa[titulo2]" class="form-control" value="{sobreempresa->titulo2}" />
+					</div>
+				
+					<div class="form-group">
+						<label for="sobreempresa_conteudo">Texto Sobre</label>
+						{custom2}
+						<!-- <textarea id="sobreempresa_conteudo2" name="sobreempresa[custom2]" class="form-control ckeditor">{sobreempresa->custom2}</textarea> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4" style="border-left: 1px solid #ccc; text-align: center">
+			<div class="form-group">
+				<label for="banner_direita_sup">Direita</label><br>
+				<label for="">({tamanho_destaque->width} x {tamanho_destaque->height})</label>
+				<input type="file" id="banner_direita_sup" name="banner_direita_sup">
+				<!-- BEGIN BLOCK_IMG_EMPRESA4 -->
+				<br />
+				<img src="{path}upload/sobreempresa/{sobreempresa->img5}" style="width:40%;" /><br>
+				<!-- END BLOCK_IMG_EMPRESA4 -->
+				<div style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;">
+					<div class="form-group">
+						<label for="sobreempresa_titulo">Título</label>
+						<input type="text" id="sobreempresa_titulo3" name="sobreempresa[titulo3]" class="form-control" value="{sobreempresa->titulo3}" />
+					</div>
+				
+					<div class="form-group">
+						<label for="sobreempresa_conteudo">Texto Sobre</label>
+						{custom3}
+						<!-- <textarea id="sobreempresa_conteudo3" name="sobreempresa[custom3]" class="form-control ckeditor">{sobreempresa->custom3}</textarea> -->
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			
+			
+			
+		</div>
+		<div class="col-md-6">
+			
+			
+			<!-- <div style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;"> -->
+				<!--
+				<div class="form-group">
+					<label for="sobreempresa_titulo">Título</label>
+					<input type="text" id="sobreempresa_titulo4" name="sobreempresa[titulo4]" class="form-control" value="{sobreempresa->titulo4}" />
+				</div>
+			
+				<div class="form-group">
+					<label for="sobreempresa_conteudo">Texto Sobre</label>
+					{custom4}
+					<!-- <textarea id="sobreempresa_conteudo4" name="sobreempreesa[custom4]" class="form-control ckeditor">{sobreempresa->custom4}</textarea>
+				</div> -->
+			<!-- </div>	 -->
+		</div>
+	</div>
+	
+	
+	
+	
+	
+
+	
+
+	<!-- <div class="form-group">
+		<label for="sobreempresa_conteudo_especial">Especial</label>
+		<textarea id="sobreempresa_conteudo" name="sobreempresa_especial[conteudo]" class="form-control ckeditor">{sobreempresa_especial->conteudo}</textarea>
+	</div>
+
+	<div class="form-group">
+		<label for="sobreempresa_conteudo_rodape">Rodapé</label>
+		<textarea id="sobreempresa_conteudo" name="sobreempresa_rodape[conteudo]" class="form-control ckeditor">{sobreempresa_rodape->conteudo}</textarea>
+	</div> -->
+	
+
+	<hr />
+	
+	<!-- <div class="content" style="border:1px solid #999; padding:10px;margin-top:10px;margin-bottom:20px;">
+		<h2>Tópicos</h2>
+		<span class="btn btn-primary" id="add_topicos">+ Add Novo</span>
+		
+		<div style="border:1px solid #999;display:none;background-color:#DDD;margin-top:5px;" id="new_topico">
+			<table style="width:100%;">
+				<tr>
+					<td valign="top" style="padding-right:10px;">
+						<input type="hidden" name="novo_topico[tipo]" value="topico"/>
+						<!-- <div class="form-group">	
+							<label for="novo_topico_titulo">Título</label>
+							<textarea id="novo_topico_titulo" name="novo_topico[titulo]" class="form-control"></textarea>
+						</div> >
+					
+						<div class="form-group">
+							<label for="novo_topico_conteudo">Texto</label>
+							<textarea id="novo_topico_conteudo" name="novo_topico[conteudo]" class="form-control ckeditor"></textarea>
+						</div>
+						
+						<div class="form-group">
+							<label for="novo_topico_ordem">Ordem</label>
+							<input type="numeric" id="novo_topico_ordem" name="novo_topico[ordem]" class="form-control" value="{ordem_topic_novo}" />
+						</div>
+					</td>
+					<td valign="top">
+						<div class="form-group">
+							<!-- <label for="novo_topico_imagem">Imagem ( {tamanho_banner_topico->width} x {tamanho_banner_topico->height}px )</label> >
+							<!-- <input type="file" id="novo_topico_imagem" name="novo_topico_imagem" /> >
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		<!-- BEGIN BLOCK_TOPICOS >
+		<hr style="border-color:#444;" />
+		<div>
+			<table style="width:100%;">
+				<tr>
+					<td valign="top" style="padding-right:10px; width:60%;">
+						<!-- <div class="form-group">
+							<label for="topicos_{topico->id}_titulo">Título</label>
+							<textarea id="topicos_{topico->id}_titulo" name="topicos[{topico->id}][titulo]" class="form-control">{topico->titulo}</textarea>
+						</div> >
+					
+						<div class="form-group">
+							<label for="topicos_{topico->id}_conteudo">Texto</label>
+							<textarea id="topicos_{topico->id}_conteudo" name="topicos[{topico->id}][conteudo]" class="form-control ckeditor">{topico->conteudo}</textarea>
+						</div>
+					
+						<div class="form-group">
+							<label for="topicos_{topico->id}_ordem">Ordem</label>
+							<input type="numeric" id="topicos_{topico->id}_ordem" name="topicos[{topico->id}][ordem]" class="form-control" value="{topico->ordem}" />
+						</div>
+					</td>
+					<td valign="top" align="center">
+						<div class="form-group">
+							<!-- <label for="topicos_imagem_{topico->id}">Imagem ( {tamanho_banner_topico->width} x {tamanho_banner_topico->height}px )</label>
+							<br /><span class="btn btn-primary" onclick="addFile('topico_imagem_{topico->id}',this);">Atualiza Imagem</span><br/>							 -->
+							<!-- BEGIN BLOCK_IMG_TOPICO >
+							<br />
+							<img src="{path}img/sobreempresa/{topico->img1}" width="180" />
+							<!-- END BLOCK_IMG_TOPICO >
+						</div>
+						<br /><br />
+						<div>
+							<table style=""><tr>
+								<td valign="bottom" style="padding:10px;font-size:16px;"><label for="excluir_{topico->id}"><strong>Excluir</strong></label></td>
+								<td valign="top" style="padding:10px"><input id="excluir_{topico->id}" type="checkbox" name="excluir[]" value="{topico->id}" /></td>
+							</tr></table>
+						</div>
+					</td>
+				</tr>				
+			</table>		
+			
+		</div>
+		<!-- END BLOCK_TOPICOS >
+	</div> -->
+	
+	<script>
+		$(document).ready(function(){
+			$("#add_topicos").bind("click",function(){
+				$("#new_topico").toggle();
+			});
+		});
+		
+		function addFile(id,obj){
+			if(document.getElementById(id)){
+				$(document.getElementById(id)).remove();
+				$(obj).removeClass("btn-danger");
+				$(obj).addClass("btn-primary");
+			}else{
+				html = '<input class="file_'+id+'" type="file" id="'+id+'" name="'+id+'" />';
+				$(obj).after(html);
+				$(obj).addClass("btn-danger");
+				$(obj).removeClass("btn-primary");
+			}
+		
+			
+		}
+
+		// function setCounts(el){
+		// 	_count = eval($(el).data("count"));
+		// 	_caracs = eval(el.value.length);
+		// 	_name = el.name.replace(/[\[\]]/g,"_");
+		// 	_rest = (_count-_caracs)<0?0:(_count-_caracs);
+		// 	if($("."+_name).size()>0){
+		// 		$("."+_name).html("Caracteres restantes : "+_rest+"");
+		// 	}else{
+		// 		$(el).after("<p class='"+_name+"'>Caracteres restantes : "+_rest+"</p>");			
+		// 	}	
+		// }
+
+		// $("._count").each(function(){
+		// 	setCounts(this);	
+		// });
+
+		// $("._count").bind("keyup",function(){
+		// 	setCounts(this);
+		// 	if(_caracs>=_count)this.value = this.value.substring(0,_count);
+		// });
+	</script>
+	
+</section>

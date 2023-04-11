@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+	<style media="screen,print">
+		body {margin:0px;padding:0px;background:#ececec;}
+		a{text-decoration: none;}
+	</style>
+</head>
+
+<body>
+	<center>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;text-align:center;background:#FFF;padding-top:25px;padding-bottom:25px;border-top-left-radius:10px;border-top-right-radius:10px;">
+			<tr>
+				<td>
+					<a href="{config->URL}" title="{config->EMPRESA}"><img src="{config->URL}img/logo/logo-email.png" alt="{config->EMPRESA}" style="margin-bottom:15px;width:40%;"/></a>
+					<hr style="width:97%;margin:0 auto;"></hr>
+				</td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;vertical-align:left;background:#FFF;" align="center">
+			<tr>
+				<td style="width:10px;"></td>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-size:20px;font-weight:bold"><b>Ol&aacute; {nome_destinatario}</b></span>
+					<br/>
+					<span style="font-family: 'Open Sans', sans-serif;font-size:14px;">Nosso site foi visitado por {remetente} e ele(a) lhe enviou uma indica&ccedil;&atilde;o do produto:</span>
+				</td>
+				<td style="width:10px;"></td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;vertical-align:left;background:#FFF;" align="center">
+			<tr>
+				<td style="width:10px;"></td>
+				<td>
+					<a href="{config->URL}index.php/detalhe/{item->tag_nome}"> 
+						<img src="{config->URL}timthumb/timthumb.php?src={PATH_IMG}/{path}img/produtos/{item->imagem}&w=233" border="0" width="233" style="width:233px" />
+					</a>
+				</td>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-size:12px;">
+						<b>{item->referencia}</b>
+						<br/>
+						{item->nome}
+						<br/>
+						{item->descricao}
+					</span>
+				</td>
+				<td style="width:10px;"></td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;vertical-align:left;background:#FFF;" align="center">
+			<tr>
+				<td style="width:10px;"></td>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-size:14px;font-weight:bold">Caso desconhe&ccedil;a origem dessa informa&ccedil;&atilde;o. Desconsidere esse e-mail.</span>
+				</td>
+				<td style="width:10px;"></td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;background-color:#FFF;border-top:1px solid #CCC;padding-left:15px;padding-right:15px;padding-top:10px;padding-bottom:10px;">
+			<tr>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Atenciosamente</span><br/>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:16px;">Equipe {config->EMPRESA}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Tel.: &#9679; {config->TELEFONE}</span><br/>
+					<a href="mailto:{config->EMAIL_CONTATO}" style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">{config->EMAIL_CONTATO}</a>
+				</td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600" style="width:600px;margin:0 auto;background-color:#666;padding:5px 0px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+			<tr>
+				<td style="width:15px;height:100%;">&nbsp;</td>
+				<td style="width:60%;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;">{config->EMPRESA} Todos os direitos reservados.</span>
+				</td>
+				<td  style="text-align:right;padding:0 12px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;display:block;text-align:right">Desenvolvimento <a href="http://ajung.com.br" style="color:#FFF;">A. Jung</a></span>
+				</td>
+				<td style="width:15px;height:100%;">&nbsp;</td>
+			</tr>
+		</table>
+	</center>
+</body>
+</html>

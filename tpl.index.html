@@ -1,0 +1,161 @@
+<div class="banner-principal">
+	{bannerprincipalmobile}
+	{bannerprincipal}
+</div>
+
+<div class="container padding_0">
+	<div class="row margin_0">
+
+			<!-- BEGIN BLOCK_DESTAQUES -->
+		<div class="col-md-12 padding_0 container-destaque">
+			<div class="destaques">
+				<h2 class="_title">Destaques</h2>
+				<hr class="linha"></hr>
+				<div class="row margin_0">
+					<div class="swiper-container swiper-lancamentos">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_DESTAQUE -->
+							<div class="swiper-slide col-md-12 col-sm-12 col-xs-12 d-destaque" >
+								{produto}
+							</div>
+							<!-- END BLOCK_DESTAQUE -->
+						</div>
+
+					</div>
+					<div class="swiper-button-next flecha_next" id="swiper-button-next-destaques"><table><tr><td><img src="{path}img/assets/right.png" alt=""></td></tr></table></div>
+					<div class="swiper-button-prev flecha_prev" id="swiper-button-prev-destaques"><table><tr><td><img src="{path}img/assets/left.png" alt=""></td></tr></table></div>
+				</div>
+			</div>
+		</div>
+			<!-- END BLOCK_DESTAQUES -->
+
+			<!-- BEGIN BLOCK_PROMOCOES -->
+		<div class="col-md-12 padding_0 container-destaque">
+			<div class="destaques">
+				<h2 class="_title">Promoções</h2>
+				<hr class="linha"></hr>
+				<div class="row margin_0">
+					<div class="swiper-container swiper-promocao">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_PROMOCAO -->
+							<div class="swiper-slide col-lg-4 col-sm-6 col-xs-6 d-destaque">
+								{produto}
+							</div>
+							<!-- END BLOCK_PROMOCAO -->
+						</div>
+					</div>
+					<div class="swiper-button-next flecha_next"  id="swiper-button-next-promocao"><table><tr><td><img src="{path}img/assets/right.png" alt=""></td></tr></table></div>
+					<div class="swiper-button-prev flecha_prev"  id="swiper-button-prev-promocao"><table><tr><td><img src="{path}img/assets/left.png" alt=""></td></tr></table></div>
+				</div>
+			</div>
+		</div>
+			<!-- END BLOCK_PROMOCOES -->
+
+		<div class="col-md-12 padding_0">
+			{destaquehome}
+		</div>
+
+			<!-- BEGIN BLOCK_LANCAMENTOS -->
+		<div class="col-md-12 padding_0 container-destaque">
+			<div class="destaques">
+				<h2 class="_title">Lançamentos</h2>
+				<hr class="linha"></hr>
+				<div class="row margin_0">
+					<div class="swiper-container swiper-novo">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_LANCAMENTO -->
+							<div class="swiper-slide col-lg-4 col-sm-6 col-xs-6 d-destaque">
+								{produto}
+							</div>
+							<!-- END BLOCK_LANCAMENTO -->
+						</div>
+					</div>
+					<div class="swiper-button-next flecha_next" id="swiper-button-next-lancamentos"><table><tr><td><img src="{path}img/assets/right.png" alt=""></td></tr></table></div>
+					<div class="swiper-button-prev flecha_prev" id="swiper-button-prev-lancamentos"><table><tr><td><img src="{path}img/assets/left.png" alt=""></td></tr></table></div>
+				</div>
+			</div>
+		</div>
+			<!-- END BLOCK_LANCAMENTOS -->
+	</div>
+</div>
+
+<script>
+	// DESTAQUES
+	var swiperLancamento = new Swiper('.swiper-lancamentos', {
+		slidesPerView: 4,
+		spaceBetween: 0,
+		loop: true,
+		breakpoints:{
+			991:{
+				slidesPerView: 3,
+				spaceBetween: 0,
+			},
+			650:{
+				slidesPerView: 2,
+				spaceBetween: 0,
+			}
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '#swiper-button-next-destaques',
+			prevEl: '#swiper-button-prev-destaques',
+		},
+	});
+	// PROMOÇÃO
+	var swiperPromocao = new Swiper('.swiper-promocao', {
+		slidesPerView: 4,
+		spaceBetween: 0,
+		loop: true,
+		breakpoints:{
+			991:{
+				slidesPerView: 3,
+				spaceBetween: 0,
+			},
+			650:{
+				slidesPerView: 2,
+				spaceBetween: 0,
+			}
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '#swiper-button-next-promocao',
+			prevEl: '#swiper-button-prev-promocao',
+		},
+	});
+	// LANCAMENTOS
+	var swiperNovo = new Swiper('.swiper-novo', {
+		slidesPerView: 4,
+		spaceBetween: 0,
+		loop: true,
+		breakpoints:{
+			991:{
+				slidesPerView: 3,
+				spaceBetween: 0,
+			},
+			650:{
+				slidesPerView: 2,
+				spaceBetween: 0,
+			}
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '#swiper-button-next-lancamentos',
+			prevEl: '#swiper-button-prev-lancamentos',
+		},
+	});
+</script>
+
+<!-- BEGIN BLOCK_MOSAICO -->
+<!--{config->MOSAICO_TEXTO} {textoapresentacao} {destaquehomemobile}-->
+<!-- BEGIN BLOCK_ITENS_MOSAICO_MOBILE -->
+<!-- END BLOCK_ITENS_MOSAICO_MOBILE -->
+<!-- END BLOCK_MOSAICO -->

@@ -1,0 +1,64 @@
+<section class="breandcrumbs-sobre  hidden-sm hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<h2 class="_contact_title">{pagina->nome}</h2> 
+			</div>
+		</div>
+	</div>
+</section>
+<section class="voltar visible-sm visible-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<a href="#" onclick="goBack()"><i class="fa fa-angle-left" aria-hidden="true"></i> Voltar</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="conteudo-sobre">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 conteudo-topo-sobre">
+				<div class="col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+					<img src="{path}upload/sobreempresa/{sobreempresa->img1}" alt="Sobre - {config->EMPRESA}" class="img-responsive" style="margin: 0 auto;">
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12 texto-sobre">
+						<h1 class="title">{sobreempresa->titulo}</h1>
+						<span class="text-sobre-conteudo">{sobreempresa->conteudo}</span>
+				</div>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 conteudo-bottom-sobre">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<img src="{path}upload/sobreempresa/{sobreempresa->img2}" alt="Sobre - {config->EMPRESA}" class="img-responsive hidden-sm hidden-xs" style="width: 100%;">
+					<div class="texto">
+						<p class="title_">{sobreempresa->titulo1}</p>
+						<span>{sobreempresa->custom1}</span>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<img src="{path}upload/sobreempresa/{sobreempresa->img3}" alt="Sobre - {config->EMPRESA}" class="img-responsive hidden-sm hidden-xs" style="width: 100%;">
+					<div class="texto">
+						<p class="title_">{sobreempresa->titulo2}</p>
+						<span>{sobreempresa->custom2}</span>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<img src="{path}upload/sobreempresa/{sobreempresa->img5}" alt="Sobre - {config->EMPRESA}" class="img-responsive hidden-sm hidden-xs" style="width: 100%;">
+					<div class="texto">
+						<p class="title_">{sobreempresa->titulo3}</p>
+						<span>{sobreempresa->custom3}</span>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</section>
+<!--{destaquesobre}{pagina}-->
+<!-- BEGIN BLOCK_DESTAQUESOBRE -->
+<!-- END BLOCK_DESTAQUESOBRE -->
+<!-- BEGIN BLOCK_CLIENTES_SATISFEITOS -->
+<!-- END BLOCK_CLIENTES_SATISFEITOS -->

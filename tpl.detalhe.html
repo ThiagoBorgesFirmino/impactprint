@@ -1,0 +1,278 @@
+<div class="conteudo-detalhe">
+	<div class="container padding_0">
+		<div class="row margin_0">
+			<div class="col-md-12 col-sm-12 col-xs-12 paddig_0">
+				<div class="col-md-7 col-sm-12 col-xs-12 paddig_0 hidden-sm hidden-xs">
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+						<a class="fancybox js-imagemprincipal" href="{imagemdetalheprincipal}" id="imagem_fancy" data-indice="0" rel="fancybox_item" title="{produto->referencia} - {produto->nome}">
+							{produto->tag_imagem_detalhe}
+						</a>
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0 min_detalhe_img">
+						<!-- BEGIN BLOCK_IMAGEM_DETALHE -->
+						<div class="col-md-2 col-sm-2 col-xs-3  d-img-det ">
+							<a class="fancybox" href="{imagemzoom}" rel="fancybox_item" title="{produto->referencia} - {produto->nome}">
+								<img src="{imagem_detalhe}" title="{produto->nome}" alt="{produto->nome}" class="link-detalhe img_detalhe js-detalheimg" data-indice='{indice}' data-timsrc="{imagemampliada}" data-src="{imagemzoom}" style="width:100%"/>
+							</a>
+						</div>
+						<!-- END BLOCK_IMAGEM_DETALHE -->
+						{produto->video}
+					</div>
+				</div>
+				<div class="col-md-12 col-sm-12 col-xs-12 padding_0 visible-sm visible-xs">
+					<div class=" swiper-container swiper-mobile">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_IMAGEM_DETALHE_MOBILE -->
+								<div class="swiper-slide col-sm-12 col-xs-12 padding_0">
+									<img src="{imagem_detalhe}" title="{produto->nome}" alt="{produto->nome}" class="link-detalhe img_detalhe js-detalheimg img-responsive" data-indice='{indice}' data-timsrc="{imagemampliada}" data-src="{imagemzoom}" STYLE="width:100%;max-width:100%"/>
+								</div>
+							<!-- END BLOCK_IMAGEM_DETALHE_MOBILE -->
+						</div>
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-next">
+							<table><tr><td valign="middle"><img src="{path}img/assets/right.png"/></td></tr></table>
+						</div>
+						<div class="swiper-button-prev">
+							<table><tr><td valign="middle"><img src="{path}img/assets/left.png"/></td></tr></table>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5 col-sm-12 col-xs-12 paddig_0 conteudo-dados-prod">
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+						<h1 class="title">{produto->nome}</h1>
+						<p class="sku">Código: {produto->referencia}</p>
+						<br/>
+						{produto->preco_detalhe}
+						
+						<p class="desc-sub">{produto->descricao}</p>
+						
+						<!-- BEGIN BLOCK_ITEM_XBZ -->
+						{produto->especificacoes}
+						<!-- END BLOCK_ITEM_XBZ -->
+						<!-- BEGIN BLOCK_ITEM_ASIA_TRUE -->
+						<br>
+						<h3>Especificações do produto:<br><br> </h3>	
+						<span class="span_desc">{produto->informacoes_tecnicas_frontend}</span>
+						
+						<!-- END BLOCK_ITEM_ASIA_TRUE -->
+
+					
+						<div class="col-md-10 col-sm-12 col-xs-12 padding_0" style="margin-bottom:15px">
+								<p class="desc-sub">Quantidade Mínima: {produto->qtd_minima}</p>
+								<!--p class="desc-sub">Faixa de preço: R$ {produto->preco}</p-->
+							</div>
+						<!-- BEGIN BLOCK_ORCAMENTO_DISPONIVEL -->
+						<form action="{index}pedido_add" method="POST">
+							<input type="hidden" value="1" name="add_item" />
+							<input type="hidden" value="{produto->id}" id="item_id" name="item_id" />
+							<input type="hidden" value="{token}" name="token" />
+						<!-- BEGIN BLOCK_CONVENCIONAL -->
+							<br/>
+							{select_cor}
+							{select_gravacao}
+
+							<div class="col-md-10 col-sm-12 col-xs-12 padding_0 text-right d-table-select">
+								<table style="width:100%; border-collapse:separate; border-spacing: 0 1em;">
+									<tr>
+										<td style="width:50px">
+											<span>Quantidade 1</span>
+										</td>
+										<td>
+											<input type="text" class="qtd-prod so_num form-control" name="qtd1" placeholder="Quantidade 01" value="{produto->qtd_minima}" />
+										</td>
+									</tr>
+									<tr>
+										<td style="width:50px">
+											<span>Quantidade 2</span>
+										</td>
+										<td>
+											<input type="text" class="qtd-prod so_num form-control" name="qtd2" placeholder="Quantidade 02" value="{produto->qtd_minima}" />
+										</td>
+									</tr>
+									<tr>
+										<td style="width:50px">
+											<span>Quantidade 3</span>
+										</td>
+										<td>
+											<input type="text" class="qtd-prod so_num form-control" name="qtd3" placeholder="Quantidade 03" value="{produto->qtd_minima}" />
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div class="text-center col-md-10 col-sm-12 col-xs-12 padding_0">
+								<button type="submit" class="btn btn-orcar">Solicitar Orçamento</button>
+							</div>
+
+						<!-- END BLOCK_CONVENCIONAL -->
+						</form>
+					<!-- END BLOCK_ORCAMENTO_DISPONIVEL -->
+					</div>
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0 d-compartilhamento">
+						<span>Compartilhe:</span>
+						<ul class="list-unstyled list-inline icones-redes" >
+							<li class="li-face">
+								<a href="#" onclick="fbNewPost('{url_site}')" class="redesocial facebook" title="Facebook">
+									<i class="fa fa-facebook icone-detalhe-share"></i>
+								</a>
+							</li>
+							<!-- <li>
+								<a class="redesocial twitter" onclick="twitterNewPost('{url_site}','{produto->nome}')" href="#">
+									<i class="fa fa-twitter icone-detalhe-share"></i>
+								</a>
+							</li> -->
+							<li>
+								<a class="redesocial email js-email-share" href="#modalIndicar" data-toggle="modal">
+									<i class="fa fa-envelope icone-detalhe-share"></i>
+								</a>
+							</li>
+							<li class="li-what">
+								<a class="redesocial" id="whats-share" onclick="whatsappNewPost('{url_site}','{produto->nome}')" href="#" title="whatsapp" target="_blank">
+									<i class="fa fa-whatsapp icone-detalhe-share"></i>
+								</a> 
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- URL FACE -->
+			<input type="hidden" id="url_site" value="{url_site}"/>
+			<!-- END URL FACE -->
+
+			<div class="col-md-12 col-sm-12 col-xs-12 d-relacionadas padding_0">
+				<hr class="linha"></hr>
+				<h3 class="_title">Produtos Relacionados</h3>
+				<br/>
+				<div class="relacionados col-md-12 col-sm-12 col-xs-12 padding_0">
+					<div class="swiper-container swiper-relacionados">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_PRODUTOS -->
+							<div class="swiper-slide col-lg-4 col-sm-6 col-xs-6 d-destaque">
+								{produto}
+							</div>
+							<!-- END BLOCK_PRODUTOS -->
+						</div>
+
+					</div>
+					<div class="swiper-button-next flecha_next" id="swiper-button-next-relacionados">
+						<table><tr><td valign="middle"><img src="{path}img/assets/right.png"/></td></tr></table>
+					</div>
+					<div class="swiper-button-prev flecha_prev" id="swiper-button-prev-relacionados">
+						<table><tr><td valign="middle"><img src="{path}img/assets/left.png"/></td></tr></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var swiperRelacionadoS = new Swiper('.swiper-relacionados', {
+		slidesPerView: 4,
+		spaceBetween: 0,
+		loop: true,
+		breakpoints:{
+			991:{
+				slidesPerView: 3,
+				spaceBetween: 0,
+			},
+			650:{
+				slidesPerView: 2,
+				spaceBetween: 0,
+			}
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '#swiper-button-next-relacionados',
+			prevEl: '#swiper-button-prev-relacionados',
+		},
+	});
+</script>
+
+
+
+
+
+<section class="font_geral" style="display:none;">
+
+    <!--
+    {listagem_produtos}
+    {listagem_produtos_bread}
+    {categoria}
+	{categoriamais}
+	{categoriaprincipal}
+	{categoriatrilha}
+	{tabela_precos}
+    -->
+	<!-- BEGIN BLOCK_CATEGORIA_MAIS -->
+	<!-- END BLOCK_CATEGORIA_MAIS -->
+
+	<!-- BEGIN  BLOCK_INFOADICIONAL -->
+	<!-- END  BLOCK_INFOADICIONAL -->
+
+</section>
+
+<input type="hidden" id="urlshare" value="{produto->link}"/>
+<input type="hidden" id="urlshareimg" value="{produto->linkimagem}"/>
+
+<div class="modal fade" id="modalIndicar" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <h4 class="modal-title">Indicar para um amigo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert" id="indiquemsg" style="display: none"></div>
+                <form action="{index}indiqueproduto" method="post" class="form-indique js-input">
+                    <input type="hidden" name="item_id" value="{produto->id}">
+                    <div class="form-group">
+                        <label for="email">E-mail do seu amigo</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="E-mail do seu amigo">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Nome do seu amigo</label>
+                        <input type="nome" class="form-control" name="nome" id="nome" placeholder="Nome do seu amigo">
+                    </div>
+                    <div class="form-group">
+                        <label for="remetente">Seu nome</label>
+                        <input type="remetente" class="form-control" name="remetente" id="remetente" placeholder="Seu nome">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-block btn-primary" onclick="$('.form-indique').submit();">Ok, enviar indicação</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+	$(document).ready(function(){
+		// Esqueci a senha
+	$('.form-indique').ajaxForm({
+			dataType: 'json'
+			,success: function(out){
+				if(out.status){
+					// $("#senhamsg").addClass('alert-success').html(out.msg).fadeIn();
+					$('.form-indique .js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+					$('.form-indique.js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+					$('#modalIndicar .btn-primary').hide();
+				}
+				else {
+					$('#modalIndicar .btn-primary').attr('disabled', false);
+					$("#indiquemsg").addClass('alert-danger').html(out.msg).fadeIn();
+				}
+			}
+			,error: function(out1, out2){
+				$('#modalIndicar .btn-primary').attr('disabled', false);
+				$("#indiquemsg").addClass('alert-danger').html('Erro: ' + out1 + ' - '.out2).fadeIn();
+			}
+			,beforeSend: function(){
+				$('#modalIndicar .btn-primary').attr('disabled', true);
+				$("#indiquemsg").removeClass('alert-danger').removeClass('alert-success').html('').hide();
+			}
+		});
+	});
+</script>

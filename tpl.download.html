@@ -1,0 +1,75 @@
+<section class="font_geral">
+
+    {menu}
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Download</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- BEGIN BLOCK_DOWNLOAD_ERRO -->
+        <div class="alert alert-danger">
+            <p class="lead text-center">{mensagemerro}</p>
+        </div>
+        <!-- END BLOCK_DOWNLOAD_ERRO -->
+
+        <div class="container-conteudo">
+
+            <div class="alert alert-default">
+                <p class="lead text-center"><span class="glyphicon glyphicon-search"></span> Para baixar as imagens de um produto, digite a referência na busca abaixo</p>
+            </div>
+
+            <form action="{index}download">
+                <input type="hidden" name="get" value="1">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Digite a referência do produto" name="buscar" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Pesquisar</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <br><br>
+
+            <div class="alert alert-default">
+                <p class="lead text-center"><span class="glyphicon glyphicon-info-sign"></span> Para baixar as imagens por categoria, clique na categoria desejada abaixo</p>
+            </div>
+
+            <!-- BEGIN BLOCK_ROW -->
+            <div class="row">
+                <!-- BEGIN BLOCK_COL -->
+                <div class="col-md-6">
+                    <!-- BEGIN BLOCK_DOWNLOADITEM -->
+                    <p class="download-nivel-{categoria->nivel}"><a href="{linkdownload}">{categoria->nome}</a></p>
+                    <!-- END BLOCK_DOWNLOADITEM -->
+                </div>
+                <!-- END BLOCK_COL -->
+            </div>
+            <!-- END BLOCK_ROW -->
+
+            <br clear="all">
+            <br>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+    setTimeout(function(){
+        _top = $('#menunav').position().top + $('header').height();
+        $('html,body').animate({scrollTop: _top}, 600);
+    }, 140);
+</script>
+
+<!--
+{categoria}
+{token}
+-->

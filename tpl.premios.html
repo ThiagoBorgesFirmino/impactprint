@@ -1,0 +1,108 @@
+<section class="banner-premios">
+    <img src="{path}img/premios/{premios->img1}" alt="" style="width:100%;">
+    <div class="d-texto">
+        <h1>{premios->titulo}</h1>
+        <span>Conheça nossas premiações</span>
+        <ul>
+            <li>
+                <a href="{index}"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="{index}sobre">Sobre</a>
+            </li>
+            <li>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a href="{index}premios">{premios->titulo}</a>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="conteudo-premios">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BLOCK_BLOCOS -->
+                <!-- BEGIN BLOCK_DIREITA -->
+                <div class="col-md-12 col-sm-12 col-xs-12 container-premios">
+                    <div class="col-md-7 col-sm-12 col-xs-12 texto-premios">
+                        <h2>{premios_topico->titulo}</h2>
+                        <p>{premios_topico->conteudo}</p>  
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="swiper-container swiper-premio">
+                            <div class="swiper-wrapper">
+                                <!-- BEGIN BLOCK_IMG1 -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img1}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG1 -->
+                                <!-- BEGIN BLOCK_IMG2 -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img2}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG2 -->
+                                <!-- BEGIN BLOCK_IMG3 -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img3}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG3 -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>                    
+                    </div>
+                </div>
+                <!-- END BLOCK_DIREITA -->
+                <!-- BEGIN BLOCK_ESQUERDA -->
+                <div class="col-md-12 col-sm-12 col-xs-12 container-premios">
+                    <div class="col-md-5 col-sm-12 col-xs-12">
+                        <div class="swiper-container swiper-premio">
+                            <div class="swiper-wrapper">
+                                <!-- BEGIN BLOCK_IMG1E -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img1}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG1E -->
+                                <!-- BEGIN BLOCK_IMG2E -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img2}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG2E -->
+                                <!-- BEGIN BLOCK_IMG3E -->
+                                <div class="swiper-slide">
+                                    <img src="{path}img/premios/{premios_topico->img3}" alt="" class="img-responsive" style="width:100%;">
+                                </div>
+                                <!-- END BLOCK_IMG3E -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>                    
+                    </div>
+                    <div class="col-md-7 col-sm-12 col-xs-12 texto-premios">
+                        <h2>{premios_topico->titulo}</h2>
+                        <p>{premios_topico->conteudo}</p>             
+                    </div>
+                </div>
+                <!-- END BLOCK_ESQUERDA -->
+            <!-- END BLOCK_BLOCOS -->    
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+var swiper = new Swiper('.swiper-premio', {
+    //pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev'
+    //spaceBetween: 30
+});
+</script>

@@ -1,0 +1,45 @@
+<script>
+	$(document).ready(function(){
+		if( $(window).width() <= 840 ){
+			window.location.assign("{index}");
+			return false;
+		}
+	});
+</script>
+
+<div class="top_default">
+	<img src="{slidebanner->bannercatalogoonline}" style="display:block;" />		
+</div>
+{menu}
+ 
+<div class="menu-catalogo font_geral">
+	<div class="container-menu-blog">
+		<img src="{path}img/sobre_detalhe.png"/>
+		<h1>{catalogo->titulo}</h1>
+		<p><a href="{index}">HOME</a> / <a href="{index}catalogo_online">CATÁLOGO ONLINE</a></p>
+	</div>
+</div>
+
+<!-- div style="background-color:#FFF;background-image:url( {path}{catalogo->pathfile}/{catalogoimagem->imagem} );"></div -->
+
+<!-- BEGIN BLOCK_CATALOGO -->
+	<div style="position:relative; height: 920px; width:100%;">
+		<div style="height: 75%; xposition: absolute; top: 0;width:100%;">
+			<iframe style="min-width: 100px; width: 100%; height: 100%;" name="result" sandbox="allow-forms allow-popups allow-scripts allow-same-origin" frameborder="0" scrolling="yes" src="{index}showCatalogo/{catalogo->id}"></iframe>
+		</div>
+	</div>
+	
+	<div class="catalogo_down">
+	<!-- BEGIN BLOCK_CATALOGO_DOWNLOAD -->
+		<strong>Clique no botão abaixo para baixar nosso catálogo em PDF.</strong>
+		<br />
+		<a class="bt_down" href="{index}catalogo_online/?f={catalogo->arquivo}">Baixe este Catálogo</a>
+	<!-- END BLOCK_CATALOGO_DOWNLOAD -->
+	</div>
+<!-- END BLOCK_CATALOGO -->
+
+<!-- BEGIN BLOCK_SEM_CATALOGO -->
+	<div class="no_catalogo">
+		Não há Catálogo disponível.
+	</div>
+<!-- END BLOCK_SEM_CATALOGO -->

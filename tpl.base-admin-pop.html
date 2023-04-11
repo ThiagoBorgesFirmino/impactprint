@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{config->EMPRESA} - {logado->nome} - Ajung Site Manager</title>
+		<meta name="content" content="Content-type:text/html; charset:UTF-8" />
+
+        <link href="{path}img/favicon.ico" type="image/x-icon" rel="icon">
+        <link href="{path}img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+        <link rel="stylesheet" href="{path}css/admin.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="{path}css/jquery-filestyle.css" type="text/css" media="screen" />
+
+        <link type="text/css" rel="stylesheet" href="{path}js/fancybox/jquery.fancybox-1.3.4.css" />
+        <link type="text/css" rel="stylesheet" href="{path}css/bootstrap.min.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{path}js/jquery-ui-1.11.2/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+
+        <script src="{path}js/jquery-1.11.1.min.js"></script>
+        <script src="{path}js/mustache.js"></script>
+        <script src="{path}js/ckeditor/ckeditor.js"></script>
+
+	</head>
+	<body>
+		<div id="principal" class="container-fluid">
+            <div id="container">
+
+                <form name="formPrincipal" id="formPrincipal" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="token" value="{token}" />
+                    <input type="hidden" name="action" id="action" value="" />
+                    <!-- BEGIN BLOCK_MSG_ERRO -->
+                    <div class="erro alert alert-danger">
+                        <p>{erro}</p>
+                    </div>
+                    <!-- END BLOCK_MSG_ERRO -->
+                    <!-- BEGIN BLOCK_MSG_SUCESSO -->
+                    <div class="sucesso alert alert-success">
+                        <p>{sucesso}</p>
+                    </div>
+                    <!-- END BLOCK_MSG_SUCESSO -->
+                    <!-- BEGIN BLOCK_TOOLBAR -->
+                    <div class="well text-center">
+                        <a href="javascript:window.close()" class="btn btn-default btn-sm">Sair</a>
+                        <button type="button" class="js-salvar btn btn-primary" data-acao="salvar"><span class='glyphicon glyphicon-ok'></span> Salvar</button>
+                        <button type="button" class="js-salvar btn btn-primary" data-acao="salvar_sair"><span class='glyphicon glyphicon-arrow-left'></span> Salvar & Sair</button>
+                        <button type="button" class="js-salvar btn btn-primary" data-acao="salvar_novo"><span class='glyphicon glyphicon-plus'></span> Salvar & Novo</button>
+                    </div>
+                    <!-- END BLOCK_TOOLBAR -->
+                    <!-- BEGIN BLOCK_TOOLBAR_SIMPLES_1 -->
+                    <div class="well text-center">
+                        <input type="button" class="js-salvar btn btn-primary" value="Salvar" data-acao="salvar"/>
+                    </div>
+                    <!-- END BLOCK_TOOLBAR_SIMPLES_1 -->
+                    {miolo}
+                    <!-- BEGIN BLOCK_TOOLBAR_SIMPLES_2 -->
+                    <div class="well text-center">
+                        <input type="button" class="js-salvar btn btn-primary" value="Salvar" data-acao="salvar"/>
+                    </div>
+                    <!-- END BLOCK_TOOLBAR_SIMPLES_2 -->
+                </form>
+            </div>
+		</div>
+
+        <!--
+        {index}
+        -->
+
+<!--script type="text/javascript" src="{path}js/jquery.js"></script-->
+<!--script type="text/javascript" src="{path}js/jquery-1.11.1.min.js"></script-->
+<!--script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script-->
+<!--script type="text/javascript" src="{path}js/jquery-ui-1.11.2/jquery-ui.min.js"></script-->
+<!--script type="text/javascript" src="{path}js/jquery-1.8.24/jquery-1.8.2.js"></script-->
+<!--script type="text/javascript" src="{path}js/jquery.form.js"></script-->
+
+<!--script type="text/javascript" src="http://malsup.github.com/jquery.form.js"></script-->
+<!--script type="text/javascript" src="{path}js/jquery.maskedinput-1.3.min.js"></script -->
+<!--script type="text/javascript" src="{path}js/digitalBush-jquery.maskedinput-9672630/src/jquery.maskedinput.js"></script-->
+<!--script type="text/javascript" src="{path}fancybox/jquery.fancybox-1.3.4.js"></script -->
+<script type="text/javascript" src="{path}js/fancybox/jquery.fancybox.js"></script>
+<!--script type="text/javascript" src="{path}js/jquery-filestyle.js"></script -->
+
+<script type="text/javascript" src="{path}js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{path}js/jquery.form.js"></script>
+<script type="text/javascript" src="{path}js/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="{path}js/bootstrap-filestyle.js"></script>
+<!--script type="text/javascript" src="{path}js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script-->
+<script type="text/javascript" src="{path}js/geral.js"></script>
+
+<!-- BEGIN BLOCK_INCLUDE_CSS -->
+<link rel="stylesheet" type="text/css" href="{includecss}" />
+<!-- END BLOCK_INCLUDE_CSS -->
+
+<!-- BEGIN BLOCK_INCLUDE_JS -->
+<script type="text/javascript" src="{includejs}" ></script>
+<!-- END BLOCK_INCLUDE_JS -->
+
+        <script>
+
+            function enviar(action){
+                $('#principal form').attr('readonly', true);
+                $('#principal').css('opacity',.7);
+                $('body').prepend('<div class="alert alert-info text-center js-loading-top" style="display:none;margin:0px;"><span class="glyphicon glyphicon-hourglass"></span> Por favor aguarde</div>');
+                $('.js-loading-top').slideDown('fast');
+                document.getElementById('action').value = action;
+                document.forms[0].submit();
+            }
+
+            /*
+            function enviar(action){
+                $('#principal form').attr('readonly', true);
+                $('#principal').css('opacity',.7);
+                $('body').prepend('<div class="alert alert-info text-center js-loading-top" style="display:none;margin:0px;"><span class="glyphicon glyphicon-hourglass"></span> Por favor aguarde</div>');
+                $('.js-loading-top').slideDown('fast');
+                document.getElementById('action').value = action;
+                document.forms[0].submit();
+            }
+            */
+
+            $('.js-salvar').bind('click', function(){
+                enviar($(this).data('acao'));
+                // alert(1);
+            });
+
+            // enviar(1)
+            // alert(1);
+
+        </script>
+	</body>
+</html>

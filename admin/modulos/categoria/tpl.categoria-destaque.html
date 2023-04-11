@@ -1,0 +1,64 @@
+
+<section class="destaque-datacomemorativa hidden-sm hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-xs-12 padding_0 title">
+                        <span>{categoria->nome}</span>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+                    <div class="swiper-container swiper-ProdDate" id="categoria_destaque">
+                        <div class="swiper-wrapper">
+                            <!-- BEGIN BLOCK_PRODUTO -->
+                            <div class="swiper-slide">
+                                <div class="col-md-12 col-sm-12 col-xs-12 d_prod_come">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 produto-data padding_0">
+                                        <a href="{item->link}" title="{item->nome}">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <!--div class="owl-carousel owl-theme"-->
+                                                    <!--{item->tag_imagem_listagem}-->
+                                                    <!---/div-->
+                                                <img src="{caminhoImg}" class="img-responsive" alt="{item->nome}"> 
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6 desc-prod">
+                                                <span class="cat">Categoria</span><br/>
+                                                <span class="nome">{item->nome}</span><br/>
+                                                <span class="sku">{item->referencia}</span>
+                                                                                          
+                                            </div>
+                                        </a>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 _botao">
+                                            <!-- <form action="" class="_botao"> ??? -->
+                                                <table style="width: 100%;">
+                                                    <tr>
+                                                        <td class="text-left">
+                                                            <a onclick="javascript: addToFavorite({item->id});" title="Favorito" class="link_fav"><div class="icone-fav"></div>Favorito</a>
+                                                        </td>
+                                                        <td class="text-right ">
+                                                            <form action="{index}pedido_add" method="POST">
+                                                                <input type="hidden" value="1" name="add_item" />
+                                                                <input type="hidden" value="{item->id}" name="item_id" />
+                                                                <input type="hidden" value="{item->qtd_minima}" name="qtd" />
+                                                                <input type="hidden" value="{itemcor->cor_id}" name="cor_id" />
+                                                                <input type="hidden" value="{token}" name="token" />
+                                                                
+                                                                <input type="submit" name="Orçar" value="Orçar" class="btn btn-default btn-come" id="">
+                                                            </form>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            <!-- </form> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END BLOCK_PRODUTO -->      
+                        </div>
+                    </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>

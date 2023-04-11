@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+
+        {seo}
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=1" />
+
+		<link rel="apple-touch-icon" sizes="57x57" href="{path}favico/apple-icon-57x57.png?v=1">
+		<link rel="apple-touch-icon" sizes="60x60" href="{path}favico/apple-icon-60x60.png?v=1">
+		<link rel="apple-touch-icon" sizes="72x72" href="{path}favico/apple-icon-72x72.png?v=1">
+		<link rel="apple-touch-icon" sizes="76x76" href="{path}favico/apple-icon-76x76.png?v=1">
+		<link rel="apple-touch-icon" sizes="114x114" href="{path}favico/apple-icon-114x114.png?v=1">
+		<link rel="apple-touch-icon" sizes="120x120" href="{path}favico/apple-icon-120x120.png?v=1">
+		<link rel="apple-touch-icon" sizes="144x144" href="{path}favico/apple-icon-144x144.png?v=1">
+		<link rel="apple-touch-icon" sizes="152x152" href="{path}favico/apple-icon-152x152.png?v=1">
+		<link rel="apple-touch-icon" sizes="180x180" href="{path}favico/apple-icon-180x180.png?v=1">
+		<link rel="icon" type="image/png" sizes="192x192"  href="{path}favico/android-icon-192x192.png?v=1">
+		<link rel="icon" type="image/png" sizes="32x32" href="{path}favico/favicon-32x32.png?v=1">
+		<link rel="icon" type="image/png" sizes="96x96" href="{path}favico/favicon-96x96.png?v=1">
+		<link rel="icon" type="image/png" sizes="16x16" href="{path}favico/favicon-16x16.png?v=1">
+		<link rel="manifest" href="{path}favico/manifest.json?v=1">
+		<meta name="msapplication-TileColor" content="#af0e0e">
+		<meta name="msapplication-TileImage" content="{path}favico/ms-icon-144x144.png?v=1">
+		<meta name="theme-color" content="#af0e0e">
+
+        <link href="{path}css/swiper.min.css"  media="all" rel="stylesheet" />
+        <!-- BEGIN BLOCK_BOOTSTRAP_LESS -->
+        <link rel="stylesheet/less"  href="{path}css/style.less?x={time}" />
+        <script src="{path}css/bootstrap-3.3.7/docs/assets/js/vendor/less.min.js?x={time}"></script>
+        <!-- END BLOCK_BOOTSTRAP_LESS -->
+
+        <!-- BEGIN BLOCK_BOOTSTRAP_MIN -->
+        <link rel="stylesheet" href="{path}css/site.min.css?x={time}">
+        <!-- END BLOCK_BOOTSTRAP_MIN -->
+        <link rel="stylesheet" href="{path}css/flexslider.css">
+
+        <script type="text/javascript" src="{path}js/jquery-1.11.1.min.js"></script>
+		<!-- WHATS UP -->
+		<script type="text/javascript" src="{path}js/whatsapp-button.min.js"></script>
+		<!-- **** -->
+        <script src="{path}js/swiper.min.js"></script>
+		<script>
+			var path = '{path}';
+			var index = '{index}';
+		</script>
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-VGQCQGWFN9"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-VGQCQGWFN9');
+		</script>
+
+	</head>
+	<body id="body">
+		<header class="topo-site">
+			<div class="container">
+				<div class="row margin_0">
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+						<table style="width:100%" cellpadding="0" cellspacing="0" border="0">
+							<tr>
+								<td class="topo-site-td1">
+									<a href="{index}" title="{config->EMPRESA}" class="link-header-logo">
+										<picture>
+											<img src="{path}img/logo/logo.png?a=321" class="img-responsive logo-header" alt="{config->EMPRESA}">
+										</picture>
+									</a>
+								</td>
+								<td class="topo-site-td2 hidden-sm hidden-xs">
+									<div>
+										<form name="busca" id="formBusca" action="{index}buscar" method="POST" class="form-inline">
+											<div class="d-buscar">
+												<svg id="search-icon-svg" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/2000/svg"><path d="m225.47 0c-124.32 0-225.47 101.15-225.47 225.47 0 124.33 101.15 225.47 225.47 225.47 124.33 0 225.47-101.14 225.47-225.47 0-124.32-101.14-225.47-225.47-225.47zm0 409.32c-101.37 0-183.85-82.475-183.85-183.85s82.475-183.85 183.85-183.85 183.85 82.475 183.85 183.85-82.475 183.85-183.85 183.85z" data-original="#000000">
+													</path></g><g xmlns="http://www.w3.org/2000/svg"><path d="m505.9 476.47l-119.33-119.33c-8.131-8.131-21.299-8.131-29.43 0-8.131 8.124-8.131 21.306 0 29.43l119.33 119.33c4.065 4.065 9.387 6.098 14.715 6.098 5.321 0 10.649-2.033 14.715-6.098 8.131-8.124 8.131-21.306 0-29.43z" data-original="#000000"></path></g>
+												</svg>
+												<input type="text" name="busca" class="form-control" aria-describedby="basic-addon1" placeholder="Busque por produtos">
+												<span class="input-group-addon" id="basic-addon1" onclick="$('#formBusca').submit();">
+													<span class="glyphicon glyphicon-search"></span>
+												</span>
+											</div>
+										</form>
+									</div>
+								</td>
+								<td class="topo-site-td3 hidden-sm hidden-xs" style="display: none;">
+									<div class="area-icone-red">
+										<!-- BEGIN BLOCK_SOCIAIS -->
+										<ul class="icone-redes icone-rede-topo">
+											<!-- BEGIN BLOCK_INSTAGRAM -->
+											<li>
+												<a href="{config->INSTAGRAM}" title="Instagram {config->EMPRESA}"  target="_blank"><img src="{path}img/ico/instagram.png?a=21" style="width: 32px" alt="Instagram {config->EMPRESA}"></a>
+											</li>
+											<!-- END BLOCK_INSTAGRAM -->
+											<!-- BEGIN BLOCK_WHATSAPP  -->
+											<li>
+												<a href="{UrlWhats}" title="Whatsapp {config->EMPRESA}" target="_blank"><img src="{path}img/assets/whatsapp.png?a=21" style="width: 32px" alt="Whatsapp {config->EMPRESA}"></a>
+											</li>
+											<!-- END BLOCK_WHATSAPP  -->
+										</ul>
+										<!-- END BLOCK_SOCIAIS -->
+									</div>
+								</td>
+								<td class="topo-site-td4 hidden-sm hidden-xs" style="display: none;">
+									<table style="width:100%;" class="table-td4" cellpadding="0" cellspacing="0">
+										<tr>
+											<td>
+												<!-- BEGIN BLOCK_WHATSAPP_TOP_ICON -->
+												<span class="tel-top">
+													<i class="fa fa-whatsapp" aria-hidden="true" ></i>
+													{config->WHATSAPP}
+												</span>
+												<!-- END BLOCK_WHATSAPP_TOP_ICON -->
+											</td>
+										</tr>
+										<tr>
+											<td class="table-td4-td1">
+												<table style="width:100%;" border="0" cellpadding="0" cellspacing="0">
+													<tr>
+														<td>
+															<!-- BEGIN BLOCK_TELEFONE_TOP_ICON -->
+																<span class="tel-top">
+																<i class="fa fa-phone" aria-hidden="true" ></i>
+															</span>
+															<!-- END BLOCK_TELEFONE_TOP_ICON -->
+															<!-- BEGIN BLOCK_TELEFONE_TOP -->
+																<span style="display:inline-block;">
+																	{config->TELEFONE}&nbsp;
+																</span>
+															<!-- END BLOCK_TELEFONE_TOP -->
+															<!-- BEGIN BLOCK_TELEFONE2_TOP -->
+																<span style="display:inline-block;">
+																	/ {config->TELEFONE2}
+																</span>
+															<!-- END BLOCK_TELEFONE2_TOP -->
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td class="table-td4-td1">
+												<span class="span-mail">
+													<!-- BEGIN BLOCK_EMAIL_CONTATO_TOP -->
+													<i class="fa fa-envelope" aria-hidden="true" style="display:inline-block;"></i>&nbsp;
+													<a href="mailto:{config->EMAIL_CONTATO}" title="E-mail" style="display:inline-block; margin-left: 3px;">
+														{config->EMAIL_CONTATO}
+													</a>
+													<!-- END BLOCK_EMAIL_CONTATO_TOP -->
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<div class="col-md-5 col-sm-12 col-xs-12 padding_0 area-icone-rede">
+		
+							<div class="col-md-6 col-sm-12 col-xs-12 padding_0 hidden-sm hidden-xs" style="margin-top: 5px;">
+							
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12 visible-sm visible-xs text-center" style="display:none !important">
+							<table style="width:100%;margin-top: 25px;">
+								<tr>
+									<!-- BEGIN BLOCK_TELEFONE_TOP_MOBILE -->
+									<td>
+										<span class="tel-top"><i class="fa fa-phone" aria-hidden="true" style='color:#727272'></i>
+										</span>&nbsp;<span class="span-tel" style='color:#727272;  margin-left: 4px;'>{config->TELEFONE} &nbsp; {config->TELEFONE2}</span>
+									</td>
+									<!-- END BLOCK_TELEFONE_TOP_MOBILE -->
+								</tr>
+								<tr>
+									<td>
+										<!-- BEGIN BLOCK_EMAIL_CONTATO_TOP_MOBILE -->
+										<span class="span-mail"><i class="fa fa-envelope" aria-hidden="true" style="display:inline-block;color:#727272"></i>
+											&nbsp;<a href="mailto:{config->EMAIL_CONTATO}" title="E-mail" style="display:inline-block; margin-left: 3px;">
+											{config->EMAIL_CONTATO}
+											</a>
+										</span>
+										<!-- END BLOCK_EMAIL_CONTATO_TOP_MOBILE -->
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container-menu topo-site-mobile">
+			<div class="container padding_0">
+				<div class="row margin_0">
+					<div class="col-sm-12 col-xs-12 d-mobile padding_0" style="padding-top:8px; padding-bottom:8px;">
+						<div class="col-sm-2 col-xs-2">
+							<img src="{path}img/ico/btn_mobile.png" id="bt_mobile" onclick="openNav()"/>
+						</div>
+						<div class="col-sm-8 col-xs-8 d-buscar">
+							<form name="busca" id="formBuscaMobi" action="{index}buscar" method="POST" class="form-inline" style="width:100%;display:block;">
+								<div class="form-group form-busca">
+									<div class="input-group" style="width:100%">
+										<svg id="search-icon-svg" enable-background="new 0 0 512 512" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/2000/svg">
+											<path d="m225.47 0c-124.32 0-225.47 101.15-225.47 225.47 0 124.33 101.15 225.47 225.47 225.47 124.33 0 225.47-101.14 225.47-225.47 0-124.32-101.14-225.47-225.47-225.47zm0 409.32c-101.37 0-183.85-82.475-183.85-183.85s82.475-183.85 183.85-183.85 183.85 82.475 183.85 183.85-82.475 183.85-183.85 183.85z" data-original="#000000"></path></g><g xmlns="http://www.w3.org/2000/svg"><path d="m505.9 476.47l-119.33-119.33c-8.131-8.131-21.299-8.131-29.43 0-8.131 8.124-8.131 21.306 0 29.43l119.33 119.33c4.065 4.065 9.387 6.098 14.715 6.098 5.321 0 10.649-2.033 14.715-6.098 8.131-8.124 8.131-21.306 0-29.43z" data-original="#000000"></path></g>
+										</svg>
+										<input type="text" name="busca" id="input_busca_form_2" class="input_busca_form form-control"  onkeyup='javascript: smartSearch2(this);' autocomplete="off" placeholder="O que você está procurando?"/>
+										<span class="input-group-addon" id="basic-addon1" onclick="$('#formBuscaMobi').submit();">
+											<span class="glyphicon glyphicon-search"></span>
+										</span>
+									</div>
+									<!-- <div class="search_result_mobile" id="search_result2" style="display: none; background: #FFF;"></div> -->
+								</div>
+							</form>
+						</div>
+						<div class="col-md-2 col-sm-2 col-xs-2 text-right d-car visible-sm visible-xs">
+							<a href="{index}pedido">
+								<i class="fa fa-shopping-cart" aria-hidden="true">{carrinho->texto_itens}</i>
+							</a>
+						</div>
+
+					</div>
+					<div class="col-md-11 col-sm-10 col-xs-12 padding_0 d-menu" id="main0" data-main="0">
+						<ul class="ul-menu">
+							<li class="fechamenu"><a href="javascript:void(0)" title="VOLTAR" onclick="closeNav()">VOLTAR</a></li>
+							<li><a href="{index}" title="HOME" class="{home_selected}">HOME</a></li>
+							<li class="produtos-mobi"><a class="d-produto {produtos_selected}">PRODUTOS</a>{menumobile}</li>
+							<li class="produtos-desk"><a href="{seopro->link_produtos}" title="PRODUTOS" class="dropdown-toggle {produtos_selected}" data-toggle="dropdown">PRODUTOS</a>{menu}</li>
+							<li><a href="{index}promocoes" title="PROMOÇÕES" class="{promocoes_selected}">PROMOÇÕES</a></li>
+							<li><a href="{index}sobre" title="SOBRE" class="{sobre_selected}">SOBRE</a></li>
+							<li><a href="{index}contato" title="CONTATO" class="{contato_selected}">CONTATO</a></li>
+						</ul>
+					</div>
+					<div class="col-md-1 col-sm-12 col-xs-12 d-car hidden-sm hidden-xs">
+						<a href="{index}pedido" title="Carrinho" style="margin-left: 20px;"><i class="fa fa-shopping-cart" aria-hidden="true">{carrinho->texto_itens}</i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<article>
+			<!-- BEGIN BLOCK_MSG_ERRO -->
+			<div class="container">
+				<div class="alert alert-danger" id="d-erro" style="margin:10px 0px">
+					{erro}
+				</div>
+			</div>
+			<!-- END BLOCK_MSG_ERRO -->
+
+			<!-- BEGIN BLOCK_MSG_SUCESSO -->
+			<div class="container">
+				<div class="alert alert-success" id="d-sucesso" style="margin:10px 0px">
+					{sucesso}
+				</div>
+			</div>
+			<!-- END BLOCK_MSG_SUCESSO -->
+		</article>
+
+		<article class="miolo">
+			{miolo}
+		</article>
+
+		<div class="whatsapp"><a href="{UrlWhats}" target="_blank"><img src="{path}img/assets/whatsapp.png" alt="Whastapp {config->EMPRESA}"></a></div>
+		
+		<footer class="container-footer">
+			<div class="container">
+				<div class="row margin_0">
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0" sxtyle="display: flex;">
+						<div class="col-md-3 col-sm-12 col-xs-12 padding_0 d-logo-footer text-center" style="margin-left: -15px; align-self: center;">
+							<a href="{index}" title="{config->EMPRESA}"><img src="{path}img/logo/logo-rodape.png?a=123"  class="img-logo-footer" alt="{config->EMPRESA}"/></a>
+						</div>
+						<div class="col-md-4 col-sm-12 col-xs-12 padding_0 d-tel-footer text-left">
+							<table class="table-footer-tel">
+								<!-- BEGIN BLOCK_TELEFONE_FOOTER -->
+								<tr>
+									<td class="hidden-sm hidden-xs" style="vertical-align:top;"><span style="margin-top: 5px;"><i class="fa fa-phone" aria-hidden="true"></i></span></td>
+									<td><span style="margin-top: 5px;"><i class="fa fa-phone visible-sm visible-xs" aria-hidden="true" style="float:left;position: relative;top:5px;"></i>{config->TELEFONE}</span></td>
+								</tr>
+								<!-- END BLOCK_TELEFONE_FOOTER -->
+								<!-- BEGIN BLOCK_WHATSAPP_FOOTER -->
+								<tr>
+									<td class="hidden-sm hidden-xs" style="vertical-align:top;"><span style="margin-top: 5px;"><i class="fa fa-whatsapp" aria-hidden="true"></i></span></td>
+									<td><span style="margin-top: 5px;"><i class="fa fa-whatsapp visible-xs visible-sm" aria-hidden="true" style="float:left;position:relative;top:3px;"></i><a href="{UrlWhats}" target="_blank">{config->WHATSAPP}</a></span></td>
+								</tr>
+								<!-- END BLOCK_WHATSAPP_FOOTER -->
+								<!-- BEGIN BLOCK_EMAIL_CONTATO_FOOTER -->
+								<tr>
+									<td class="hidden-sm hidden-xs" style="vertical-align:top;"><span style="margin-top: 5px; 5px; margin-bottom: 5px;"><i class="fa fa-envelope" aria-hidden="true"></i></span></td>
+									<td><span style="margin-top: 5px; margin-bottom: 5px;"><a href="mailto:{config->EMAIL_CONTATO}" title="E-mail" style="display:inline-block;">{config->EMAIL_CONTATO}</a></span></td>
+								</tr>
+								<!-- END BLOCK_EMAIL_CONTATO_FOOTER -->
+								<tr>
+									<td class="hidden-sm hidden-xs" style="vertical-align:top">
+										<!-- BEGIN BLOCK_LOGRADOURO_FOOTER_ICON -->
+										<span style="margin-left:3px"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+										<!-- END BLOCK_LOGRADOURO_FOOTER_ICON -->
+									</td>
+									<td>
+										<span>
+										<!-- BEGIN BLOCK_LOGRADOURO_FOOTER -->
+											{config->LOGRADOURO},
+										<!-- END BLOCK_LOGRADOURO_FOOTER -->
+										<!-- BEGIN BLOCK_NUMERO_FOOTER -->
+											{config->NUMERO}<br/>
+										<!-- END BLOCK_NUMERO_FOOTER -->
+										<!-- BEGIN BLOCK_BAIRRO_FOOTER -->
+											{config->BAIRRO} - 
+										<!-- END BLOCK_BAIRRO_FOOTER -->
+										<!-- BEGIN BLOCK_CIDADE_FOOTER -->
+										&nbsp;{config->CIDADE}<br/>
+										<!-- END BLOCK_CIDADE_FOOTER -->
+										CEP: {config->CEP} -
+										<!-- BEGIN BLOCK_ESTADO_FOOTER -->
+											{config->ESTADO}
+										<!-- END BLOCK_ESTADO_FOOTER -->
+											
+										</span>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="col-md-3 col-sm-12 col-xs-12 padding_0 hidden-sm hidden-xs d-redes-sociais-footer">
+							<nav class="nav-menu-rodape">
+								<a href="{index}" title="HOME">HOME</a>
+								<a href="{index}produtos" title="PRODUTOS">PRODUTOS</a>
+								<a href="{index}promocoes" title="PROMOÇÕES" class="{promocoes_selected}">PROMOÇÕES</a>
+								<a href="{index}sobre" title="SOBRE">SOBRE</a>
+								<a href="{index}contato" title="CONTATO">CONTATO</a>
+							</nav>
+						</div>
+						<div class="col-md-2 col-sm-12 col-xs-12 padding_0 hidden-sm hidden-xs" style="text-align: center; margin-top: 25px;">
+							<div>
+								<span class="rodape-siga">SIGA-NOS</span>
+							</div>
+							<div style="margin-top: 10px; padding-left: 0px;">
+								<!-- BEGIN BLOCK_INSTAGRAM_NETWORK -->
+								<li>
+									<a href="{config->INSTAGRAM}" title="Instagram {config->EMPRESA}"  target="_blank">
+										<i class="fa fa-instagram icone-siga-rodape"></i>
+									</a>
+								</li>
+								<!-- END BLOCK_INSTAGRAM_NETWORK -->
+								<!-- BEGIN BLOCK_WHATSAPP_NETWORK -->
+								<li>
+									<a href="{UrlWhats}" title="Whatsapp {config->EMPRESA}" target="_blank">
+										<i class="fa fa-whatsapp icone-siga-rodape"></i>
+									</a>
+								</li>
+								<!-- END BLOCK_WHATSAPP_NETWORK -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<footer class="footer-secudario">
+			<div class="container">
+				<div class="row margin_0">
+					<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+						<div class="col-md-6 col-sm-6 col-xs-6 padding_0 text-left">
+							<span>{config->COPYRIGHT}</span>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 padding_0 text-right">
+							<span>Desenvolvido por: <a href="http://www.ajung.com.br" title="A. Jung Soluções Corporativas LTDA.">A. Jung</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+		<!-- BEGIN BLOCK_LOGO_CLIENTE -->
+            <div class="logo_cliente_logado" >
+                <a class="fecha_cliente" style=""><img src="{path}img/assets/fecha_cliente.png"/></a>
+                <table class="bemvindo_cliente">
+                    <tr><td><span>Bem Vindo:</span></td></tr>
+                </table>
+                <table class="img_cliente"style="">
+                    <tr><td style="width:140px">
+                        <img src="{path}img/cliente/{cliente->imagem}" />
+                    </td></tr>
+                </table>
+                <br clear="all"/>
+            </div>
+        <!-- END BLOCK_LOGO_CLIENTE -->
+
+	<div class="modal fade" id="esqueciSenha" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+					<h4 class="modal-title">ESQUECEU SUA SENHA?</h4>
+				</div>
+				<div class="modal-body">
+					<div class="alert" id="senhamsg" style="display: none"></div>
+					<form action="{index}senha" method="post" class="form-senha js-input">
+						<input type="hidden" name="enviar" value="1" />
+						<div class="form-group">
+							<label for="email" class="control-label">Digite seu e-mail de cadastro:</label>
+							<input type="text" name="email" class="form-control" value="" />
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-block btn-primary" onclick="$('.form-senha').submit();">ENVIAR</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{modal_titulo}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p class="lead">
+						{modal_mensagem}
+					</p>
+				</div>
+				<div class="modal-footer">
+					<!-- button type="button" class="btn btn-block btn-primary" onclick="$('#modalMensagem').modal('hide');">Ok</button -->
+					<button type="button" class="btn btn-block btn-primary" data-dismiss="modal">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<i class="fa fa-arrow-circle-o-up voltar_topo" aria-hidden="true"></i>
+	<!--{menumobile}-->
+	<!-- BEGIN BLOCK_CLIENTE_NAO_LOGADO -->
+	<!-- END BLOCK_CLIENTE_NAO_LOGADO -->
+	<!-- BEGIN BLOCK_CLIENTE_LOGADO -->
+	<!-- END BLOCK_CLIENTE_LOGADO -->
+
+	<!-- BEGIN BLOCK_CLIENTE_NAO_LOGADO_MOBILE -->
+	<!-- END BLOCK_CLIENTE_NAO_LOGADO_MOBILE -->
+	<!-- BEGIN BLOCK_CLIENTE_LOGADO_MOBILE -->
+	<!-- END BLOCK_CLIENTE_LOGADO_MOBILE -->
+
+
+        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"-->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Oxygen:300,400,700" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" type="text/css" href="{path}js/jquery-ui-1.11.2/jquery-ui.min.css" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+        <link rel="stylesheet" type="text/css" href="{path}js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+
+        <!-- BEGIN BLOCK_INCLUDE_CSS -->
+        <link rel="stylesheet" type="text/css" href="{includecss}" />
+        <!-- END BLOCK_INCLUDE_CSS -->
+
+        <script type="text/javascript" src="{path}js/bootstrap.min.js" ></script>
+
+        <!-- BEGIN BLOCK_JS_DEV -->
+        <script type="text/javascript" src="{path}js/jquery.flexslider.js"></script>
+        <script type="text/javascript" src="{path}js/lib/jquery.lazyload.js"></script>
+        <script type="text/javascript" src="{path}js/jquery.form.js"></script>
+        <script type="text/javascript" src="{path}js/jquery.maskedinput.min.js"></script>
+        <script type="text/javascript" src="{path}js/fancybox/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="{path}js/formata_validadcoes.js"></script>
+        <script type="text/javascript" src="{path}js/geral.js"></script>
+        <!-- END BLOCK_JS_DEV -->
+
+        <!-- BEGIN BLOCK_JS_MIN -->
+        <script type="text/javascript" src="{path}js/site.min.js?ad=s" ></script>
+        <!-- END BLOCK_JS_MIN -->
+
+        <!-- BEGIN BLOCK_INCLUDE_JS -->
+        <script type="text/javascript" src="{includejs}?x=2" ></script>
+        <!-- END BLOCK_INCLUDE_JS -->
+
+        {config->JS_GOOGLE_ANALYTICS}
+
+        <div id="fb-root"></div>
+
+        <script>
+			function smartSearch(elem){
+    $.ajax({
+        url : path+"ajax.php/productHint/"+elem.value
+        ,method : "GET"
+        ,dataType:"json"
+        ,beforeSend : function(){}
+        ,success : function(out){
+            $("#search_result").html(out.html);
+            if(out.status)$("#search_result").show();
+            else $("#search_result").hide();
+        }
+        ,complete : function(){ }
+    });
+}
+function smartSearch2(elem){
+    $.ajax({
+        url : path+"ajax.php/productHint/"+elem.value
+        ,method : "GET"
+        ,dataType:"json"
+        ,beforeSend : function(){}
+        ,success : function(out){
+            $("#search_result2").html(out.html);
+            if(out.status)$("#search_result2").show();
+            else $("#search_result2").hide();
+        }
+        ,complete : function(){ }
+    });
+}
+			var EMPRESA = '{config->EMPRESA}';
+
+			(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.4&appId=1528030670810551";
+            fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+
+
+			$(document).ready(function(){
+				$( window ).resize(function() {
+					if ($( window ).width() > 991){
+						$('.d-menu').removeClass("abre_menu");
+						$('.d-menu').removeClass("fecha_menu");
+					}
+				});
+
+				$('.fechasubmenu').on('click',function(){
+					$('.dropdown-mobile').animate({
+							left: '-100%'
+						},300);
+				});
+				$('.d-produto').on('click',function(){
+					$('.dropdown-mobile').animate({
+							left: '0'
+						},450);
+				});
+				setTimeout(function(){
+					$(".alert-success").fadeOut();
+					$(".alert-danger").fadeOut();
+				},7000);
+			});
+
+
+			function openNav(){
+				$('.d-menu').addClass("abre_menu");
+				$('.d-menu').removeClass("fecha_menu");
+			}
+
+			function closeNav(){
+				$('.d-menu').removeClass("abre_menu");
+				$('.d-menu').addClass("fecha_menu");
+			}
+
+
+			$(document).ready(function(){
+				$("img.lazy").lazyload({
+					// threshold : 200
+					effect:"fadeIn"
+					,threshold:200
+				});
+
+				$("._tooltipe").tooltip();
+
+				$(".fecha_cliente").bind('click',function(){
+					//$(".logo_cliente_logado").fadeOut();
+					$(".logo_cliente_logado").animate({width:'toggle'});
+				});
+
+				$(".l_logado").bind("click",function(){
+					$("#l_menu_cliente").slideToggle("slow");
+				});
+
+				$(".l_esqueceu_voltar").bind("click",function(){
+					$(".l_form_esqueci").fadeOut();
+				});
+
+				$("#form_login").ajaxForm({
+					dataType:  "json",
+					beforeSubmit : function(){
+						$(".block_login .l_mensagem").fadeIn();
+						$(".block_login .l_mensagem").html("Carregando...");
+					},
+					success : function(out){
+						if(out[0]==0){
+							$(".block_login .l_mensagem").html(out[1]);
+							$(".block_login .l_mensagem").animate({"left":0},400);
+						}
+						if(out[0]==1){
+							$(".block_login .l_mensagem").html(out[1]);
+							$(".block_login .l_mensagem").animate({"left":0},400);
+							setTimeout(function(){location.reload();},1000);
+						}
+						setTimeout(function(){$(".block_login .l_mensagem").animate({"left":"100%"},300);},2500);
+					}
+				});
+
+				$(".voltar_topo").bind("click", function(){
+					$('html, body').animate({scrollTop:0},'slow');
+				});
+
+				// Esqueci a senha
+				$('.form-senha').ajaxForm({
+					dataType: 'json'
+					,success: function(out){
+						if(out.status){
+							// $("#senhamsg").addClass('alert-success').html(out.msg).fadeIn();
+							$('.form-senha .js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+							$('.form-senha.js-input').html('<div class="alert alert-success">'+out.msg+'</div>');
+							$('#esqueciSenha .btn-primary').hide();
+						}
+						else {
+							$('#esqueciSenha .btn-primary').attr('disabled', false);
+							$("#senhamsg").addClass('alert-danger').html(out.msg).fadeIn();
+						}
+					}
+					,error: function(out1, out2){
+						$('#esqueciSenha .btn-primary').attr('disabled', false);
+						$("#senhamsg").addClass('alert-danger').html('Erro: ' + out1 + ' - '.out2).fadeIn();
+					}
+					,beforeSend: function(){
+						$('#esqueciSenha .btn-primary').attr('disabled', true);
+						$("#senhamsg").removeClass('alert-danger').removeClass('alert-success').html('').hide();
+					}
+				});
+
+				$(window).scroll(function() {
+					nScrollPosition = $( window ).scrollTop();
+
+					if(nScrollPosition>=100){
+						// $( ".voltar_topo" ).css( "display", "block" );
+						 $( ".voltar_topo" ).fadeIn();
+					}
+					else {
+						 //$( ".voltar_topo" ).css( "display", "none" );
+						 $( ".voltar_topo" ).fadeOut();
+					}
+				});
+
+				$('.menu-mobile .busca a').bind('click', function(){
+					$('.form_busca_mobile').slideToggle();
+				});
+
+				<!-- BEGIN BLOCK_MODAL -->
+				$('#modalMensagem').modal('show');
+				<!-- END BLOCK_MODAL -->
+
+			});
+
+
+		</script>
+
+		{script}
+
+        <!-- {path} {config} {home_selected} {contato_rodape} -->
+
+	</body>
+</html>

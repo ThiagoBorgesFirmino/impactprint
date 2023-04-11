@@ -1,0 +1,41 @@
+﻿.cadastro-carrinho{}
+.cadastro-carrinho .header-cadastro-carrinho {height:229px; background:#e5e5e5;}
+
+.cadastro-carrinho .menu-cadastro-carrinho{background:#e5e5e5;}
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho{width:100%;max-width:1048px; margin:0 auto; border-top:0px solid #333; padding-bottom:20px; padding-top:30px;}
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho img { margin:0 auto; display:block; xmargin-top:30px; }	
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho h1 { text-align:center; font-size:2.769em;/*36px*/ color:#333; margin-top:12px;}
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho p { text-align:center; font-family:OpenSans-Bold; font-weight:bold; font-size:1.077em ;/*14px*/ color:#333; margin-top:18px;}
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho p a { text-align:center; font-family:OpenSans-Bold; font-weight:bold; font-size:1.077em ;/*14px*/ color:#333; text-decoration:none; }
+.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho p a:hover { color:#fa0505;}
+
+
+/**JA CADASTRADO**/
+.cadastro-carrinho .ja-cadastrado{}
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado{ width:100%;max-width:1048px; margin:0 auto; padding-top:60px; padding-bottom:70px;border-bottom:1px solid #333;}
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado h1 { font-size:1.077em ;/*24px*/ color:#333; text-align:left;}
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado form { width:255px;}
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado .cadastro-text { width:238px; height:60px; border:4px solid #333; margin-bottom:15px; font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#333; text-align:left; padding-left:10px}
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado a {float:right; margin-bottom:10px; font-family:Georgia; font-style:italic; font-size:1.077em ;/*14px*/ color:#333; text-decoration:none; }
+.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado .bt-login-cadastrado {float:right; margin-top:10px; width:150px; height:50px; background-color:#078b07; font-family:Oxygen-Bold; font-weight:bold; font-size:1.077em ;/*14px*/ color:#FFF; border:0; cursor:pointer;}
+
+
+
+/**CADASTRO**/
+.cadastro-carrinho  .d-cadatro{}
+.cadastro-carrinho .conteudo-cadastro {width:100%;max-width:1048px; margin:0 auto; padding-top:30px; padding-bottom:90px;}
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro { width:570px; }
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro h1 { font-size:1.077em ;/*24px*/ color:#333; text-align:left; padding-bottom:42px; }
+
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form { width:100%;}
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form label { font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#878787; text-align:left; }
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form label  span { font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#dc0f0f; text-align:left; }
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form .cadastro-text { width:302px; height:31px; margin-top:9px; margin-bottom:50px; font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#333; text-align:left; padding-left:10px}
+
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form .cadastro-login {width:232px; height:31px; margin-bottom:50px; border:4px solid #333; padding-left:10px; font-size:1.077em ;/*14px*/}
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form .re-senha {margin-left:57px;}
+
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form .label-check {font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#333; text-align:left; padding-left:5px;}
+
+.cadastro-carrinho .conteudo-cadastro .d-form-cadastro form .submit-cadastro {float:right; margin-top:10px; width:150px; height:50px; background-color:#078b07; font-family:Oxygen-Bold; font-weight:bold; font-size:1.077em ;/*14px*/ color:#FFF; border:0; cursor:pointer;}
+

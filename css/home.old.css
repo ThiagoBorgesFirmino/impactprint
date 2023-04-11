@@ -1,0 +1,17 @@
+.container-destaque {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+.conteudo-detaquehome {
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+@media (max-width: 991px) {
+  .conteudo-detaquehome:first-child {
+    margin-bottom: 15px;
+  }
+}
+.destaquehome {
+  margin-top: 60px;
+  margin-bottom: 50px;
+}

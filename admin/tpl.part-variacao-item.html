@@ -1,0 +1,128 @@
+<div class="box-block" id="box_itemvariacao">
+
+	<img src="{path}img/assets/fecha_cliente.png" id="fechar_itemvariacao" alt="" /> 
+	
+	<input type="hidden" value="{itempai->id}" name="itemvariacao_itempai" />
+	<input type="hidden" value="{item->id}" name="itemvariacao_id" />
+	
+	<table>
+		<tr>
+			<td>
+				<label>Referencia</label><br />
+				<input type="text" class="text form-control" value="{item->referencia}" name="itemvariacao[referencia]" id="item_referencia" data-ref="{itempai->referencia}" readonly />
+				<br />
+			</td>
+			<td>
+				<label>Status</label><br />
+				<select class="selectpicker form-control" name="itemvariacao[st_ativo]">
+					<option value="S" {selected_ativo}>Ativo</option>
+					<option value="N" {selected_inativo}>Inativo</option>
+				</select>
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<label>Cor</label><br />
+				<select class="selectpicker form-control w_auto" name="itemvariacao_cor" id="cor_itemvariacao">
+					<option value="0"></option>
+					<!-- BEGIN BLOCK_CORES -->
+					<option value="{cor->id}" {cor_selected}>{cor->nome}</option>
+					<!-- END BLOCK_CORES -->
+				</select>
+			</td>
+			<td valign="top">
+				<label>Tabela 1 ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela1]" value="{item->tabela1}" onkeypress="return formataMoeda(this,event);" />
+				<br />
+				<label>Tabela 2 ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela2]" value="{item->tabela2}" onkeypress="return formataMoeda(this,event);" />
+				<br />
+				<label>Tabela 3 ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela3]" value="{item->tabela3}" onkeypress="return formataMoeda(this,event);" />				
+				<br />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label>Add Imagem</label><br />
+				<p>( - arquivo .jpg  ;  tamanho de 1000x1000px )</p>
+				<input type="file" name="img_variacao" />
+				<br />
+				<!-- BEGIN BLOCK_IMAGEM_VARIACAO -->
+				<img src="{path}timthumb/timthumb.php?src={path}img/produtos/{item->imagem}&w=100" />
+				<!-- END BLOCK_IMAGEM_VARIACAO -->
+			</td>
+			<td style="border-top:1px solid;">
+				<!--br />
+				<label>Tabela 1 ST ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela1_st]" value="{item->tabela1_st}" onkeypress="return formataMoeda(this,event);" />
+				<br />
+				<label>Tabela 2 ST ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela2_st]" value="{item->tabela2_st}" onkeypress="return formataMoeda(this,event);" />
+				<br />
+				<label>Tabela 3 ST ( R$ )</label><br />
+				<input type="text" class="text form-control" name="itemvariacao[tabela3_st]" value="{item->tabela3_st}" onkeypress="return formataMoeda(this,event);" /-->
+			</td>
+		</tr>
+	</table>
+	
+	<br /><br />
+	<table><tr><td valign="bottom">
+	<span class="bt_afirmar" id="salvar_varicao">Salvar</span>
+	</td><td valign="top">
+	<span class="bt_negar" id="cancelar_varicao">Cancelar</span>
+	</td></tr></table>
+	
+	<div id="msg_sucesso" style="color:#1b8c1e;display:none;"></div>
+	<div id="msg_erro" style="color:#ab1313;display:none;"></div>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#formPrincipal").ajaxForm({
+				dataType:  "json",
+				beforeSubmit : function(){},
+				success : function(out){
+					if(out['status']==1){
+						$("#msg_sucesso").html(out['msg']);
+						$("#msg_sucesso").show();
+						
+						setTimeout( location.reload() , 1200);
+					}
+					if(out['status']==0){
+						$("#msg_erro").html(out['msg']);
+						$("#msg_erro").show();
+					}
+				}
+			});
+			
+			
+			$("#salvar_varicao").bind("click",function(){
+				$("#action").val('salva_variacao');
+				$("#formPrincipal").submit();
+			});
+			
+			$("#cancelar_varicao").bind("click",function(){
+				$("#box_itemvariacao").remove();
+			});
+			
+			$("#fechar_itemvariacao").bind("click",function(){
+				$("#box_itemvariacao").remove();
+			});
+			
+			
+			$("#cor_itemvariacao").bind("change",function(){
+				cor_id = this.value;
+				$.ajax({
+					url : "{path}admin.php/getCorCodigo/"
+					,data : {id:cor_id}
+					,success : function(out){
+						valor = $("#item_referencia").data('ref')+out;
+						$("#item_referencia").val(valor);
+					}
+				});
+			});
+		});
+	</script>
+</div>

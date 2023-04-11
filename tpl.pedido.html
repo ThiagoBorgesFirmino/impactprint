@@ -1,0 +1,174 @@
+<div class="d-pedido" id="menu_pedido">
+	<div class="container paddding_0">
+		<div class="row margin_0">
+			<div class="col-md-12 padding_0">
+				<div class="">
+					<h1 class="_title">{h1}</h1>
+					<hr class="linha"></hr>
+				</div>
+				<div class="col-md-12 d-topo-car hidden-sm hidden-xs">
+					<div class="col-md-2">
+						<p>Código</p>
+					</div>
+					<div class="col-md-1">
+						<p>Imagem</p>
+					</div>
+					<div class="col-md-2">
+						<p>Descrição</p>
+					</div>
+					<div class="col-md-2 text-center" style= 'margin-left: -15px;'>
+						<p>Cor</p>
+					</div>
+					<div class="col-md-2 text-center" style= 'margin-right: -44px;'>
+						<p>Gravação</p>
+					</div>
+					<div class="col-md-2 text-center" style="margin-left: 20px;">
+						<p>Quantidade</p>
+					</div>
+				</div>
+				<!--form action="{index}pedido_finaliza" name="formEnviar" method="post">
+				<input type="hidden" value="{token}" name="token" /-->
+				<!-- BEGIN BLOCK_LIST_PEDIDO -->
+				<div  class="col-md-12 col-sm-12 col-xs-12 d_conteudo_carrinho _produto_{list_pedido->item_id}">
+					<div class="col-md-2 hidden-sm hidden-xs" >
+						<p class="carrinho_p_ref">{list_pedido->item_referencia}</p>
+					</div>
+					<div class="col-md-1 col-sm-6 col-xs-6 d_img_prod_car" style="padding:0px">
+						<img src="{imagem_produto}" width="100%"/>
+					</div>
+					<div class="col-md-2 col-sm-6 col-xs-6">
+						<a href="#" data-id="{list_pedido->item_id}" class="item_excluir excluir_mobile btn visible-sm visible-xs" style="position:relative;top:0px;right:0px;margin:0px;float:right"><span class="glyphicon glyphicon-remove"></span></a>
+						<p class="carrinho_p_ref visible-sm visible-xs">{list_pedido->item_referencia}</p>
+						<p class="carrinho_p_nome">{list_pedido->item_nome}</p>
+					</div>
+					<div class="col-md-2 col-sm-12 col-xs-12 text-center">
+						<!-- BEGIN BLOCK_ITEMCOR -->
+						<table width="100%">
+							<tr>
+								<td class="visible-sm visible-xs" style="text-align:right">
+									<p style="margin-right:10px;margin-top:20px">Cor:</p>
+								</td>
+								<td width="70%">
+									
+									<p class="p_cor_car form-control"><small>{list_pedido->cor_nome}</small></p>
+									
+								</td>
+							</tr>
+						</table>
+						<!-- END BLOCK_ITEMCOR -->
+					</div>
+					<div class="col-md-2 col-sm-12 col-xs-12">
+						<!-- BEGIN BLOCK_GRACACAO_PEDIDO -->
+						<table width="100%">
+							<tr>
+								<td class="visible-sm visible-xs" style="text-align:right">
+									<p style="margin-right:10px;margin-top:20px">Gravação:</p>
+								</td>
+								<td width="70%">
+									
+									<div class="div_select">
+										<div class='d_select'>
+											<select name='gravacao_id' class='form-control select input_detalhe js-select-gravacao' onchange='altGravacao(this,"{list_pedido->unique_id}")'>
+												{select_gravacao}
+											</select>
+										</div>
+									</div>
+									
+								</td>
+							</tr>
+						</table>
+						<!-- END BLOCK_GRACACAO_PEDIDO -->
+					</div>
+					<div class="col-md-3 col-sm-12 col-xs-12">
+						<table width="100%">
+							<tr>
+								<td class="visible-sm visible-xs" style="text-align:right;">
+									<p style="margin-right:10px;margin-top:20px">Qtd:</p>
+								</td>
+								<td>
+									<input type="text" class="qtd-pedido so_num quantidade_item form-control text-center" data-id="{list_pedido->item_id}" data-qtd_minima="{list_pedido->item_qtd_minima}" data-unique_id="{list_pedido->unique_id}" data-qtd_indice="1" name="item[{list_pedido->item_id}][qtd]" value="{list_pedido->item_qtd}" onkeyup="qtd1_({list_pedido->item_id})" />
+								</td>
+								<td>
+									<input type="text" class="qtd-pedido so_num quantidade_item form-control text-center" data-id="{list_pedido->item_id}" data-qtd_minima="{list_pedido->item_qtd_minima}" data-unique_id="{list_pedido->unique_id}" data-qtd_indice="1" name="item[{list_pedido->item_id}][qtd2]" value="{list_pedido->item_qtd2}" onkeyup="qtd1_({list_pedido->item_id})" />
+								</td>
+								<td>
+									<input type="text" class="qtd-pedido so_num quantidade_item form-control text-center" data-id="{list_pedido->item_id}" data-qtd_minima="{list_pedido->item_qtd_minima}" data-unique_id="{list_pedido->unique_id}" data-qtd_indice="1" name="item[{list_pedido->item_id}][qtd3]" value="{list_pedido->item_qtd3}" onkeyup="qtd1_({list_pedido->item_id})" />
+								</td>
+								<td class="hidden-sm hidden-xs">
+									<a href="#" data-id="{list_pedido->item_id}" class="item_excluir btn"><span style="color: red;" class="glyphicon glyphicon-remove"></span></a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<!-- END BLOCK_LIST_PEDIDO -->
+				<div class="col-md-12 col-sm-12 col-xs-12 padding_0 d-bt-car">
+					<div class="col-md-6 col-sm-6 col-xs-12 padding_0">
+						<div class="form-group">
+							<a href="{link_back}" class="btn btn-continuar">Adicionar mais produtos</a>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 text-right padding_0">
+						<div class="form-group">
+							<!--a xhref="{index}pedido_finaliza" class="btn btn-solicitar">FINALIZAR ORÇAMENTO</a-->
+							<a id="btn_form_down" xhref="{index}pedido_finaliza" class="btn btn-solicitar abrir_formulario">Salvar e Avançar</a>
+						</div>
+					</div>
+				</div>
+				<!--/form-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="d-email-cad d_cadastro">
+	<div class="container padding_0" >
+		<div class="row margin_0">
+			<div class="col-md-12 paddding_0 ">
+				<div class="d-conteudo-cadastro">
+					<form name="formCadastro" class="formAjx" id="formCadastro" method="POST" action="{path}ajax.php/ajxCadastrar/">
+						{dadoscliente}
+
+						<div style="width:90%;margin:0 auto;margin-bottom:30px;">
+							<div class="d_bt_enviar" style="position:relative">
+								<input type="button" id="finalizar_orc" value="Enviar dados e finalizar o orçamento" class="button fc_enviar botao_padrao s_btn concluir_pedido right bt_enviar bt_enviar_carrinho" data-redir="pedido_confirmacao" />
+								<div style="clear:both"></div>
+								<div class="erro bg-danger" id="_msg_finaliza" style="display:none"></div>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<section class="pedido"  style="display:none;">
+    <!-- BEGIN BLOCK_TITULOS_ESPECIAIS -->
+	<!-- END BLOCK_TITULOS_ESPECIAIS -->
+	<!-- BEGIN BLOCK_ITEMCORMOB -->
+	<!-- END BLOCK_ITEMCORMOB -->
+</section>
+
+<script>
+
+	$(document).ready(function(){
+		$("#btn_form_down").bind("click", function(){
+			var target_offset = $(this).offset();
+			var target_top = target_offset.top;
+			$('html, body').animate({ scrollTop: target_top }, 400);
+		
+
+		});
+
+		$("#finalizar_orc").bind("click", function(){
+			var target_offset = $(this).offset();
+			var target_top = target_offset.top;
+			$('html, body').animate({ scrollTop: 570 });
+
+		});
+
+	});
+
+</script>

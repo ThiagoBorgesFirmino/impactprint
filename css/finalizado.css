@@ -1,0 +1,79 @@
+﻿.finalizado dl {font-size:16px; line-height:20px; }
+.finalizado .pedido-itens { background-color:#ebebeb; padding-bottom:45px; }
+@media (min-width: 992px) {
+    .finalizado .container-conteudo { max-width:80%; }
+}
+
+.finalizado .pedido-list { background-color: #fff; padding-top: 15px; padding-bottom: 15px; padding-right: 15px; padding-left: 15px; }
+.finalizado .pedido-list { margin-top:20px; margin-bottom:20px; }
+
+.finalizado{}
+.finalizado .header-finalizado { height:229px; background-color:#e5e5e5;}
+
+.finalizado .menu-finalizado { background-color:#e5e5e5;}
+.finalizado .menu-finalizado .menu-container-finalizado { width:100%; max-width:1048px; margin:0 auto; padding:0; padding-bottom:18px; border-top:0px solid #333; padding-top:30px; }
+.finalizado .menu-finalizado .menu-container-finalizado img { margin:0 auto; display:block; xmargin-top:30px; }	
+.finalizado .menu-finalizado .menu-container-finalizado h1 { text-align:center; font-size:36px; color:#333; margin-top:12px;}
+.finalizado .menu-finalizado .menu-container-finalizado p { text-align:center; font-family:OpenSans-Bold; font-weight:bold; font-size:14px; color:#333; margin-top:18px;}
+.finalizado .menu-finalizado .menu-container-finalizado p a { text-align:center; font-family:OpenSans-Bold; font-weight:bold; font-size:14px; color:#333; text-decoration:none; }
+.finalizado .menu-finalizado .menu-container-finalizado p a:hover { color:#fa0505;}
+
+/**DADOS CLIENTES**/
+.finalizado .dados-clientes{padding-bottom:20px;}
+.finalizado .dados-clientes .container-dados-clientes{ width:100%; max-width:1048px; margin:0 auto;padding-top:90px;padding-bottom:30px; }
+.finalizado .dados-clientes .container-dados-clientes h1 { font-size:24px; color:#333;}
+.finalizado .dados-clientes .container-dados-clientes span { font-size:14px; color:#333;}
+
+.finalizado .dados-clientes .conteudo-dados-clientes{width:100%; max-width:1048px; margin:0 auto; ;}
+.finalizado .dados-clientes .conteudo-dados-clientes .logo-cliente { width:100%; max-width:1048px; height:120px; margin:0 auto; }
+.finalizado .dados-clientes .conteudo-dados-clientes .logo-cliente img {display:block; margin:0 auto;}
+
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente { width:100%; max-width:1048px; margin:0 auto; }
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-1 {width:450px; float:left;}
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-1 li h2 {font-family:Oxygen; font-size:14px; color:#878787; padding-bottom:12px;}
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-1 li span {font-family:Oxygen; font-weight:bold; font-size:14px; color:#878787; padding-left:15px;}
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-2 {width:450px; float:left;}
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-2 li h2 {font-family:Oxygen; font-size:14px; color:#878787; padding-bottom:12px;}
+.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-2 li span {font-family:Oxygen; font-weight:bold; font-size:14px; color:#878787; padding-left:15px;}
+
+.finalizado .dados-clientes .conteudo-dados-clientes .link-alterar-cadastro {float:right; font-family:Georgia; font-style:italic; font-size:14px; color:#333; text-decoration:none; }
+
+/**INICIO PEDIDo**/
+.finalizado .conteudo-finalizado { }
+.finalizado .conteudo-finalizado .container { width:100%; max-width:1048px; margin:0 auto; border-top:1px solid #696969;}
+.finalizado .conteudo-finalizado .container h1 { font-size:24px; color:#333;}
+.finalizado .conteudo-finalizado .container h1 span { font-size:24px; font-weight:bold; color:#333;}
+.finalizado .conteudo-finalizado .container .container-finalizado {width:1048px; margin:0 auto;  padding:0; }
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado{ width:100%; max-width:1048px; margin:0 auto; padding-top:65px;}
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado  li{float:left;}
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado  li p {font-family:OpenSans-Bold; font-weight:bold; font-size:14px; color:#333;}
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado .li-prod{margin-left:85px; margin-right:198px;}
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado .li-desc{margin-right:169px;}
+.finalizado .conteudo-finalizado .container .container-finalizado .categoria-finalizado .li-cor{margin-right:160px;}
+                                 
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado { width:100%; max-width:1048px; margin:0 auto; margin-bottom:5px; padding-top:20px; padding-bottom:38px; border:1px solid #cccccc; position:relative; }
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .fechar-finalizado { position:absolute; z-index:500; border:0px solid; top:2px; left:5px}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .fechar-finalizado a {font-family:Oxygen; font-weight:bold; font-size:18px; color:#333; text-decoration:none;}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .img-descricao-finalizado { width:240px; height:240px; float:left; margin-left:10px; /*background-color:yellow;*/}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .txt-descricao-finalizado { width:171px; /*height:171px;*/ float:left; margin-left:87px; /*background-color:gray;*/}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .txt-descricao-finalizado h1 {font-family:Oxygen; font-size:24px; color:#333; }
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .txt-descricao-finalizado p {font-family:Oxygen; font-size:12px; color:#333; }
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .cor-descricao-finalizado { width:69px; /*height:171px;*/ float:left;  margin-left:94px; margin-top:35px; /*background-color:green;*/}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .cor-descricao-finalizado .cor-pedido { width:58pxpx; height:58px; border:2px solid #333; margin-bottom:4px;}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .qtd-descricao-finalizado { width:155px; /*height:171px;*/ margin-top:0px; float:left; margin-left:140px; /*background-color:blue;*/}
+.finalizado .conteudo-finalizado .container .container-finalizado .descricao-finalizado .qtd-descricao-finalizado .qtd-finalizado { width:151px; height:58px; border:2px solid #333; border-collapse:collapse; display:table-caption; text-align:center}
+/**FIM PEDIDO **/                
+              
+.categoria-pedido-finalizado {margin-top:30px; text-align:center;}
+.categoria-pedido-finalizado ul li{float:left; }
+.descricao-pedido-finalizado {text-align:center;}
+.descricao-pedido-finalizado .img-descricao-pedido-finalizado img{width:100%}
+.descricao-pedido-finalizado .cor-descricao-pedido-finalizado img{border:2px solid #333;}
+.descricao-pedido-finalizado .vlr-descricao-pedido-finalizado p{font-size:18px;}
+.descricao-pedido-finalizado .sub-descricao-pedido-finalizado p{font-size:18px;}
+
+			  
+.descricao-pedido-finalizado{border:1px solid #333; margin-bottom:30px;}
+.descricao-pedido-finalizado .p_item{float:left; margin-top:30px;}
+
+

@@ -1,0 +1,72 @@
+
+<!--<div id="myCarouselMobile" class="carousel slide col-xs-12 visible-ms visible-xs" style="padding:0px; display: none;">
+	<ol class="carousel-indicators hidden-xs">-->
+		<!-- BEGIN BLOCK_BANNERPRINCIPALMOBILE_THUMB -->
+		<!--<li data-target="#myCarousel" data-slide-to="{i}" class="{active}"></li>-->
+		<!-- END BLOCK_BANNERPRINCIPALMOBILE_THUMB -->
+	<!--</ol>
+    <div class="carousel-inner">-->
+        <!-- BEGIN BLOCK_BANNERPRINCIPALMOBILE_ -->
+        <!--<div class="item {active}">
+        <a href="{destaquehome->custom1}" title="{destaquehome->titulo}"><img src="{path}{destaquehome->img1}" class="img-responsive" style="width:100%;"></a>
+        </div>-->
+       <!-- END BLOCK_BANNERPRINCIPALMOBILE_ -->
+    <!--</div>
+    <a class="left carousel-control" href="#myCarouselMobile" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="right carousel-control" href="#myCarouselMobile" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Próxima</span>
+    </a>
+</div>-->
+
+
+<div class="banner slide col-xs-12 visible-ms visible-xs d">
+    <div class="row">
+        <div class="col-sm-12 padding_off ">
+            
+            <div class="swiper-container slide_mobile">
+                <div class="swiper-wrapper">
+                        <!-- BEGIN BLOCK_BANNERPRINCIPALMOBILE -->
+                    <div class="swiper-slide">
+                        <a href="{destaquehome->custom1}" alt="{destaquehome->titulo}">
+                            <img src="{path}{destaquehome->img1}" alt="{destaquehome->titulo}" title="" style="width:100%;" />
+                        </a>
+                    </div>
+                        <!-- END BLOCK_BANNERPRINCIPALMOBILE -->                         
+                </div>
+                
+                <div class="swiper-button-prev btn-prev">
+                    <table><tr><td valign="middle"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></td></tr></table>
+                </div>
+                <div class="swiper-button-next btn-next">
+                        <table><tr><td valign="middle"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></td></tr></table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>        
+    var mySwiper = new Swiper ('.swiper-container', {
+        // Optional parameters
+        loop: true,
+        autoplay: '5000',
+        direction: 'horizontal',
+
+        // Navigation arrows
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+
+        // Pagination
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        paginationBulletRender: function (swiper, index, className) {
+            return '<span class="' + className + ' my-bullets"></span>';
+        }
+    });   
+</script>

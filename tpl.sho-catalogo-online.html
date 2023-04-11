@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link type="text/css" rel="stylesheet" href="{path}css/book.css" />
+		<script type="text/javascript" src="{path}js/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="{path}js/turn.min.js"></script>
+	</head>
+	<body class="hide-overflow">
+
+		<div class="t">
+			<div class="tc rel">			
+				<div class="book" id="book">
+					<!-- BEGIN BLOCK_PAGES -->
+					<div class="page">
+						<img src="{path}{pathfile}/{catalogoimagem->imagem}" />
+					</div>
+					<!-- END BLOCK_PAGES -->
+				</div>		
+			</div>
+		</div>
+		
+		<div>
+			<!-- BEGIN BLOCK_CAMINHOS -->
+			{path}{catalogo->pathfile}/{catalogoimagem->imagem} <br />
+			<!-- END BLOCK_CAMINHOS -->
+		</div>
+		
+		
+		<script>
+			//<![CDATA[ 
+
+			/*
+			 * Turn.js responsive book
+			 */
+
+			/*globals window, document, $*/
+
+			(function () {
+				'use strict';
+
+				var module = {
+					ratio: 2,
+					init: function (id) {
+						var me = this;
+
+						// if older browser then don't run javascript
+						if (document.addEventListener) {
+							this.el = document.getElementById(id);
+							this.resize();
+							this.plugins();
+
+							// on window resize, update the plugin size
+							window.addEventListener('resize', function (e) {
+								var size = me.resize();
+								$(me.el).turn('size', size.width, size.height);
+							});
+						}
+					},
+					resize: function () {
+						// reset the width and height to the css defaults
+						//console.log(this.el);
+						this.el.style.width = '';
+						this.el.style.height = '';
+
+						var width = this.el.clientWidth,
+							height = Math.round(width / this.ratio),
+							padded = Math.round(document.body.clientHeight * 1);
+
+						// if the height is too big for the window, constrain it
+						if (height > padded) {
+							height = padded;
+							width = Math.round(height * this.ratio);
+						}
+
+						// set the width and height matching the aspect ratio
+						this.el.style.width = width + 'px';
+						this.el.style.height = height + 'px';
+
+						return {
+							width: width,
+							height: height
+						};
+					},
+					plugins: function () {
+						// run the plugin
+						$(this.el).turn({
+							gradients: true,
+							acceleration: true,
+							when: {
+								turning: function(event, page, pageObject) {
+									bookCenter(page);
+								}
+							}
+						});
+						// hide the body overflow
+						document.body.className = 'hide-overflow';
+					}
+				};
+
+				module.init('book');
+			}());
+			//]]>  
+
+			$(document).ready(function(){
+				bookCenter(0);
+				$(window).resize(function(){
+					bookCenter(0);					
+				});
+			});
+		
+			function bookCenter(page){
+				var mleft = false;
+				
+				if(page>0){
+					if(page == 1){
+						mleft = true;
+					}
+				}else{
+					$(".page-wrapper").each(function(){
+						if( $(this).attr('page') == 1 ){
+							if( $(this).css('display') != 'none' ){
+								mleft = true;
+							}
+						}
+					});
+				}
+				
+				if(mleft == true){
+					mar_left = ( $(window).width() - $("#book").width() ) / 2;
+					um4 = $("#book").width() / 4;				
+					fator = mar_left - um4;			
+					$("#book").css('margin-left',fator+"px");
+				}else{
+					$("#book").css('margin',"auto");
+				}
+			}
+		</script>
+		
+	</body>
+</html>

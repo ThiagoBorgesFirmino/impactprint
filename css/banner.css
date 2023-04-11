@@ -1,0 +1,75 @@
+@charset 'utf-8';
+
+.banner{
+	position:relative;
+}
+.banner section{
+	position:relative;
+	overflow:hidden;
+}
+.img_b_opacity{
+	opacity:0.3;
+	filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+.banner section .b_container{
+	position:absolute;
+	left:0;
+	bottom:123px;
+	width:100%;
+}
+/* efect */
+.banner section .b_container_efect{
+	position:absolute;
+	left:0;
+	bottom:-165px;
+	width:100%;
+}
+.banner section div .texto{
+	width:1048px;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.banner section div .texto h2{
+	font-size:5.077em;/*92px*/
+	/*font-size:5vw;*/
+	color:#FFF;
+	text-align:center
+}
+.banner section div .texto h6{
+	font-size:1.615em;/*21px*/
+	color:#FFF;
+	/*width:176px;*/
+	text-transform:uppercase;
+	text-align:center !important;
+	display:block;
+}
+.banner .thumbs_container{
+	position:absolute;
+	left:0;
+	bottom:27px;
+	width:100%;
+}
+.banner .thumbs_container .thumbs{
+	width:auto;
+	margin-left:auto;
+	margin-right:auto;
+	display:table;
+	list-style:none;
+}
+.banner .thumbs_container .thumbs li{
+	float:left;
+	width:8px;
+	height:8px;
+	background-image:url('../img/assets/thumbs.png');
+	background-repeat:no-repeat;
+	background-position: -20px 0;
+	margin-right:12px;
+	cursor:pointer;
+}
+.banner .thumbs_container .thumbs li.selected{
+	background-position: 0 0;
+}
+.slidebanner_titulo{
+	 text-shadow: 5px 5px 10px #000;
+}

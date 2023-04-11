@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+	<title>Proposta</title>
+	<style>
+		body {margin:0px;padding:0px;background:#ececec;}
+		a{text-decoration: none;}
+	</style>
+</head>
+
+<body>
+	<center>
+		{proposta->info_saudacao_personalizada}
+		<!-- head -->
+		<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;text-align:center;background:#FFF;padding-top:25px;padding-bottom:25px;border-top-left-radius:10px;border-top-right-radius:10px;">
+			<tr>
+				<td>
+					<a href="{config->URL}" title="{config->EMPRESA}"><img src="{config->URL}img/logo/logo-email.png" alt="{config->EMPRESA}" width="280" style="margin-bottom:15px;width:280px;"/></a>
+					<hr style="width:97%;margin:0 auto;"></hr>
+				</td>
+			</tr>
+		</table>
+		<!-- head -->
+		<table cellspancing="0" cellpadding="0" border="0" style="width:600px;margin:0 auto;vertical-align:top;background:#FFF;" align="center">
+			<tr>
+				<td style="width:20px;height:100%;">&nbsp;</td>
+				<td style="width:100%;text-align:center;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:21px;">N&Uacute;MERO DO OR&Ccedil;AMENTO:  {pedido->id}</span>
+				</td>
+				<td style="width:20px;height:100%;">&nbsp;</td>
+			</tr>
+		</table>
+
+		<!-- CONTEUDO -->
+		<table cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px;background-color:#FFF;">
+			<tr>
+				<td style="text-align:center;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">PROPOSTA: {proposta->numero}</span>
+				</td>
+			</tr>
+		</table>
+		<table cellspacing="0" style="width:600px; margin:0 auto;background-color:#FFF;">
+			<tr>
+				<td style="width:10px">
+				</td>
+				<td>
+					<table style="width:100%;">
+						<tr>
+							<td style="width:50%;">
+								<span>
+									<strong style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:14px;">Aos cuidados de</strong><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Empresa: {cadastro->empresa}</span><br/>
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">CNPJ: {cadastro->cnpj_formatado}</span><br/>
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Contato: {cadastro->nome}</span><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Email: {cadastro->email}</span><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Telefone: {cadastro->fone_com} {cadastro->fone_cel}</span>
+								</span>
+							</td>
+							<td style="width:15%;"></td>
+							<td>
+								<span>
+									<strong style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:14px;">Dados do Atendimento</strong><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Nome: {vendedor->nome}</span><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Email: {vendedor->email}</span><br />
+									<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Telefone: {vendedor->fone_com} {vendedor->fone_cel}</span>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td style="width:10px">
+				</td>
+			</tr>
+		</table>
+		<table  cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px;background-color:#fff;">
+			<tr>
+				<td style="width:10px;"></td>
+				<td style="text-align:left;" colspan="3">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:14px;">ITENS DA PROPOSTA</span><br/>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Para mais fotos e detalhes sobre os produtos clique na foto.</span>
+				</td>
+				<td style="width:10px;"></td>
+			</tr>
+		</table>
+		<table cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px;background-color:#fff;">
+			<tr>
+				<td style="width:10px;"></td>
+				<th>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Produto</span>
+				</th>
+				<th style="width:120px; text-align:center">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Imagem</span>
+				</th>
+				<!--
+				<th style="width:50px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Titulo</span>
+				</th>
+				-->
+				<th style="width:187px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">info</span>
+				</th>
+				<th style="width:50px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Pre&ccedil;o R$</span>
+				</th>
+				<th style="width:50px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Qtd.</span>
+				</th>
+				<th  style="width:48px;text-align:center">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:12px;">Total R$</span>
+				</th>
+				<td style="width:10px;"></td>
+			</tr>
+		
+			<!-- BEGIN BLOCK_PROPOSTAITEM -->
+			<tr>
+				<td style="width:10px;background-color:#fff;"></td>
+				<td>
+					<strong>
+						<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;">{propostaitem->referencia}&nbsp;</span>
+					</strong>
+					<br><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;">{propostaitem->nome}&nbsp;</span>
+				</td>
+				<td align="center">
+					<a href="{link}" target="_blank"><img src="{propostaitem->imagem}" class="img_produto" style="display:block;border:1px solid #000000;width:80px;"/></a>
+				</td>
+				<!--
+				<td style="width:50px;font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;"><span>{propostaitem->nome}&nbsp;</span></td>
+				-->
+				<td style="width:187px;font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;padding:4px;">
+					<span>{propostaitem->descricao_html}&nbsp;</span>
+				</td>
+				<td align="center" style="width:50px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;">
+						{propostaitem->preco}&nbsp;
+						<!-- BEGIN BLOCK_PROPOSTAITEM_PRECO2 -->
+						<br />
+						{propostaitem->preco2}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_PRECO2 -->
+						<!-- BEGIN BLOCK_PROPOSTAITEM_PRECO3 -->
+						<br />
+						{propostaitem->preco3}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_PRECO3 -->
+					</span>
+				</td>
+				<td align="center" style="width:50px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;">
+						{propostaitem->item_qtd}&nbsp;
+						<!-- BEGIN BLOCK_PROPOSTAITEM_QTD2 -->
+						<br />
+						{propostaitem->item_qtd2}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_QTD2 -->
+						<!-- BEGIN BLOCK_PROPOSTAITEM_QTD3 -->
+						<br />
+						{propostaitem->item_qtd3}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_QTD3 -->
+					</span>
+				</td>
+				<td  align="center" style="width:48px">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:11px;">
+						{propostaitem->sub_total}&nbsp;
+						<!-- BEGIN BLOCK_PROPOSTAITEM_SUBTOTAL2 -->
+						<br />
+						{propostaitem->sub_total2}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_SUBTOTAL2 -->
+						<!-- BEGIN BLOCK_PROPOSTAITEM_SUBTOTAL3 -->
+						<br />
+						{propostaitem->sub_total3}&nbsp;
+						<!-- END BLOCK_PROPOSTAITEM_SUBTOTAL3 -->
+					</span>
+				</td>
+				<td style="width:10px;background-color:#fff;"></td>
+			</tr>
+			<!-- END BLOCK_PROPOSTAITEM -->
+			<tr>
+				<td colspan="7" style="border-bottom:1px solid #000000;text-align:right">
+					&nbsp;
+					<!-- <strong style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#000 !important;font-size:14px;">Total</strong>
+					<strong style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">{proposta->info_total}</strong> -->
+				</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<table cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px;padding-bottom:5px;background-color:#fff;">
+			<tr>
+				<td style="width:10px"></td>
+				<td>
+					<table>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Op&ccedil;&atilde;o de frete:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_frete}</span></td>
+						</tr>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Validade da proposta:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_validade_proposta}</span></td>
+						</tr>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Prazo de entrega:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_prazo_entrega}</span></td>
+						</tr>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Observa&ccedil;&otilde;es:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_obs}</span></td>
+						</tr>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Observa&ccedil;&otilde;es Adicionais:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_obs_adicionais}</span></td>
+						</tr>
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Forma de pagamento:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_forma_pagamento}</span></td>
+						</tr>
+						<!-- BEGIN BLOCK_LOCAL_ENTREGA -->
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Local de entrega:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_local_entrega}</span></td>
+						</tr>		
+						<!-- END BLOCK_LOCAL_ENTREGA -->
+						<!-- BEGIN BLOCK_LOCAL_COBRANCA -->
+						<tr>
+							<td><small style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:14px;">Local de cobran&ccedil;a:</small></td>
+							<td><span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#000 !important;font-size:12px;">{proposta->info_local_cobranca}</span></td>
+						</tr>
+						<!-- END BLOCK_LOCAL_COBRANCA -->
+						<!--tr>
+							<td><small>total das mercadorias:</small></td>
+							<td><span>{proposta->info_total}</span></td>
+						</tr>				
+						
+						<tr>
+							<td><small>total de icms:</small></td>
+							<td><span>{proposta->info_total_icms}</span></td>
+						</tr>				
+						
+						<tr><td><small>total com impostos:</small></td>
+							<td><span>{proposta->info_total_impostos}</span></td>
+						</tr>				
+						<tr>
+							<td><small>vendedor respos&aacute;vel:</small></td>
+							<td><span>{proposta->info_vendedor}</span></td>
+						</tr -->
+					</table>
+				</td>
+				<td style="width:10px"></td>
+			</tr>
+		</table>
+		<!-- CONTEUDO -->
+		<!-- Footer -->
+		<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;background-color:#FFF;border-top:1px solid #CCC;padding-left:15px;padding-right:15px;padding-top:10px;padding-bottom:10px;">
+			<tr>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Atenciosamente</span><br/>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:16px;">Equipe {config->EMPRESA}</span>
+				</td>
+				<td rowspan="2" style="text-align:right" >
+					<img src="{config->URL}img/logo/logo.png" alt="" style="width:60px !important;">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Tel.: &#9679; {config->TELEFONE}</span><br/>
+					<a href="mailto:{config->EMAIL_CONTATO}" style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">{config->EMAIL_CONTATO}</a>
+				</td>
+			</tr>
+		</table>
+		<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;background-color:#666;padding:5px 0px;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+			<tr>
+				<td style="width:15px;height:100%;">&nbsp;</td>
+				<td style="width:60%;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;">{config->EMPRESA} Todos os direitos reservados.</span>
+				</td>
+				<td  style="text-align:right;padding:0 12px;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;display:block;text-align:right">Desenvolvimento <a href="http://ajung.com.br" style="color:#FFF;">A. Jung</a></span>
+				</td>
+				<td style="width:15px;height:100%;">&nbsp;</td>
+			</tr>
+		</table>
+		<!-- Footer -->
+	</center>
+</body>
+
+
+</html>

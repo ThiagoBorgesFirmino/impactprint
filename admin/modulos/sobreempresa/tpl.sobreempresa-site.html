@@ -1,0 +1,123 @@
+
+<!-- BEGIN BLOCK_EMPRESA_BANNER -->
+<div style="display:none">
+	<img src="{path}upload/sobreempresa/{sobreempresa->img1}" width="100%;"/>
+</div>
+<!-- END BLOCK_EMPRESA_BANNER -->
+<div class="conteudo_sobre">
+	<div class="container">
+		<div class="row margin_0">
+			
+			<div class="col-md-12 padding_0 text-center">
+				<br/>
+					<h1>{sobreempresa->titulo}</h1>
+					<hr class="hr_sobre"></hr>
+				<br/>
+			</div>
+			<div class="col-md-12 col-sm-12 col-xs-12 padding_0" style="margin-top:10px; text-align:justify;">{sobreempresa->conteudo}</div>
+
+		</div>
+	</div>
+</div>
+
+<div>
+	<div class="container container_sobre">
+		<div class="row margin_0">
+			<div class="col-md-12 padding_0 text-center">
+				<br/>
+					<!-- <h1>{sobreempresa->titulo}</h1> -->
+					<hr class="hr_sobre"></hr>
+				<br/>
+			</div>
+			
+			<!-- BEGIN BLOCK_EMPRESA_TEXTO -->			
+			<div>
+				<p>
+					{sobreempresa->conteudo}
+				</p>
+			</div>
+			<!-- END BLOCK_EMPRESA_TEXTO -->			
+			
+			<div class="col-md-12" style="margin-top:65px;">
+			<!-- BEGIN BLOCK_TOPICOS_CONTENT -->
+			<!-- BEGIN BLOCK_TESTE_MASTER -->
+			
+			
+			<div class="col-md-12 col-sm-12 col-xs-12 padding_0 ">
+				
+				<!-- BEGIN BLOCK_TOPICOS -->
+				<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+					<div class="col-md-5 col-sm-12 col-xs-12 texto_sobre text-right">
+						<!-- <span class="sobre_title left" id="{topico}">{sobreempresa_topico->titulo}</span><br/> -->
+						<span class="sobre_text left" id="{topico}">{sobreempresa_topico->conteudo}</span>
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-6 hidden-sm hidden-xs" stxyle="width:170px;height:170px;background-image:url({path}upload/sobreempresa/{sobreempresa_topico->img1});background-repeat:no-repeat;background-size:100%;">
+						<!-- img src="{path}img/sobreempresa/{sobreempresa_topico->img1}" width="100%;"/ -->
+						<img src="{path}upload/sobreempresa/{sobreempresa_topico->img1}" class="img-responsive" style="width:100% !important" />
+					</div>
+					<div class="col-md-5 col-sm-5 col-xs-0 hidden-sm hidden-xs">
+						<!-- <span class="sobre_title right" id="{topico}">{sobreempresa_topico->titulo}</span><br/>
+						<span class="sobre_text right" id="{topico}">{sobreempresa_topico->conteudo}</span> -->
+					</div>
+				</div>
+												
+				<div class="col-md-12 col-sm-12 col-xs-12">					
+					<div class="col-md-5 col-sm-5 col-xs-5">
+					</div>
+					<div class="col-md-1 col-sm-1 col-xs-1" style="border-right:1px solid #ccc;height:50px;"></div>
+					<div class="col-md-1 col-sm-1 col-xs-1" style="border-left:1px solid #ccc;height:50px;"></div>
+					<div class="col-md-5 col-sm-5 col-xs-5">
+					</div>
+				</div> 
+				<!-- <script>
+					var id = document.getElementById("{topico}").value;
+					if ((id % 2) == 0){
+						$(".right").css("display", "none");
+					}
+					else{
+						$(".left").css("display", "none");
+					}
+				</script> -->
+				<!-- END BLOCK_TOPICOS -->
+				<!-- BEGIN BLOCK_TOPICOS_2 -->
+				 <div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+					<div class="col-md-5 col-sm-5 col-xs-6 hidden-sm hidden-xs text-right">
+						
+					</div>
+					<div class="col-md-2 col-sm-2 col-xs-6 hidden-sm hidden-xs" styxle="width:170px;height:170px;background-image:url({path}upload/sobreempresa/{sobreempresa_topico->img1});background-repeat:no-repeat;background-size:100%">
+						 <!-- img src="{path}img/sobreempresa/{sobreempresa_topico->img1}" width="100%;"/  -->
+						 <img src="{path}upload/sobreempresa/{sobreempresa_topico->img1}" class="img-responsive" style="width:100% !important"/>
+					</div>
+					<div class="col-md-5 col-sm-12 col-xs-12 texto_sobre">
+						<span class="sobre_title">{sobreempresa_topico->titulo}</span><br/>
+						<span class="sobre_text">{sobreempresa_topico->conteudo}</span>
+					</div>
+				</div>
+												
+				<div class="col-md-12 col-sm-12 col-xs-12">					
+					<div class="col-md-5 col-sm-5 col-xs-5">
+					</div>
+					<div class="col-md-1 col-sm-1 col-xs-1" style="border-right:1px solid #ccc;height:50px;"></div>
+					<div class="col-md-1 col-sm-1 col-xs-1" style="border-left:1px solid #ccc;height:50px;"></div>
+					<div class="col-md-5 col-sm-5 col-xs-5">
+					</div>
+				</div> 
+				<!-- END BLOCK_TOPICOS_2 -->
+				<!-- END BLOCK_TESTE_MASTER -->
+				
+				<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+					<div class="col-md-5  col-sm-5 col-xs-0 hidden-sm hidden-xs">
+					</div>
+					<div class="col-md-2  col-sm-12 col-xs-12 img-sobre">
+						<img src="{path}img/ico/final_sobre.png" width="100%"/>
+					</div>
+					<div class="col-md-5  col-sm-5 col-xs-6 text-left hidden-sm hidden-xs">
+					</div>
+				</div>
+				
+			</div>
+			<!-- END BLOCK_TOPICOS_CONTENT -->
+		</div>
+		</div>
+	</div>
+</div>

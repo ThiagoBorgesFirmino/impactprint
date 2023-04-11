@@ -1,0 +1,308 @@
+<section class="post-blog">
+	<div class="header-post-blog" style="display:none;">
+	</div>
+	
+	<div class="top_default">
+		<img src="{slidebanner->bannerblog}" style="display:block;" />		
+	</div>
+	{menu}
+	
+	<div class="menu-post-blog font_geral">
+		<div class="container-menu-post-blog">
+			<img src="{path}img/sobre_detalhe.png"/>
+			<h1>BLOG CREATIVE</h1>
+			<p><a href="{index}">HOME</a> / <a href="{index}blog">BLOG</a></p>
+		</div>
+	</div>
+	
+	<div class="conteudo-post-blog">
+		<div class="container-post-blog">
+			<h1 class="font_geral">BLOG CREATIVE</h1>
+			
+			<!--INICIO POST BLOG-->
+			<div class="post-blog">
+				<div class="banner-post-blog" id="banner_blog_post_{post->id}">
+					<a class="post-next next post_img_slide_nav">next</a>
+					<a class="post-prev prev post_img_slide_nav">prev</a>
+					<ul>
+						<!-- BEGIN BLOCK_POST_IMAGEM -->
+						<li>
+							<img src="{path}img/postimagem/{postimagem->imagem}" class="img_post" width="100%" />
+						</li>
+						<!-- END BLOCK_POST_IMAGEM -->
+					</ul>
+				</div>
+				<div class="text-post-blog">
+					<div class="data-post-blog">
+						<table border="0" cellspacing="0" class="table-1">
+							<tr>
+								<td style="">
+									<h1 style="">{qtd_comments}</h1>
+								</td>
+							</tr>
+						</table>
+						<table border="0" cellspacing="0" class="table-2">
+							<tr style="border-bottom:0px">
+								<td>
+									<h3>{ano}<h3>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<h3>{mes}, {dia}<h3>
+								</td>
+							</tr>
+						</table>						
+					</div>
+					<div class="descricao-post-blog">
+						<h1>{post->titulo}</h1>
+						<h3>Por {post->autor}</h3>
+						
+						<br />
+						<table><tr><td valign="top" style="padding-right:20px;">
+							<div class="fb-like" data-href="{post->link}" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+						</td><td valign="top">
+							<a href="{post->link}" class="twitter-share-button" data-lang="pt" data-count="none">Tweetar</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						</td></tr></table>
+						
+						<div class="texto-post-blog">
+							<span>{post->texto}</span>
+						</div>
+						
+						<br />
+						<table><tr><td valign="top" style="padding-right:20px;">
+							<div class="fb-like" data-href="{post->link}" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
+						</td><td valign="top">
+							<a href="{post->link}" class="twitter-share-button" data-lang="pt" data-count="none">Tweetar</a>
+							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+						</td></tr></table>
+						
+						
+					</div>
+					<br clear="all"/>				
+					
+				</div>
+				<div class="comentarios-post">
+					<!-- BEGIN BLOCK_POSTS_COMMENTS -->
+					<div class="post">
+						<div class="nome-comentario-post">
+							<h1>{comments->autor}</h1>
+						</div>
+							<div class="texto-comentario-post">
+								<span>{comments->comentario}</span>
+							</div>
+						<br clear="all"/>
+						<!-- BEGIN BLOCK_POSTS_COMMENTS_REPLY -->
+						<div class="sub-comentario-post">
+							<div class="nome-sub-comentario-post">
+								<h1>{comments_reply->autor}</h1>
+							</div>
+							<div class="texto-sub-comentario-post">
+								<span>{comments_reply->comentario}</span>
+							</div>
+						</div>
+						<!-- END BLOCK_POSTS_COMMENTS_REPLY -->
+						<br clear="all"/>
+					</div>
+					<br/>
+					<a onclick="javascript:$('#reply_{comments->id}').slideToggle();" class="post-reply">>>REPLY</a>
+					
+					
+					
+					<div class="post-reply-comentario" id="reply_{comments->id}">
+						<h1>REPLY</h1>
+						<br/>
+						<form method="POST" action="{index}comentapost/" id="form_reply_comment_{comments->id}">
+							<input type="hidden" name="postcomment[post_id]" value="{post->id}" />
+							<input type="hidden" name="postcomment[postcomment_id]" value="{comments->id}" />
+							<input type="hidden" name="postcomment[cadastro_id]" value="{cadastro->id}" />
+							<input type="hidden" name="token" value="{token}" />
+							<label>Nome<span>*</span></label>
+							<br/>
+							<input type="text" class="text-comentario" name="postcomment[autor]" value="{cadastro->nome}" />
+							<br/>
+							<label>E-mail<span>*</span></label>
+							<br/>
+							<input type="text" class="text-comentario" name="postcomment[email]" value="{cadastro->email}" />
+							<br/>
+							<label>Website</label>
+							<br/>
+							<input type="text" class="text-comentario" name="postcomment[website]" value="" />
+							<br/>
+							<label>Assunto<span>*</span></label>
+							<br/>
+							<textarea class="textarea-comentario" name="postcomment[comentario]"></textarea>
+							<br/>
+							<input type="submit" value="Adicionar Cometário" class="add-comentario" />
+						</form>
+						<div class="r_mensagem MSG_{comments->id}"></div>
+						<script>
+							$(document).ready(function(){
+								$("#form_reply_comment_{comments->id}").ajaxForm({
+									dataType:  "json",
+									beforeSubmit : function(){
+										$(".MSG_{comments->id}").fadeIn();
+										$(".MSG_{comments->id}").html("Enviando...");
+									},
+									success : function(out){
+										if(out[0]==0){
+											$(".MSG_{comments->id}").css('border-color','#a82312');
+											$(".MSG_{comments->id}").html(out[1]);
+											//$(".c_mensagem").animate({"left":0},400);
+										}
+										if(out[0]==1){
+											$(".MSG_{comments->id}").css('border-color','#06761b');
+											$(".MSG_{comments->id}").html(out[1]);
+											//$(".block_login .l_mensagem").animate({"left":0},400);
+											//setTimeout(function(){location.reload();},1000);
+											//$("#form_reply_comment_{comments->id}").reset();
+											document.getElementById("form_reply_comment_{comments->id}").reset();
+											setTimeout(function(){
+												$('#reply_{comments->id}').slideToggle();											
+											},1000);
+										}
+										//setTimeout(function(){$(".block_login .l_mensagem").animate({"left":"100%"},300);},2500);
+									}
+								}); 
+							
+							
+								$('.r_mensagem').bind('click',function(){
+									$(this).fadeOut();
+								});
+							});
+						</script>
+					</div>
+					<!-- END BLOCK_POSTS_COMMENTS -->
+					
+				</div>
+		
+				
+				
+				<div class="add-comentarios-post font_geral">
+					<h1>ADICIONE UM COMENTÁRIO</h1>
+					<br/>
+					<form method="POST" action="{index}comentapost/" id="form_comment">
+						<input type="hidden" name="postcomment[post_id]" value="{post->id}" />
+						<input type="hidden" name="postcomment[cadastro_id]" value="{cadastro->id}" />
+						<input type="hidden" name="token" value="{token}" />
+						<label>Nome<span>*</span></label>
+						<br/>
+						<input type="text" class="text-comentario" name="postcomment[autor]" value="{cadastro->nome}" />
+						<br/>
+						<label>E-mail<span>*</span></label>
+						<br/>
+						<input type="text" class="text-comentario" name="postcomment[email]" value="{cadastro->email}" />
+						<br/>
+						<label>Website</label>
+						<br/>
+						<input type="text" class="text-comentario" name="postcomment[website]" value="" />
+						<br/>
+						<label>Assunto<span>*</span></label>
+						<br/>
+						<textarea class="textarea-comentario" name="postcomment[comentario]"></textarea>
+						<br/>
+						<label><input type="checkbox" value="S" name="postcomment[st_aviseme]" class="aviseme_post" />Avise-me por e-mail, se comentado.</label>
+						<br/>
+						<input type="submit" value="Adicionar Cometário" class="add-comentario" />
+					</form>
+					<div class="r_mensagem MSG"></div>
+				</div>
+				<script>
+					$("#form_comment").ajaxForm({
+						dataType:  "json",
+						beforeSubmit : function(){
+							$(".MSG").fadeIn();
+							$(".MSG").html("Enviando...");
+						},
+						success : function(out){
+							if(out[0]==0){
+								$(".MSG").css('border-color','#a82312');
+								$(".MSG").html(out[1]);
+								//$(".c_mensagem").animate({"left":0},400);
+							}
+							if(out[0]==1){
+								$(".MSG").css('border-color','#06761b');
+								$(".MSG").html(out[1]);
+								document.getElementById("form_comment").reset();
+								
+								//$(".block_login .l_mensagem").animate({"left":0},400);
+								//setTimeout(function(){location.reload();},1000);
+							}
+							setTimeout(function(){ $(".MSG").fadeOut();$(".MSG").html(""); },3500);
+						}
+					}); 
+				</script>
+			</div>
+			<!--FIM POST BLOG-->
+			
+			
+		</div>
+	</div>
+	
+	<script>	
+		$(document).ready(function(){
+			setaBanners();
+			
+			$(window).resize(function(){
+				$(".banner-post-blog").each(function(){
+					setarTamanhoSlide($(this).attr('id'));					
+				});
+			});
+			
+		});	
+		function carregaBannerPost(id){				
+			if($("#"+id+" img").size()>1){
+				$("#"+id+" .post_img_slide_nav").show();
+				
+				$("#"+id+" ul li").css("width",$("#"+id+"").width()+"px");
+				_qtd = $("#"+id+" ul li").size();
+				_wid = $("#"+id+" ul li").width();
+				$("#"+id+" ul").css('width',(_qtd*_wid+1)+"px");				
+				
+				
+				var cont = 0 ;
+				$("#"+id+" .post-next").bind('click',function(){
+					
+					_left = $("#"+id+" ul").css('left');
+					_left = _left.replace('px','');
+					if(_left==0){cont=0};
+					
+					if(cont<($("#"+id+" ul li").size()-1)){
+						_wid = $("#"+id+" ul li").width();
+						$("#"+id+" ul").animate({'left':"-="+_wid},900);
+						cont++;
+					}
+				});
+				$("#"+id+" .post-prev").bind('click',function(){
+					
+					_left = $("#"+id+" ul").css('left');
+					_left = _left.replace('px','');
+					if(_left==0){cont=0};
+					
+					if(cont>0){
+						_wid = $("#"+id+" ul li").width();
+						$("#"+id+" ul").animate({'left':"+="+_wid},900);
+						cont--;
+					}
+				});				
+			}
+		}
+		
+		function setaBanners(){
+			$(".banner-post-blog").each(function(){
+				carregaBannerPost($(this).attr('id'));
+			});
+		}
+		
+		function setarTamanhoSlide(id){
+			$("#"+id+" ul li").css("width",$("#"+id+"").width()+"px");
+			_qtd = $("#"+id+" ul li").size();
+			_wid = $("#"+id+" ul li").width();
+			$("#"+id+" ul").css('width',(_qtd*_wid+1)+"px");
+			//$("#"+id+" ul").animate({'left':"0"},300);			
+			$("#"+id+" ul").css('left',"0");		
+		}
+	</script>
+	
+</section>

@@ -1,0 +1,134 @@
+<h1>Enviando e-mails</h1>
+
+<br />
+
+<script language="javascript">
+
+	var enviar = [] ;
+
+	var qtdQuebra = 25;
+
+	var pausaEnvioDefault = 10*60; // em segundos
+	var pausaEnvioDefault = 1*30; // em segundos
+	var pausaEnvio = pausaEnvioDefault;
+
+	var qtdTotalEnviar = 0;
+	var qtdAtualEnviado = 0 ;
+
+	function processa(){
+
+		document.getElementById('btnProcessa').disabled = true;
+	
+		if( enviar.length > 0 ){
+
+			$.ajax({
+				type: 'GET'
+				,url: '{index}ajax_crm_campanhas_send/'+new Date().getSeconds()
+				,data: 'newscampanha_id={newscampanha->id}&nome='+enviar[0].nome+'&email='+enviar[0].email
+				,success: function(msg){
+						//alert(msg);
+						//alert(msg);
+						//alert(msg);
+						var temp =  eval('('+msg+')');
+						//alert(temp);
+						if (temp.id){
+
+							qtdAtualEnviado++;
+
+							atualizaStatus();
+
+							//document.getElementById('pEmails').innerHTML += new String(qtdAtualEnviado) + ' - ' + enviar[0].email +'<br>';
+
+							enviar.splice(0,1);
+
+							if( (qtdAtualEnviado%qtdQuebra) == 0 ){
+								document.getElementById('spstatus').innerHTML = 'Aguardando para novo envio';
+								setTimeout("timer()", 10000 );
+							}
+							else {
+								setTimeout("processa()", 1000 );				
+								//processa();
+							}
+						}
+						else {
+							setTimeout("processa()", 5000 );					
+						}
+					}
+			});
+
+		}
+		else {
+			alert('Processamento terminado, os e-mails foram enviados');
+			window.location = new String(window.location);
+		}
+	}
+	
+	// novo
+	function reinicia(){
+
+		$.ajax({
+				type: 'GET'
+				,url: '{index}ajax_crm_campanhas_zera/'+new Date().getSeconds()
+				,data: 'newscampanha_id={newscampanha->id}'
+				,success: function(msg){
+					window.location = new String(window.location);
+				}
+			});
+	}
+
+	function atualizaStatus(){
+		document.getElementById('spsucesso').innerHTML = qtdAtualEnviado ;
+		document.getElementById('spporcento').innerHTML = Math.round((qtdAtualEnviado/qtdTotalEnviar)*100) ;
+		document.getElementById('spfalta').innerHTML = qtdTotalEnviar-qtdAtualEnviado;
+	}
+	
+	function timer(){
+		if( pausaEnvio == 0 ){
+			pausaEnvio = pausaEnvioDefault;
+			processa();
+		}
+		else {
+			pausaEnvio--;
+			document.getElementById('spaguardando').innerHTML = pausaEnvio + ' segundos' ;
+			setTimeout("timer()", 1000 );
+		}
+	}
+
+	<!-- BEGIN BLOCK_ENVIO -->
+	enviar[enviar.length] = {nome:"{envio->nome}",email:"{envio->email}"};
+	<!-- END BLOCK_ENVIO -->
+	
+	qtdAtualEnviado = {qtdAtualEnviado};
+	qtdTotalEnviar = {qtdTotalEnviar};
+
+	//qtdTotalEnviar = enviar.length;
+
+</script>
+
+<div class="box-block">
+	<h2>Dados do envio</h2>
+	<p style="color:red;font-size:12px">saia dessa tela após o término do envio dos e-mails</p>
+	<p><b>Total de e-mails a enviar:</b> <span id="sptotal"></span></p>
+	<p><b>Total de e-mails enviados:</b> <span id="spsucesso">0</span></p>
+	<p><b>Porcentagem de envio:</b> <span id="spporcento">0</span>%</p>
+	<p><b>Faltam enviar:</b> <span id="spfalta">0</span></p>
+	<p><b>Timer para recomeçar envio:</b> <span id="spaguardando">0</span></p>
+	<p><b>Status do trabalho do sistema:</b> <span id="spstatus">(envio n&atilde;o iniciado)</span></p>
+	
+	<!-- BEGIN BLOCK_PROCESSA -->
+	<input type="button" class="button" value="Iniciar/Continuar envio" id="btnProcessa" onclick="document.getElementById('btnProcessa').disabled=true;processa()" />
+	<!-- END BLOCK_PROCESSA -->
+	
+	<!-- BEGIN BLOCK_REINICIAR -->
+	<input type="button" class="button" value="Todos já foram enviados, clique aqui para reiniciar o envio" id="btnReinicia" onclick="reinicia()" />
+	<!-- END BLOCK_REINICIAR -->
+</div>
+
+<script>
+	document.getElementById('sptotal').innerHTML  = qtdTotalEnviar;
+	atualizaStatus();
+</script>
+
+<div style="display:none" tab="1">
+	<iframe src="newsletter-campanha.php?id=<?php echo $news_campanha->id ; ?>" width="100%" height="600px"></iframe>
+</div>

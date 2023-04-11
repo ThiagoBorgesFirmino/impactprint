@@ -1,0 +1,121 @@
+<div class="box-block" style="border:2px solid #444;width:100%;">
+	
+	<span class="fechar" id="b-fechar" style="position:absolute;top:5px;right:10px;cursor:default;color:red;">Fechar</span>
+	
+	<div id="painel_itens" class="_box">
+		<h2 class="h_titulo">Adicionar Item</h2>
+		<span class="h_filtro block">
+			<label>
+				Refer&ecirc;ncia<br />
+				<input type="text" name="referencia" id="busca_referencia" value="" />
+			</label>
+			<label>
+				Nome<br />
+				<input type="text" name="nome" id="busca_nome" value="" />
+			</label>
+			<label>
+				Categorias<br />
+				<select name="categoria" id="busca_categoria">
+					<option></option>
+					<!-- BEGIN BLOCK_BUSCA_CATEGORIAS -->
+					<option value="{categoria->id}">{categoria->nome}</option>
+					<!-- END BLOCK_BUSCA_CATEGORIAS -->
+				</select>
+			</label>
+			<span class="bt_afirmar btn btn-primary" onclick="javascript: buscaProdutos();">buscar</span>
+			<span class="bt_afirmar btn btn-primary" onclick="javascript: addProdutos();">Add</span>
+		</span>
+		
+		<br />
+		<span class="resultado_itens" id="resultado_itens"></span>
+		
+	</div>
+
+	<script>
+		var array_itens = new Array;
+		var item_selected = 0;
+		
+		function  buscaProdutos(){
+			_referencia = document.getElementById('busca_referencia').value;
+			_nome       = document.getElementById('busca_nome').value;
+			_categoria  = document.getElementById('busca_categoria').value;
+			
+			$("#resultado_itens").html("Aguarde ...");
+			
+			$.ajax({
+				url : "{path}ajax.php/buscaProdutos/"
+				,data : {referencia : _referencia, nome : _nome, categoria_id : _categoria}
+				,dataType : "json"
+				,success : function(out){
+					$("#resultado_itens").html(" ");
+					for(i=0;i<out.length; i++){
+						$("#resultado_itens").append(out[i]);
+					}
+					setTimeout(function(){
+						addAction();
+					},300);
+				}
+			});
+		}
+		
+		function addAction(){
+			$(".b_item").bind("click",function(){
+				if($(this).hasClass('active')){
+					item_selected = 0;
+					$(this).removeClass('active');
+				}else{
+					item_selected = $(this).data('id');
+					$(".b_item").removeClass('active');
+					$(this).addClass('active');
+				}
+			});
+		}
+		
+		function addProdutos(){
+			if(item_selected>0){
+				row = $("#itemInfo_"+item_selected).html();
+				_sp = produto_box.children("span.bt_excluir");				
+				
+				//produto_box.html(_sp[0]+""+row);
+				
+				/******/
+				produto_box.children('img').attr('src',"{path}/img/loading.gif");
+				
+				_img_ativo = $(row).children('img')[0];
+				
+				/*console.log(_img_ativo);				
+				return false;*/
+				
+				_src = _img_ativo.src;
+				_id  = $(_img_ativo).data('id');
+				
+				_img_alvo = produto_box.children('img');
+				_pos = produto_box.data('pos');				
+				
+				$.ajax({
+					url : "{path}admin.php/salvaItemMosaico/",
+					data : {item_id : _id, pos : _pos},
+					dataType : 'json',
+					success : function(out){	
+						if(out[0]==1){
+							_img_alvo.attr('src',_src);
+							_img_alvo.addClass('set_mosaico');
+							_img_ativo.remove();
+							
+							if(out[1]!=''){
+								//$("#pack_produtos").prepend(out[1]);
+								//arrastar();
+							}
+						}
+						//setTimeout( function(){ refresh();},400);
+					}
+				});
+				/*****/
+				
+				fechar(document.getElementById("box-filtro"));
+			}else{
+				alert("Nenhum item Selecionado.");
+			}
+		}
+	</script>
+</div>

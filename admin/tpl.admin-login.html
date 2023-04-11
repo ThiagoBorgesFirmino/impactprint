@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{path}css/admin.css"></link>
+		<script language="javascript">
+			window.onload = function(){
+				document.forms[0].elements.login.focus();
+			}
+		</script>
+
+		<link rel="stylesheet" href="{path}css/bootstrap.min.css" type="text/css" media="screen" />
+		<style type="text/css">
+		body {
+			background-color:#fff;
+		}
+		</style>
+	</head>
+	<body>
+		<form method="POST">
+			<input type="hidden" name="token" value="{token}">
+			<input type="hidden" name="logar" value="sim">
+			<div id="boxlogin" >
+
+				<img style="width: 200px;" src="{path}img/logo/logo-admin.png" />
+				<hr/>
+
+                <!-- BEGIN BLOCK_MSG_ERRO -->
+                <div class="alert alert-danger">
+                    <span class="glyphicon glyphicon-info"></span> {erro}
+                </div>
+                <!-- END BLOCK_MSG_ERRO -->
+
+                <!-- BEGIN BLOCK_MSG_SUCESSO -->
+                <div class="alert alert-success">
+                    {sucesso}
+                </div>
+                <!-- END BLOCK_MSG_SUCESSO -->
+				<!--h1>{config->EMPRESA}</h1>-->
+
+                <div class="form-group">
+                    <label for="email">login
+                        <input type="text" class="text form-control" name="login" id="email" size="30" value="{logado->email}"/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="senha">senha
+                        <input type="password" class="text form-control" name="senha" id="senha" size="20" />
+                    </label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" ><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
+                </div>
+				<br/>
+				<p class="text-center"><small><a href="http://www.ajung.com.br">Ajung Site Manager</a></small></p>
+			</div>
+		</form>
+		<span style="display:none">{index}</span>
+	</body>
+</html>

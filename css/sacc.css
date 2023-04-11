@@ -1,0 +1,149 @@
+.sacc .telefone-email {font-family: 'Exo 2', sans-serif; font-weight: 600; font-size:22px; color:#666666; text-transform:uppercase; margin-top:30px; }
+.sacc .aviso-sac {font-family: 'Exo 2', sans-serif; font-weight: 600; font-size:17px; color:#3399cc; margin: 40px 0px; }
+
+.sacc .sacc-menu { height:226px; background-image:url(../img/bg_top_contato.jpg); background-repeat:no-repeat; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; }
+
+.sacc .caixa-sacc{ background-color:#333;}
+.sacc .caixa-sacc .caixa-sacc-conteudo { width: 100%; max-width:1048px;/*height:305px;*/ margin:0 auto; padding:0; padding-bottom:50px;padding-top:50px;}
+.sacc .caixa-sacc .caixa-sacc-conteudo h1 {font-size:2.769em;/*36px*/ color:#FFF; text-align:center; /*padding-top:90px;*/ }
+.sacc .caixa-sacc .caixa-sacc-conteudo p {font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#FFF; text-align:center; padding-left:20px; padding-right:20px; line-height:20px;}
+
+
+.formulario-sac{ background-color: #eee; }
+
+/*.formulario-sac .container-sac{
+	width: 100%;
+	display: table;
+    border-spacing: 30px;
+    padding-bottom: 40px;
+}*/
+
+/*.formulario-sac .container-sac > div{
+	width: 50%;
+	display: table-cell;
+}*/
+
+.formulario-sac .form input[type='text'],
+.formulario-sac .form input[type='email'],
+.formulario-sac .form input[type='tel'],
+.formulario-sac .form textarea{
+    width: 100%;
+    border: none;
+    padding: 5px 8px;
+    font-size: 15px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.formulario-sac .form textarea{
+	height: 120px;
+    margin-bottom: 5px;
+}
+
+.formulario-sac h2{
+	margin-top: 10px;	
+	margin-bottom: 20px;
+	font-family: 'Exo 2', sans-serif; font-weight: 600; color:#666666; font-size: 22px;
+}
+
+.formulario-sac .bts > .bt-obrigatorio{
+    float: left;
+    font-size: 14px;
+    color:#666666;
+    text-align: left;
+}
+
+.formulario-sac .bts > .bt-limpar{
+    float: right;
+    font-size: 18px;
+    color:#666666;
+    cursor: pointer;
+    text-align: right;
+}
+
+.formulario-sac .address,
+.formulario-sac .form{
+    padding: 40px;
+}
+
+.formulario-sac .address address{
+    font-size: 16px;
+    font-style: italic;
+}
+
+.formulario-sac .address address p{
+    margin: 0px;
+    color: #8c8c8c;
+}
+
+.formulario-sac .address .copyright{
+    font-weight: 800;
+    font-size: 20px;
+    color: #666;
+    margin-top: 30px;
+}
+
+/****FORMULARIO SACC***/
+.sacc .formulario-sacc {}
+.sacc .formulario-sacc .conteudo-formulario-sacc {width:100%; max-width:1048px; margin:0 auto; padding:0; padding-bottom:60px; border-bottom:0px solid}
+
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato {float:left; width:524px; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato {float:left; width:524px; }
+
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form{ background-color:#fff; padding-top:30px; padding-left: 20px;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario { width:100%; padding:0; margin:0; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario label { font-family:Oxygen; font-size:1.077em ;/*14px*/ color:#878787; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario .text-contato { width:302px; height:32px; padding-left:10px; font-size:1.077em ;/*14px*/ color:#878787; margin-bottom:35px; margin-top:9px; border:1px solid #878787; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario .text-contato-assunto { width:302px; height:32px; padding-left:10px; font-size:1.077em ;/*14px*/ color:#878787; margin-bottom:35px; border:1px solid #878787; margin-top:26px;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario .textarea-contato { width:302px; height:215px; padding-top:5px; padding-left:10px; font-size:1.077em ;/*14px*/ color:#878787; resize:none; margin-top:26px; border:1px solid #333;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario .submit-contato { xfloat:right; margin-top:35px; width:150px; height:50px; background-color:#078b07; font-family:Oxygen-Bold; font-weight:bold; font-size:1.077em;/*14px*/ color:#FFF; border:0; cursor:pointer;}
+
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato { padding-top:90px;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato h1 { font-family:OpenSans-Bold; font-weight:bold; font-size:1.385em;/*18px*/ color:#333333;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato span { font-family:OpenSans-Regular; font-size:0.923em;/*12px*/ color:#333;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato span b { font-family:OpenSans-bold; font-weight:bold; font-size:1.077em ;/*14px*/ color:#333;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato a { font-family:OpenSans-Regular;  font-size:0.923em;/*12px*/ color:#333; text-decoration:none;}
+
+/***DOWNLOAD SACC***/
+.sacc-download {padding-bottom: 60px;}
+.sacc-download .sacc-download-conteudo { width:100%; max-width:1048px; margin:0 auto; }
+.sacc-download .sacc-download-conteudo h1 { padding-top:52px; font-size:1.846em;/*24px*/ padding-left: 20px; color:#333; }
+
+.sacc-download .sacc-download-conteudo table {width: 100%; max-width: 1048px;}
+.sacc-download .sacc-download-conteudo table tr{background-image:url(../img/assets/download-estilo.jpg);background-repeat:repeat-x; background-position:0px 25px;}
+.sacc-download .sacc-download-conteudo table tr span{padding-top:15px; padding-right:6px; background:#FFF; position:relative; top:9px; font-size:12px; font-family: OpenSans-Bold; font-weight: bold;}
+.sacc-download .sacc-download-conteudo table tr .td_img_download{background:#FFF; width:61px;}
+
+.sacc-download .sacc-download-conteudo table .link-download {display:block; width:48px; height:48px; background-image:url(../img/assets/download.jpg);  float:right;}
+
+.contato .contato-formulario .mapa-contato { width:100%; height:333px;}
+
+/*Media Queries*/
+
+@media screen and (max-width: 750px) {
+.sacc-download .sacc-download-conteudo ul .link-download {width:10%; float:right;}
+
+.sacc .caixa-sacc .caixa-sacc-conteudo h1 {font-size:2.769em;/*36px*/ color:#FFF; text-align:center; padding-top:80px; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato  {width: 400px;}
+}
+
+
+@media screen and (max-width: 630px) {
+
+.sacc .caixa-sacc .caixa-sacc-conteudo h1 {font-size:2.769em;/*36px*/ color:#FFF; text-align:center; padding-top:70px; }
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato  {width: 360px;}
+}
+
+@media screen and (max-width: 580px) {
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form .formulario .submit-contato { float: none; margin-top: 30px;}
+.sacc .caixa-sacc .caixa-sacc-conteudo h1 {font-size:2.769em;/*36px*/ color:#FFF; text-align:center; padding-top:60px; }
+.sacc .formulario-sacc {width: 100%;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato {	width: 100%;text-align: center;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .end-contato .caixa-end-contato { padding-top:30px;}
+.sacc .formulario-sacc .conteudo-formulario-sacc {width: 100%;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato .caixa-form{ background-color:#fff; padding-top:30px; margin: 0 auto; text-align: center;}
+.sacc .formulario-sacc .conteudo-formulario-sacc .form-contato  {width: 100%;}
+.sacc-download .sacc-download-conteudo ul .link-download a { margin-left: -20px !important; }
+
+}

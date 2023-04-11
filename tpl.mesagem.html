@@ -1,0 +1,25 @@
+<article>
+	<!-- BEGIN BLOCK_MSG_ERRO -->
+	<div class="container">
+		<div class="alert alert-danger" id="d-erro" style="margin:10px 0px">
+			{erro}
+		</div>
+	</div>
+	<!-- END BLOCK_MSG_ERRO -->
+	
+	<!-- BEGIN BLOCK_MSG_SUCESSO -->
+	<div class="container">
+		<div class="alert alert-success" id="d-sucesso" style="margin:10px 0px">
+			{sucesso}
+		</div>
+	</div>
+	<!-- END BLOCK_MSG_SUCESSO -->		
+</article>
+
+<script>
+	setTimeout(
+		function(){
+			$('.alert-danger').fadeOut();
+		},9000
+	);
+</script>

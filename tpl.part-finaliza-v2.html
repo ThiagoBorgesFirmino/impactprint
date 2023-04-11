@@ -1,0 +1,290 @@
+<section class="container-finalizar none" id="container-finalizar">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+                <div class="col-md-4 conteudo-cadastro">
+                    
+                    <div class="col-md-12 d-cadastro" id="container_d-cadastro">
+
+                        <!-- BEGIN BLOCK_USUARIO_LOGADO -->
+                        <!-- FRASE DE BEM VINDO -->
+                        <div class="d-bemvindo">
+                            <p>BEM VINDO !</p>
+                            <br/>
+                            <div class="d-text-bemvido">
+                                <span>Olá {usuario->nome}, obrigado por se cadastrar no nosso site.</span><br/>
+                                <span>Caso tenha um cupom preencha o campo a lado ou finalize seu pedido.</span>
+                            </div>
+                        </div>
+                        <!-- FRASE DE BEM VINDO -->
+                        <!-- END BLOCK_USUARIO_LOGADO -->
+
+                        <!-- BEGIN BLOCK_USUARIO_NAO_LOGADO -->
+                        <form action="{ajax}entrarCheckout/" method="POST" id="entrarCheckout">
+                            <input type="hidden" value="{token}" name="token" />
+                            <input type="hidden" value="1" name="cad_check" />
+                            <input type="hidden" value="A" name="stage" id="stage" />
+                            <input type="text" value="" name="valida_form" style="display:none;" class="none" />
+                                <!-- FORMULARIO LOGIN -->
+                            <div class="d-cad-login block">
+                                
+                                <div>
+                                    <p>LOGIN</p>
+                                    <br/>
+                                    <span>Necessário estar cadastro para solicitar um orçamento. Por favor preencha os campos abaixo:</span>
+                                </div>
+
+                                <div id="msg_checkout_form" class="alert"></div>
+                                
+                                <div class="form-log fc_todos">
+                                    <div class="form-group form_group_email">
+                                        <label for="email">EMAIL<br/>
+                                            <input type="email" name="email" id="_email" class="form-control">
+                                        </label>									
+                                    </div>
+
+                                    <!-- <div class="form-group none fc_todos" id="_senha">
+                                        <label for="senha">SENHA<br/>
+                                            <input type="password" name="senha" id="" class="form-control fc_validacao">
+                                        </label>
+                                    </div> -->
+
+                                    <div class="form-group text-right none">
+                                        <input type="button" name="" id="" value="ENTRAR" class="btn btn-default bt-entrar">
+                                    </div>
+
+                                </div>
+                                <!-- FORMULARIO LOGIN -->
+
+                                <!-- FORMULARIO CADASTRO -->
+                                <div class="form-cad fc_todos">
+                                    <div class="form-group">
+                                        <label for="nome">NOME<br/>
+                                            <input type="text" name="cadastro[nome]" id="" class="form-control fc_validacao">
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="empresa">EMPRESA<br/>
+                                            <input type="text" name="cadastro[empresa]" id="" class="form-control fc_validacao">
+                                        </label>									
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefone">TELEFONE<br/>
+                                            <input type="text" name="cadastro[fone_com]" id="" class="form-control fc_validacao">
+                                        </label>									
+                                    </div>
+                                    
+                                    <div class="form-group text-right none">
+                                        <input type="button" name="" id="" value="ENTRAR" class="btn btn-default bt-entrar">
+                                    </div>
+
+                                </div>
+                                <!-- FORMULARIO CADASTRO -->
+
+                                <div class="form-log fc_todos">
+                                    <div class="form-group text-right">
+                                        <input type="submit" name="" id="" value="ENTRAR" class="btn btn-default bt-entrar">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>	
+                        <!-- END BLOCK_USUARIO_NAO_LOGADO -->
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 conteudo-cupom">
+
+                    <!-- FORMULARIO CUPOM -->
+                    <form action="{ajax}cupomCheckout2/" method="POST" id="cupomCheckout2">
+                        <input type="hidden" value="{token}" name="token" />
+                        <input type="hidden" value="1" name="cupom_check" />
+                        <input type="text" value="" name="valida_form_cupom" style="display:none;" class="none" />
+
+                        <div class="col-md-12 d-cupom {c_none}" id="d_cupom">
+                            <p>CUPOM</p>
+                            <br/>
+                            <span>Insira o código do cupom, se você tiver um.</span>
+
+                            <div id="msg_checkout_cupom" class="alert none"></div>
+
+                            <div class="form-cupom">
+                                <div class="form-group">
+                                    <input type="text" placeholder="Numero do cupom" name="cupom" id="_cupom" class="form-control">
+                                </div>
+                                <div class="form-group text-left">
+                                    <input type="submit" value="APLICAR CUPOM" id="bt_aplicar_cupom" class="btn btn-default btn-cupom btn-off">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- FORMULARIO CUPOM -->
+
+                </div>
+                <div class="col-md-4 conteudo-solicitacao none">
+                    <!-- FORMULARIO FINALIZAR -->
+                    <div class="col-md-12 d-solicitar {c_none}" id="d_solicitar">
+                        <p>SOLICITAR ORÇAMENTO</p>
+                        <div class="d-dados-cupom" id="d_dados_cupom">
+                            <!-- BEGIN BLOCK_CUPOM_CHECKOUT -->
+                            <ul><li class="text-left"><span>CUPOM V&Aacute;LIDO</span></li>
+                                <li class="text-right"><span class="text-right">{cupomdesconto->codigo}</span></li>
+                            </ul><h5>{cupomdesconto->nome}</h5>
+                            <!-- END BLOCK_CUPOM_CHECKOUT -->
+                        </div>
+                        <div class="form-group text-right">
+                            <input type="button" name="" value="SOLICITAR ORÇAMENTO" id="bt_solicitar_orcamento" class="btn btn-default btn-finalizar">
+                        </div>
+                    </div>
+                    <!-- FORMULARIO FINALIZAR -->
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            if(bt_finaliza = document.getElementById("finaliza_desconectado")){
+                $(bt_finaliza).bind("click",function(e){
+                    toFinaliza();
+                    e.preventDefault();
+                });
+            }
+            /* ** Login ** */
+            time_to_msg = "";
+            $("#entrarCheckout").ajaxForm({
+                dataType: 'json'
+                ,beforeSend: function(){
+                    $('.fc_validacao').each( function(){
+                        _c = this.name.replace(/\[|\]/gi,"_");
+                        if(!$(this).hasClass(_c))$(this).addClass(_c);
+                    } );
+                    $("#msg_checkout_form").html("Aguarde ...").removeClass("alert-success").removeClass("alert-danger").addClass("alert-warning");
+                }
+                ,success: function(out){
+                    $("#stage").val(out.stage);
+
+                    if(out.stage!="A"){
+                        $("#_email").attr("readonly",true).addClass("readonly disabled").css("cursor","not-allowed");
+                        $(".form_group_email").addClass("has-success");
+                    }
+                    
+                    if(out.stage=="B1")$("#_senha").fadeIn();
+                    if(out.stage=="B2")$(".fc_todos").fadeIn();
+                    if(out.stage=="C")$(".fc_todos").fadeOut();
+
+                    if(time_to_msg!="")clearTimeout(time_to_msg);
+
+                    if(out.status){
+                        $("#msg_checkout_form").html(out.msg).removeClass("alert-danger").removeClass("alert-warning").addClass("alert-success");
+                        if(out.retorno){
+                            if(container_d_cadastro = document.getElementById("container_d-cadastro")){
+                                $(container_d_cadastro).html(out.retorno);
+                            }
+                        }
+                        if(out.stage=="C"){
+                            if(login_logout = document.getElementById("item-usuario")){
+                                $(login_logout).html("<a href='{index}logout'>LOGOUT</a>");
+                            }
+                            if(login_finaliza = document.getElementById("item-usuario_finalizar")){
+                                $(login_finaliza).html("<a href='{index}pedido_finaliza' class='btn-padrao btn'>FINALIZAR</a>");
+                            }
+                        
+                            if(d_cupom = document.getElementById("d_cupom")){
+                                $(d_cupom).fadeIn();
+                            }
+                            if(d_solicitar = document.getElementById("d_solicitar")){
+                                $(d_solicitar).fadeIn();
+                            }
+                        }
+                    }
+                    else {
+                        $("#msg_checkout_form").html(out.msg).removeClass("alert-success").removeClass("alert-warning").addClass("alert-danger");
+                        if(out.erros){
+                            for(key in out.erros){
+                                if(key=="senha"){
+                                    $(".senha").addClass("has-error");
+                                    if(!$(".senha_msg").length)$(".senha").after("<p class='senha_msg' style='font-size:11px;color:red;'>"+out.erros[key]+"</p>");
+                                    if($(".senha").parent().parent().hasClass("form-group"))$(".senha").parent().parent().addClass("has-error");
+                                }else{
+                                    c = "cadastro_"+key+"_";
+                                    $("."+c).addClass("has-error");
+                                    if(!$("."+c+"_msg").length)$("."+c).after("<p class='"+c+"_msg' style='font-size:11px;color:red;'>"+out.erros[key]+"</p>");
+                                    if( $("."+c).parent().parent().hasClass("form-group"))$("."+c).parent().parent().addClass("has-error");
+                                }
+                            }
+                        }
+                    }
+
+                    time_to_msg =  setTimeout( function(){
+                        $("#msg_checkout_form").html("").removeClass("alert-success").removeClass("alert-danger").removeClass("alert-warning");
+                    },3600);
+                }
+            });
+
+            $(".fc_validacao").bind("focus",function(){
+                $(this).removeClass("has-danger");
+                _c = this.name.replace(/\[|\]/gi,"_");
+                $("."+_c+"_msg").remove();
+                if($("."+_c).parent().parent().hasClass("form-group"))$("."+_c).parent().parent().removeClass("has-error");
+            });
+
+            $('[name="cadastro[fone_com]"]').mask('?(99)9999-99999');
+            /* ** ** */
+
+            /* ** Cupom de Desconto ** */
+            time_to_msg_cupom = "";
+            $("#cupomCheckout2").ajaxForm({
+                dataType: 'json'
+                ,beforeSend: function(){
+                    $("#msg_checkout_cupom").html("Aguarde ...").removeClass("alert-success").removeClass("alert-danger").addClass("alert-warning").fadeIn();
+                }
+                ,success: function(out){
+
+                    if(out.status){
+                        $("#msg_checkout_cupom").html(out.msg).addClass("alert-success").removeClass("alert-danger").removeClass("alert-warning");
+                        if(out.retorno)$("#d_dados_cupom").html(out.retorno);
+                    }else{
+                        $("#msg_checkout_cupom").html(out.msg).removeClass("alert-success").addClass("alert-danger").removeClass("alert-warning");                        
+                        if( $("#_cupom").parent().parent().hasClass("form-group"))$("#_cupom").parent().parent().addClass("has-error");
+                    }
+
+                    time_to_msg_cupom =  setTimeout( function(){
+                        $("#msg_checkout_cupom").html("").removeClass("alert-success").removeClass("alert-danger").removeClass("alert-warning").fadeOut();
+                    },3600);
+                }
+            });
+            /* ** ** */
+
+            $("#_cupom").bind("focus", function(){
+                $("#bt_aplicar_cupom").removeClass("btn-off");
+                $("#bt_solicitar_orcamento").addClass("btn-off");
+            });
+            $("#_cupom").bind("blur", function(){
+                $("#bt_aplicar_cupom").addClass("btn-off");
+                $("#bt_solicitar_orcamento").removeClass("btn-off");
+            });
+
+
+            /* Finaliza */
+            $("#bt_solicitar_orcamento").bind("click",function(){
+                document.getElementById("formPedidoFinaliza").submit();
+            });
+            /**/
+        });
+
+        function toFinaliza(){
+            header_height = $('header').height();
+            cont_fin = $('#container-finalizar').offset().top;
+            _top = cont_fin - (header_height+10);
+            $('html, body').animate({scrollTop: _top }, 1000);
+        }
+    </script>
+
+</section>

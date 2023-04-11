@@ -1,0 +1,154 @@
+@charset 'utf-8';
+@import url("../fontes/style.css");
+*{
+font-family:'Myriad Pro Regular';
+font-size:11px;
+color:#333;
+}
+body {
+margin:0 auto;
+margin-top:15px;
+padding:0;
+width:600px;
+height:auto;
+}
+.geral{
+border:1px solid #999999;
+}
+.header{
+width:580px; padding-left:9px; padding-right:9px; height:auto; display:table; margin:0 auto; background-image:url(../img/bg_sobre.jpg); background-repeat:no-repeat; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-color:#ddd; }
+.header > span{
+padding:10px;
+}
+.header > span:nth-child(2){
+float:right;
+}
+.h_titulo{
+width:100%;
+clear:both;
+margin:0 auto;
+border-top:1px solid;
+text-align:center;
+padding-bottom:6px;
+font-size:14px;
+}
+.h_titulo > img{
+width:41px;
+}
+.dados_empresa{
+font-size:10px;
+}
+.logo img{
+width:120px;
+}
+table{
+width:580px;
+margin:0 auto;
+padding:0;
+border-collapse: collapse;
+}
+table tr th{
+color:#eaeaea;
+background:#424242;
+text-align:left;
+}
+table tr td{
+padding:7px auto 7px auto;
+margin:0;
+text-align:center;
+border:0px solid;
+
+}
+table tr td span{
+display:inline-block;
+width:auto;
+margin-left:auto;
+margin-right:auto;
+text-align:left;
+border:0px solid;
+}
+.msg_list{
+text-align:left;
+font-style:italic;
+}
+.img_produto{
+width:79px;
+border:1px solid #4f4f57;
+}
+table.grid tr:nth-child(2n-1) td{
+background:#eaeaea;
+}
+table.grid tr:last-child td{
+background:#FFF;
+border-top:1px solid #999;
+border-bottom:1px solid #999;
+text-align:right;
+}
+table.grid tr td{
+padding:7px 0 0 0;
+text-align:left;
+}
+table.grid tr th,
+table.grid tr td{
+padding-left:3px;
+padding-right:4px;
+}
+table.grid .prod_info{
+width:245px;
+}
+table.outras_info{
+margin-top:10px;
+}
+table.outras_info tr td{
+text-align:left;
+font-size:9px;
+padding-left:10px;
+padding-right:10px;
+}
+.footer{
+width:100%;
+margin:0 auto;
+background:#424242;
+margin-top:10px;
+}
+.footer_logo{
+width:95px;
+}
+.footer table{
+width:580px;
+margin:0 auto;
+}
+.footer table tr td{
+text-align:left;
+color:#c1c0c0;
+padding:10px;
+}
+.footer table tr td:last-child{
+text-align:right;
+}
+
+
+.preview_action{
+background:#424242;
+text-align:center;
+}
+.preview_action a{
+	color:#fcfcfc;
+	text-decoration:none;
+	line-height:18px;
+	padding-left:20px;
+	margin-right:50px;
+}
+.preview_action a:hover{
+	text-decoration:underline;
+}
+.preview_action a.voltar{
+	background-image:url(../img/assets/voltar.jpg);
+	background-repeat:no-repeat;
+	background-position:left center;
+}
+.preview_action a.imprimir{
+	background-image:url(../img/assets/imprimir.jpg);
+	background-repeat:no-repeat;
+	background-position:left center;
+}

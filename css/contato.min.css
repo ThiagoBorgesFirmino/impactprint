@@ -1,0 +1,30 @@
+.conteudo-contato {
+  padding: 25px 0px;
+  margin-bottom: 100px;
+}
+.conteudo-sac {
+  padding: 25px 0px;
+  margin-bottom: 100px;
+}
+.conteudo-sac .aviso-sac {
+  margin-left: 15px;
+  font-size: 18px;
+  color: #4d4d4d;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.formulario-contato .form-control {
+  border-radius: 0px;
+  margin-bottom: 15px;
+  border: 1px solid #8f9090;
+
+}
+.formulario-contato .bt-contato {
+  width: 45%;
+  border: 1px solid #FAD838;
+  background-color: #FAD838;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 0px;
+}

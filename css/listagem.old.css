@@ -1,0 +1,24 @@
+.d-listagem {
+  margin-top: 25px;
+}
+.d-listagem .d_menu_listagem li > a {
+  font-size: 18px;
+  color: #e3b848;
+  font-weight: 300;
+}
+.d-listagem ._title {
+  display: block;
+  border-bottom: 1px solid #e3b848;
+  margin-bottom: 10px;
+}
+.d-listagem ._title a {
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 400;
+  color: #e3b848;
+  font-size: 21px;
+  text-decoration: none;
+  margin-bottom: 0px;
+}
+.d-listagem .d-listagem-prod {
+  margin-top: 20px;
+}

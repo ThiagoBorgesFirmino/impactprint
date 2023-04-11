@@ -1,0 +1,90 @@
+<style>
+
+	body {
+		text-align:center;
+	}
+
+	.container {
+		width:566px;
+		margin:auto;
+		text-align:left;
+	}
+
+	.t-cabecalho {
+		width:566px;
+	}
+
+	.t-rodape {
+		width:566px;
+	}
+
+	.titulo {
+		font-family:arial;
+		color:#537b32;
+		font-size:24px;
+		padding:0px;
+		margin:0px;
+		margin-top:3px;
+		margin-bottom:3px;
+	}
+
+	.chamada {
+		font-family:arial;
+		color:#515151;
+		font-size:18px;
+		padding:0px;
+		margin:0px;
+		margin-top:3px;
+		margin-bottom:3px;
+	}
+
+	.txt {
+		font-family:arial;
+		color:#515151;
+		font-size:14px;
+		padding:0px;
+		margin:0px;
+		margin-top:3px;
+		margin-bottom:3px;
+	}
+
+</style>
+<!-- COMUNICADO -->
+
+<div class="container">
+
+	<table class="t-cabecalho">
+		<tr>
+			<td align="left">
+				<a href="{config->URL}"><img src="{config->URL}admin/images/logo_newsletter.jpg" border="0" alt="{config->EMPRESA}"></a>
+			</td>
+			<td align="right">
+				<a href="{config->URL}">{config->URL}</a> 
+				<br /><a href="mailto:{config->EMAIL_CONTATO}">{config->EMAIL_CONTATO}</a> 
+				<br />{config->TELEFONE}
+			</td>
+		</tr>
+	</table>
+
+	<p class="titulo">{textolinha->titulo}</p>
+	<p class="chamada">{textogrande->chamada}</p>
+
+	<!-- BEGIN BLOCK_IMAGEM_1 -->
+	<a href="{imagem->link_1}"><img src="{imagem->src_1}" /></a>
+	<!-- END BLOCK_IMAGEM_1 -->
+
+	<p>{textogrande->conteudo}</p>
+
+	<br />
+
+	<table class="t-rodape">
+		<tr>
+			<td align="left">
+				{config->TELEFONE}
+			</td>
+			<td align="right">
+				<a href="mailto:{config->EMAIL_CONTATO}">{config->EMAIL_CONTATO}</a> 
+			</td>
+		</tr>
+	</table>
+</div>

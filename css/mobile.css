@@ -1,0 +1,508 @@
+/** GERAL.CSS **/
+@media (max-width:840px){
+	header table tr #icons_rede, header table tr #icon_mail{ display:none; }
+	
+	#menu_mobile{width:44px; height:44px;display:block; background-image:url(../img/assets/icones_mobile.png); background-repeat:no-repeat; background-position:0px -47px; cursor:pointer; float:right;}
+	
+	.main_menu table tr:last-child td ul.menu{display:none !important;}
+	
+	.main_menu table tr td .form_busca{display:none;}
+	
+	/**MENU_RESPONSIVO**/
+	.main_menu .menu_responsivo{position:absolute; width:auto; z-index:9000; top:45px; right:0px;}
+	.main_menu .menu_responsivo .menu_mobile {display:none; width:100%; background-image:url(../img/assets/fundo_menu.png); background-repeat:repeat;}
+	.main_menu .menu_responsivo .menu_mobile ul li { border-bottom:2px solid #333; text-align:center;}
+	.main_menu .menu_responsivo .menu_mobile ul li:first-child {border-top:2px solid #333;}
+	.main_menu .menu_responsivo .menu_mobile ul li a {font-family:'Myriad Pro Semibold'; font-size:1.000em !important;/*21px*/ color:#333333 !important; text-decoration:none; width:100%; display:block; padding-bottom:17px; padding-top:17px;}
+	
+	.main_menu  .menu_responsivo .icons_mobile{display:block !important; float:right; margin-top:1px;}
+	.main_menu .menu_responsivo .icons_mobile .icon_mobile_print{width:44px; height:44px; display:block; margin-bottom:1px;}	
+	.main_menu .menu_responsivo .icons_mobile .icon_mobile_face{width:44px; height:44px; display:block; margin-bottom:1px;}	
+	
+	.main_menu .menu_responsivo .icons_mobile .icon_mobile_print{background-image:url(../img/assets/icones_mobile.png); background-repeat:no-repeat; background-position:0px -92px;}
+	.main_menu .menu_responsivo .icons_mobile .icon_mobile_face{background-image:url(../img/assets/icones_mobile.png); background-repeat:no-repeat; background-position:0px -139px;}
+	
+	.main_menu .menu_responsivo .busca_responsivo {display:block !important; margin-bottom:1px;}
+	.main_menu .menu_responsivo .busca_responsivo ul .icon_busca_mobile{width:44px; height:44px;display:block; background-image:url(../img/assets/icones_mobile.png); background-repeat:no-repeat; background-position:0px 0px; cursor:pointer; float:right;}
+	.main_menu .menu_responsivo .busca_responsivo ul li form .busca{width:175px; padding:14px 25px 14px 10px; font-size:0.923em;/*12px*/ color:#999; border:1px solid #444;}
+	.main_menu .menu_responsivo .busca_responsivo ul li form{display:none;}
+	
+	.detalhe .menu-detalhe .conteudo-menu-detalhe{border-top:0;}
+	
+	.h_telefone{margin-left:18px;}
+}
+@media (max-width:840px){
+	.menu{display:none;}
+	.form_busca{display:none;}
+	.menu_responsivo{display:block !important;}
+}
+
+
+@media (max-width:750px){
+	footer table #logo_rodape{display:none;}
+	footer table #site_rodape{display:none;}
+}
+
+/** SOBRE.CSS **/
+@media (max-width:699px){
+	.sobre .conteudo-destaque{}
+	.sobre .conteudo-destaque .destaque { width:310px; margin:0 auto; float:none;margin-bottom:20px;}
+	.sobre .conteudo-destaque .destaque:nth-child(3n) {margin:0 auto; float:none;}
+}
+@media (max-width:1008px){
+	.banner-sobre section h1 {padding-left:0; text-align:center;}
+	
+	.banner-sobre section ul li .logo-banner {float:none; margin-left:auto; margin-right:auto;}
+	.banner-sobre section ul li .logo-banner {float:none; margin-left:auto; margin-right:auto;}
+	.banner-sobre section ul li .texto-banner div {float:none; text-align:center;}
+	.banner-sobre section ul li .texto-banner {float:none; margin:0 auto; margin-top:25px; }
+}
+@media (max-width:1177px){
+	.banner-sobre .paginador-banner {position:relative; top:90px}
+	.banner-sobre .prev-banner {left:-50px; margin:0 auto;}
+	.banner-sobre .next-banner {right:0px; top:42px; margin:0 auto;}
+}
+@media (max-width:650px){
+	.banner-sobre section ul li .texto-banner {width:80%; margin:0 auto; margin-top:25px; }
+}
+@media (max-width:800px){ /* Max Width sujeito a alteração */
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos{width:75%; float:none !important;display:block;margin:0 auto;padding-bottom:45px;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos .titulo_imagem{top:63px; right:71px;right:0; padding-right:6px; width:100%;}
+	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(1n) .titulo_imagem{padding-right:0;padding-left:0;width:100%;border:0px solid;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(1n) .titulo_imagem table{border:0px solid;position:absolute;right:-44px;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(1n) .titulo_imagem table td{float:left;border:0px solid;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(1n) p{padding:163px 45px 0 0; text-align:right;}
+	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(2n) .titulo_imagem{right:0;left:-44px;padding-left:0;padding-right:0;width:100%;border:0px solid;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(2n) .titulo_imagem table{border:0px solid;left:0;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(2n) .titulo_imagem table td{float:right;border:0px solid;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(2n) .titulo_imagem table td:first-child{padding-top:9.4%;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:nth-child(2n) p{padding:163px 0 0 45px; text-align:left;}	
+	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:first-child {padding-bottom:0;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:first-child .titulo_imagem{top:-15%;right:0;left:0;padding:0; padding-right:3px; width:77.3%;border:0px solid;background:#fff;height:100px;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:first-child .titulo_imagem table td{float:left;border:0px solid;background:#fff;padding-right:3px;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:first-child p{padding-top:75px;padding-bottom:0;}
+	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:last-child .titulo_imagem{top:0;right:0;left:0;padding-right:0;padding-left:0;width:100%;border:0px solid;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:last-child .titulo_imagem table{border:0px solid;position:absolute;right:0;left:43px;padding:0;width:100%;}	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:last-child .titulo_imagem table td{float:none;border:0px solid;padding:0;margin:0;text-align:right;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:last-child .titulo_imagem table td:first-child{padding:0;padding-right:0;padding-left:5%;vertical-align:middle;width:79%;}
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos:last-child p{padding:135px 45px 0 0; text-align:right;}
+}
+/**PRODUTO.CSS**/
+@media (max-width:1064px){
+	.produtos .conteudo-listagem .listagem{width:539px}
+	.produtos .conteudo-listagem .listagem .prod:nth-child(4n) { margin-right:28px;}
+	
+	.detalhe_prod .descricao_prod .conteudo_cor_ref_descricao{width:280px; margin:0 auto;}
+	.detalhe_prod .descricao_prod .conteudo_cor_ref_descricao .cor_ref_descricao{margin:0 auto; float:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .rede_social{margin:0 auto; float:none;}
+}
+
+
+@media (max-width:993px){
+	.detalhe .menu-detalhe .conteudo-menu-detalhe .produtos-menu ul li{float:none; text-align:center; margin-right:0px; border-top:2px solid #333; }
+	.detalhe .menu-detalhe .conteudo-menu-detalhe .produtos-menu ul li:last-child { margin-right:auto; border-bottom:2px solid #333;}
+	.detalhe .menu-detalhe .conteudo-menu-detalhe .produtos-menu ul li a{width:100%; display:block; padding-bottom:20px; padding-top:20px;}
+	
+	.produtos .menu-produto .container-menu-produto .produtos-menu ul li{float:none; text-align:center; margin-right:0px; border-top:2px solid #333;}
+	.produtos .menu-produto .container-menu-produto .produtos-menu ul li:last-child{margin-right:auto; border-bottom:2px solid #333;}
+	.produtos .menu-produto .container-menu-produto .produtos-menu ul li a{width:100%; display:block; padding-bottom:20px; padding-top:20px;}
+}
+
+@media (max-width:558px){
+	.produtos .conteudo-listagem .listagem .prod {float:none; margin:0 auto; margin-top:30px;}
+	.produtos .conteudo-listagem .listagem .prod:nth-child(4n) { margin-right:auto;}
+}
+
+@media (max-width:554px){
+	.detalhe .conteudo-produto-relacionados .listagem-produto-relacionados h1{text-align:center;}
+	.detalhe .conteudo-produto-relacionados .listagem-produto-relacionados .prod-listagem{float:none; margin:0 auto; margin-bottom:30px;}
+	.detalhe .conteudo-produto-relacionados .listagem-produto-relacionados .prod-listagem:nth-child(n+6){margin-right:auto;}
+	.detalhe .conteudo-produto-relacionados .listagem-produto-relacionados{width:100% !important;}
+}
+@media (max-width:552px){
+	.detalhe .detalhe-prod .container-detalhe-prod .quantidade-detalhe-prod{float:none; margin-left:0; margin-top:0;}
+}
+
+@media (max-width:500px){
+	.detalhe .detalhe-prod .container-detalhe-prod{margin-top:30px;}
+	.detalhe .detalhe-prod .container-detalhe-prod .nome-ref-descricao-detalhe{display:none;}
+	.detalhe .detalhe-prod .container-detalhe-prod .descricao-detalhe-1{display:none;}
+	.detalhe .detalhe-prod .container-detalhe-prod .descricao-detalhe-2{display:none;}
+	.detalhe .detalhe-prod .container-detalhe-prod .redesocial-detalhe{width:244px; float:none; margin:0 auto;}
+	.detalhe .detalhe-prod .container-detalhe-prod .descricao-detalhe-prod{width:100%;}
+	.detalhe .detalhe-prod .container-detalhe-prod .cor-detalhes-prod{margin:0 auto; float:none; width:244px;}
+	.detalhe .detalhe-prod .container-detalhe-prod .quantidade-detalhe-prod{margin:0 auto;}
+	.detalhe .detalhe-prod .container-detalhe-prod .img-detalhe-prod .mini-detalhe-img{display:none;}
+	.detalhe .detalhe-prod .container-detalhe-prod .descricao-detalhe-prod{float:none; display:table-footer-group;}
+	.detalhe .detalhe-prod .container-detalhe-prod .img-detalhe-prod{float:none; display:table-header-group;}
+	.detalhe .detalhe-prod .container-detalhe-prod .redesocial-detalhe{display:none;}
+	.detalhe .detalhe-prod .container-detalhe-prod .redesocial-detalhe-mobile{display:block;}
+	.produtos .conteudo-listagem .listagem{width:auto}
+
+}
+
+@media (max-width:1062px){
+	.detalhe .conteudo-produto-relacionados .listagem-produto-relacionados{width:538px;}
+}
+
+@media (max-width:1064px){
+	/*.detalhe  .teste1{display:table}*/
+	.detalhe .detalhe_prod{width:50%;}
+	 .descricao_prod{ float:none !important; display:table-footer-group !important;}
+	 .img_detalhe_prod{ float:none !important; display:table-header-group !important; }
+	.detalhe_prod  .img_detalhe_prod .min_detalhe_img{display:inline-block;}
+	
+	.detalhe_prod .descricao_prod .conteudo_descricao .conteudo_cor_ref_descricao .cor_ref_descricao{float:none; margin-right:auto; margin:0 auto;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .conteudo_cor_ref_descricao .form_qtd{float:none; margin-right:auto; margin:0 auto;}
+}
+@media (max-width:450px){
+	.detalhe .detalhe_prod{width:auto}
+}
+@media (max-width:712px){
+	/*.detalhe .detalhe_prod{margin:0;}*/
+	.detalhe_prod .img_detalhe_prod .min_detalhe_img{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao h1{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao  span{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao  p{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .ref_prod p{display:block;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .descricao{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .conteudo_cor_ref_descricao .form_qtd{float:none; margin-left:0;}
+	.detalhe_prod .descricao_prod .conteudo_descricao .rede_social{display:none;}
+	.detalhe_prod .descricao_prod .conteudo_cor_ref_descricao  .rede_social_mobile {display:block;}
+	
+		.detalhe_prod  .img_detalhe_prod .bt_img_detalhe{display:block;}
+
+}
+
+@media (max-width:700px){
+	.f_desenvolvimento{display:none;}
+}
+
+@media (max-width:712px){
+	.detalhe_prod .descricao_prod .conteudo_descricao .conteudo_cor_ref_descricao .cor_ref_descricao{margin:0;}
+}
+@media (max-width:392px){
+	.f_credits div.content{width:392px;}
+}
+
+@media (max-width:712px){
+	.conteudo_descricao{width:244px; margin:0 auto;}
+}
+
+/**************** TPL PEDIDO *********************/
+@media (max-width:803px){
+	.pedido .conteudo-pedido .finalizar-pedido-mobile{display:block;}
+	.pedido .conteudo-pedido .container-pedido-especial .categoria-pedido-especial{display:none;}
+	.pedido .conteudo-pedido .finalizar-pedido .conteudo-finaliza-pedido p a{display:none;}
+	.descricao-pedido-especial{width:250px; margin:0 auto; margin-bottom:20px;}
+	.descricao-pedido-especial .p_item{float:none; margin:0 auto; text-align:center; width:100% !important; text-align:center;}
+	.descricao-pedido-especial .qtd-descricao-pedido-especial{width:153px; margin:0 auto;margin-top:20px;}
+	.descricao-pedido-especial .cor-descricao-pedido-especial{margin-top:20px;}
+	.pedido .conteudo-pedido .finalizar-pedido .conteudo-finaliza-pedido{width:289px;}
+	
+	
+	
+}
+ @media (max-width:977px){
+	.descricao-pedido-finalizado{width:250px; margin:0 auto; margin-bottom:30px;}
+	.descricao-pedido-finalizado .p_item{float:none;}
+	.descricao-pedido-finalizado .qtd-descricao-pedido-finalizado{width:240px; margin:0 auto;}
+ }
+
+/********************* CADASTRO CARRINHO *************************************/
+@media (max-width:595px){
+	.cadastro-carrinho .menu-cadastro-carrinho .conteudo-menu-cadastro-carrinho{padding-bottom:30px;}
+	.cadastro-carrinho .conteudo-cadastro .d-form-cadastro{width:310px; margin:0 auto;}
+	.cadastro .conteudo-cadastro .d-form-cadastro form .re-senha{margin-left:0;}
+	.cadastro-carrinho .ja-cadastrado{border-bottom:1px solid #333;}
+	.cadastro-carrinho .ja-cadastrado .conteudo-ja-cadastrado{width:254px; border-bottom:0;}
+}
+
+
+/************************* LOGIN *********************************************/
+
+@media (max-width: 427px){
+	input.l_input[type="submit"]{margin-right: 0px !important;}
+}
+
+/******************** HOME **********************************/
+@media(max-width:1062px){
+	.conteudo_empresa {display:table;}
+	.conteudo_empresa .empresa_posts{display:table-header-group}
+	.conteudo_empresa .sobre_sac {display:table-footer-group}
+	
+	/*.container_empresa .conteudo_empresa{width:513px !important;}*/
+}
+
+@media (max-width:538px){
+	.conteudo_empresa .sobre_sac .empresa_sobre{display:none;}
+	.conteudo_empresa .sobre_sac .empresa_sac { width:280px !important; margin:0 auto !important; float:none !important; padding-bottom:61px !important; background-image:url(../img/assets/sacc.png); background-repeat:no-repeat; background-position:0px 310px;}
+	.conteudo_empresa .sobre_sac .empresa_sac .texto_sac{width: 61% !important; margin-left: 54px !important; margin-top: 25px !important;}
+}
+
+@media (max-width:1200px){
+	.slide_mosaico{display:none;}
+	.div_slide_mobile{display:block !important;position:relative;}
+}
+
+@media (max-width:555px){
+	.f_contents  table{display:table; width:280px !important; margin:0 auto;}
+	.f_contents  table .td_contato{display:table-header-group;}
+	.f_contents  table .td_rede_social{display:table-footer-group;}
+}
+
+@media (max-width:876px){
+	.h_opiniao .numero_cont{
+		display:block;
+		width:100%;
+		text-align:center;
+	}
+	.h_opiniao .o_titulo{
+		display:block;
+		width:100%;
+		text-align:center;
+		padding-left:0 !important;
+	}
+	.h_opiniao .o_paragrafo{
+		display:block !important;
+		width:100% !important;
+		text-align:center;
+		padding-left:0 !important;
+	}
+	.h_opiniao .o_content .o_paragrafo .op_text{
+		padding:0 !important;
+		display:block !important;
+		width:90% !important; 
+		margin: 0 auto;
+		float:none !important;
+	}
+	.h_opiniao .o_content .o_paragrafo .op_text .o_p_titulo{
+		display:inline-block !important;
+		width:auto;
+	}
+	
+	.h_opiniao .o_content .o_paragrafo .oi_container{
+		margin: 0 auto;
+		float:none !important;
+	}
+	.h_opiniao .o_content .o_autor{
+		text-align:center !important;
+		padding-top:110px !important;
+	}
+	
+	.h_opiniao .o_content .o_nav{
+		position:static !important;
+		margin: 0 auto;
+		display: table;
+		text-align: center;
+		margin-top: 40px;
+	}
+}
+
+
+/**************************** PEDIDO FINALIZADO ***********************************************/
+
+@media (max-width:460px){
+	.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente{padding-left:0px; width:84%;}
+	.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-2{padding-top:20px;}
+	.finalizado .dados-clientes .container-dados-clientes h1{padding-left:40px;}
+	
+	.finalizado .conteudo-finalizado .container h1 {padding-left:40px;}
+	
+	
+	
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .cor-descricao-pedido-finalizado{float:none}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado{float:left}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado{width:255px !important}
+	
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .cor-descricao-pedido-finalizado{margin:0 auto;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado h1{text-align:center; width:100%;}
+	
+	.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-1{width:60%;}
+	.finalizado .dados-clientes .conteudo-dados-clientes .container-cliente .dados-2{width:60%;}
+
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .qtd-descricao-pedido-finalizado{width:100%; text-align:center; margin:0;}
+	
+}
+
+@media (max-width:819px ){
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .categoria-pedido-finalizado{display:none;}
+}
+@media (max-width:977px){
+	.pedido .conteudo-pedido .container-pedido-especial .descricao-pedido-especial .txt-descricao-pedido-especial h1{padding-left:0px;}
+	
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .categoria-pedido-finalizado{display:none;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado{width:255px !important;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado{width:100% !important; margin:0 auto; /*float:none;*/ text-align:center; line-height:18px; padding-bottom:30px}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado h1{padding-left:0px;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado p{padding-left:0px;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .cor-descricao-pedido-finalizado{width:100% !important; margin:0 auto; padding-bottom:30px;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .qtd-descricao-pedido-finalizado {width:240px; float:none; margin:0 auto;}
+}
+
+@media (max-width:460px){
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .txt-descricao-pedido-finalizado{float:left;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .cor-descricao-pedido-finalizado{float:left;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .qtd-descricao-pedido-finalizado table tr td h1{padding-left:0px;}
+}
+/************************ CONTATO *********************************/
+@media (max-width:1066px){
+	.contato .contato-formulario .conteudo-formulario .end-contato{width:auto}
+}
+
+@media screen and (max-width: 750px) {
+.contato .entre-contato .conteudo-entre-contato h1 {font-size:2.769em;/*36px*/ color:#FFF; text-align:center;}
+.contato .contato-formulario .conteudo-formulario .form-contato {width: 400px;}
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-erro p {color: #dc0f0f}
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-erro {border-left:0; width: 100%; margin-right: 0 !important; }
+}
+
+
+@media screen and (max-width: 630px) {
+
+.contato .contato-formulario .conteudo-formulario .form-contato {width: 355px;}
+}
+
+@media screen and (max-width: 580px) {
+.contato .contato-formulario .conteudo-formulario .form-contato .caixa-form .formulario .submit-contato { float: none; margin-top: 30px;}
+.contato .contato-formulario {width: 100%;}
+.contato .contato-formulario .conteudo-formulario .end-contato {	width: 100%;text-align: center;}
+.contato .contato-formulario .conteudo-formulario .end-contato .caixa-end-contato { padding-top:30px;}
+.contato .contato-formulario .conteudo-formulario  {width: 100%; display:table;}
+.contato .contato-formulario .conteudo-formulario .form-contato .caixa-form{ background-color:#fff; padding-top:30px; margin: 0 auto; text-align: center;}
+.contato .contato-formulario .conteudo-formulario .form-contato  {width: 100%; display:table-footer-group;}
+.sacc-download .sacc-download-conteudo ul .link-download a { margin-left: -20px !important; }
+.contato .contato-formulario .conteudo-formulario .end-contato{margin:0 auto; float:none; display:table-header-group;}
+
+
+}
+
+@media screen and (max-width: 420px) {
+	
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-erro p {color: #dc0f0f; padding-left: 10px; padding-right: 30px;}
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-erro {border-left:0;  width: 100%; margin-right: 0 !important; }
+
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-sucesso p {color: #dc0f0f; padding-left: 10px; padding-right: 30px;}
+.contato .contato-formulario .mesagem-suce-erro .conteudo-mensage .mesagem-sucesso {border-left:0;  width: 100%; margin-right: 0 !important; }
+
+}
+
+/*********************	BLOG	*********************************/
+@media (max-width:444px){
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .text-post-blog .data-post-blog{float:none; margin:0 auto;}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .text-post-blog .data-post-blog .table-1 tr td h1{text-align:justify;}
+	
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .text-post-blog .descricao-post-blog{margin:0 auto;  float:none;}
+
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .add-comentarios-post form{width:284px; margin:0 auto;}
+	.post-blog .conteudo-post-blog .container-post-blog h1{text-align:center;}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .add-comentarios-post .text-comentario {width:280px; margin-bottom:20px;}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .add-comentarios-post .textarea-comentario{width:284px;}
+	
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .comentarios-post .post .nome-comentario-post{float:none;}
+	
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .comentarios-post .post .sub-comentario-post .nome-sub-comentario-post h1{text-align:left; margin-left:5px;}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .comentarios-post .post .nome-comentario-post h1 {text-align:center; margin-left:20px;}
+	
+	/********	REPLY	**********/
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .post-reply-comentario form{width:284px; margin:0 auto;}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .post-reply-comentario .text-comentario{width:280px; margin-bottom:20px}
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .post-reply-comentario .textarea-comentario{width:284px;}
+	
+	
+	
+	
+}
+
+@media (max-width:1060px){
+	.container_empresa .conteudo_empresa{width:50% !important;}
+}
+
+
+
+@media (max-width:588px){
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .comentarios-post .post .texto-comentario-post{float:left !important;}
+}
+
+
+@media (max-width:879px){
+	.post-blog .conteudo-post-blog .container-post-blog .post-blog .comentarios-post .post .texto-comentario-post { margin-left:19%; float:none}
+}
+
+
+@media(max-width:551px){
+	.conteudo_empresa .sobre_sac .empresa_sac{padding-top:20px;}
+	.empresa_posts .seta_post{position:relative; top:350px;left:120px;}
+	.conteudo_empresa .empresa_posts{padding-bottom:100px;}
+	.empresa_posts .titulo_post{width:100% !important; text-align:center;}
+	.empresa_posts .banner_post{width:90% !important; margin:0 auto !important;padding-bottom:57px}
+	.empresa_posts .banner_post ul li .post{width:90% !important; margin:0 auto !important;}
+	
+	.sobre-fazemos .conteudo-fazemos .box_oquefazemos .titulo_imagem table td:first-child{padding-left:9px;}
+}
+
+/*************** BANNER ***********/
+@media (max-width:994px){
+	.banner section div .texto h2{font-size:82px;}
+	.banner section div .texto p{font-size:22px;}
+}
+@media (max-width:893px){
+	.banner section div .texto h2{font-size:42px;}
+	.banner section div .texto p{font-size:12px;}
+	.main_menu table tr td a img{width:100px;}
+}
+@media(max-width:480px){
+	html{min-width:480px;}
+	.banner{min-width:480px;}
+	.banner img {min-width:480px;}
+	.banner section div .texto h2{font-size:25px;}
+	.banner section div .texto p{font-size:10px;}
+	.main_menu table tr td a img{width:80px;}
+
+}
+/************* HISTORICO*****************/
+@media (max-width:661px){
+	.div_historico_pedido .button{margin-top:20px !important;}
+}
+
+@media (max-width:400px){
+	.empresa_posts .seta_post{top:362px;}
+}
+/**********************/
+
+@media (max-width:1063px){
+	.div_cliente_especial{margin-left:0px;}
+}
+
+@media (max-width:858px){
+	.compras-produtos .produtos_historico{width:200px !important}
+	.compras-produtos .produtos_historico ul li{margin-left:0px !important; margin-right:0px !important; float:none !important;}
+}
+
+@media (max-width:803px){
+	.pedido .conteudo-pedido .container-pedido-especial .descricao-pedido-especial .txt-descricao-pedido-especial{margin-left:0px;}
+	.pedido .conteudo-pedido .container-pedido-especial .descricao-pedido-especial .vlr-descricao-pedido-especial{float:none;}
+	.pedido .conteudo-pedido .container-pedido-especial .descricao-pedido-especial .sub-descricao-pedido-especial{float:none;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .vlr-descricao-pedido-finalizado{width:100%; float:none;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .sub-descricao-pedido-finalizado{width:100% !important; float:none;}
+	.finalizado .conteudo-finalizado .container .container-pedido-finalizado .descricao-pedido-finalizado .qtd-descricao-pedido-finalizado{width:95%; margin:auto;}
+}
+
+
+@media (max-width:713px){
+	.div_cliente_especial{margin-left:0px;}
+}
+
+@media (max-width:1330px){
+	.banner section div .texto	{display:none}
+	.banner section div .texto h2{
+		font-size:3.7858em;
+	}
+	.banner section div .texto h6{
+		font-size:1.000em;
+	}
+}

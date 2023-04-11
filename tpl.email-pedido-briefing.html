@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title></title>
+	<style media="screen,print">
+	
+		body {
+			text-align:center;
+			margin:0px;
+			padding:0px;
+		}
+
+		h1 {
+			font-size:16px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			background-color:#ececec;
+		}
+
+		h2 {
+			font-size:14px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			border-bottom:1px solid #ececec;
+		}
+
+		h3 {
+			font-size:12px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			border-top:1px solid #ececec;
+		}
+
+		h4 {
+			font-size:14px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:right;
+			border-top:1px solid #ececec;
+		}
+
+		p {
+			font-family:arial;
+			font-size:12px;
+			color:#999;
+			padding:1px;
+			margin:0px;
+		}
+
+		p.maior {
+			font-size:14px;
+			font-weight:bold;
+		}
+
+		table {
+			border-collapse:collapse;
+		}
+
+		table.grid tr th{
+			font-size:10px;
+			font-family:arial;
+			font-weight:bold;
+			padding:1px;
+			margin:0px;
+			text-align:left;
+			background-color:#ececec;
+		}
+
+		table.grid tr td{
+			font-size:10px;
+			font-family:arial;
+			padding:1px;
+			margin:0px;
+			text-align:left;
+			border-bottom:1px solid #cecece;
+		}
+
+		table.small tr td{
+			font-size:11px;
+			font-family:arial;
+			padding:1px;
+			margin:0px;
+		}
+
+	</style>
+</head>
+<body>
+    <div style="width:600px;text-align:left;margin:auto;border:1px solid #e1e1e1;padding:3px;">
+		<table width="100%">
+			<tr>
+				<td><img src="{config->URL}admin/images/logo_cliente_admin.jpg" alt="" /></td>
+				<td align="right">
+					<p class="maior">{config->EMPRESA}</p>
+					<p>{config->LOGRADOURO}, {config->NUMERO}<br />
+					{config->BAIRRO} {config->CIDADE} {config->ESTADO}<br />
+					CEP: {config->CEP}</p>
+					<p>{config->TELEFONE}</p>
+					<p>E-mail: {config->EMAIL_CONTATO}</p>
+				</td>
+			</tr>
+		</table>
+		<h1>Solicitação briefing: {briefing->id}</h1>
+		<table width="100%">
+
+			<!-- BEGIN BLOCK_ITEM_REFERENCIA -->
+			<tr>
+				<td colspan="3">
+					<h2>Item de refer&ecirc;ncia</h2>
+					<div style="border:1px solid #eee;padding:10px">			
+						<img style="float:left" src="{config->URL}img/produtos/2/{item_ref->imagem}">
+						
+						<p>Nome</p>
+						{item_ref->nome}
+						
+						<p>Refer&ecirc;ncia</p>
+						{item_ref->referencia}
+
+						<p>Descri&ccedil;&atilde;o</p>
+						{item_ref->descricao}
+						
+					</div>
+				</td>
+			</tr>
+			<!-- END BLOCK_ITEM_REFERENCIA -->		
+			<tr>
+				<td colspan="3">
+					<p>Nome</p>
+					{briefing->nome}
+				</td>
+			</tr>
+            <tr>
+				<td colspan="3">
+					<p>Empresa</p>
+					{briefing->empresa}
+				</td>
+			</tr>
+			<tr>	
+				<td colspan="2">
+					<p>Email</p>
+					{briefing->email}
+				</td>
+				<td>
+					<p>Telefone</p>
+					{briefing->telefone}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<p>Tipo de a&ccedil;&atilde;o ou evento</p>
+					{briefing->tipo_acao_evento}
+				</td>					
+			</tr>
+			<tr>
+				<td colspan="3">
+					<p>P&uacute;blico</p>
+					{briefing->publico}
+				</td>					
+			</tr>
+			<tr>
+				<td colspan="3" style="height:60px;">
+					<p>Faixa Et&aacute;ria</p>
+					{briefing->faixa_etaria}
+				</td>					
+			</tr>
+			<tr>	
+				<td>
+					<p>Quantidade de brindes</p>
+					{briefing->qtd_brindes}
+				</td>
+				<td>
+					<p>Verba aproximada</p>
+					{briefing->verba_aproximada}
+				</td>
+				<td>
+					<p>Data da distribui&ccedil;&atilde;o</p>
+					{briefing->prazo_entrega}
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<p>Observa&ccedil;&atilde;o</p>
+					{briefing->obs}
+				</td>
+			</tr>
+		</table>        
+		<br />
+		<br />
+	</body>
+</html>

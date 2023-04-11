@@ -1,0 +1,63 @@
+<div style="display:none">
+{h1}
+{grid}
+{edicao}
+
+<h1>Dashboard</h1>
+
+<div class="box">
+	<h2>Top 15 - Produtos mais visitados HOJE ({hoje})</h2>
+	<table class="grid">
+		<tr>
+			<th width="50px">Pos</th>
+			<th>Referencia</th>
+			<th>Nome</th>
+			<th width="100px">Qtd</th>
+		</tr>
+		<!-- BEGIN BLOCK_REL_LIST_ITEM -->
+		<tr>
+			<td>{rel_list_item->pos}#</td>
+			<td>{rel_list_item->referencia}</td>
+			<td>{rel_list_item->nome}</td>
+			<td>{rel_list_item->count_visita_id}</td>
+		</tr>
+		<!-- END BLOCK_REL_LIST_ITEM -->
+	</table>
+</div>
+
+<div class="box">
+	<h2>Top 15 - Categorias mais visitadas HOJE ({hoje})</h2>
+	<table class="grid">
+		<tr>
+			<th width="50px">Pos</th>
+			<th>Categoria</th>
+			<th width="100px">Qtd</th>
+		</tr>
+		<!-- BEGIN BLOCK_REL_LIST_CATEGORIA -->
+		<tr>
+			<td>{rel_list_categoria->pos}#</td>
+			<td>{rel_list_categoria->nome}</td>
+			<td>{rel_list_categoria->count_visita_id}</td>
+		</tr>
+		<!-- END BLOCK_REL_LIST_CATEGORIA -->
+	</table>
+</div>
+</div>
+
+<!--div class="box">
+	<h2>Estatistica de clientes por "COMO CONHECEU"</h2>
+	<table class="grid">
+		<tr>
+			<th width="50px">Pos</th>
+			<th>Como conheceu</th>
+			<th width="100px">Qtd</th>
+		</tr-->
+		<!-- BEGIN BLOCK_REL_LIST_COMOCONHECEU -->
+		<!--tr>
+			<td>{rel_list_comoconheceu->pos}#</td>
+			<td>{rel_list_comoconheceu->nome}</td>
+			<td>{rel_list_comoconheceu->count_cadastro_id}</td>
+		</tr-->
+		<!-- END BLOCK_REL_LIST_COMOCONHECEU -->
+	<!--/table>
+</div-->

@@ -1,0 +1,113 @@
+.conteudo-detalhe {
+  padding: 40px 0;
+  margin-top: 20px;
+}
+.conteudo-detalhe .conteudo-dados-prod .title {
+  font-size: 31px;
+  color: #666666;
+  font-weight: 200;
+  margin-bottom: 17px;
+}
+.conteudo-detalhe .conteudo-dados-prod .sku {
+  font-size: 25px;
+  color: #666666;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.conteudo-detalhe .conteudo-dados-prod .desc-sub {
+  color: #666666;
+  font-weight: 400;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select {
+  margin-bottom: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select span {
+  padding-right: 5px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .form-control {
+  border: 0px;
+  width: 100%;
+  height: 34px;
+  padding-left: 10px;
+  border-radius: 0px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .div-select {
+  position: relative;
+  height: 45px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .d_select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .select_det {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  outline: none;
+  width: 100%;
+  height: 45px;
+  background: #FFF;
+  padding: 5px;
+  padding-left: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .d_select:before {
+  content: '\f078';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 45px;
+  border-radius: 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 37px;
+  cursor: pointer;
+  pointer-events: none;
+  background: #fff;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .qtd-prod {
+  border: 1px solid #ccc;
+}
+.conteudo-detalhe .conteudo-dados-prod .btn-orcar {
+  width: 100%;
+  border-radius: 0;
+  background-color: #FD7F03;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 10px 0px;
+  margin-bottom: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento span {
+  color: #666666;
+  font-weight: 400;
+  font-size: 16px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento .wa_btn_l {
+  width: 44px;
+  height: 44px;
+  background-image: url(../img/ico/whatsapp.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento a {
+  margin-top: 15px;
+  display: inline-block;
+}
+.conteudo-detalhe .conteudo-dados-prod .table-espc {
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+}
+.conteudo-detalhe .d-img-det {
+  padding: 0px 2px;
+  margin-top: 8px;
+}
+.d-relacionadas {
+  margin-top: 25px;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+	<title></title>
+	<style media="screen,print">
+	
+		body {
+			margin:0px;
+			padding:0px;
+		}
+
+		a{text-decoration: none;}
+
+	</style>
+</head>
+<body>
+	<!-- head -->
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;text-align:center;">
+		<tr>
+			<td>
+				<a href="{config->URL}" title="{config->EMPRESA}"><img src="{config->URL}img/logo/logo-email.png?a=123" alt="{config->EMPRESA}" style="margin-bottom:15px;"></a>
+				<hr style="width:90%;margin:0 auto;"></hr>
+			</td>
+		</tr>
+	</table>
+	<!-- head -->
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;" align="center">
+		<tr>
+			<td style="width:100%;text-align:center;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:21px;">OBRIGADO POR SOLICITAR UM OR&Ccedil;AMENTO adad</span>
+			</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;margin-top:15px;">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:800;color:#666666 !important;font-size:18px;">Ol&aacute; {cadastro->nome}.</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;margin-top:15px">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">A {config->EMPRESA} agradece o seu contato.</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Para aproveitar todas as novidades entre em nosso site e acesse preencha seu cadastro completo.</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<!-- <table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;margin-top:15px;margin-bottom:15px;">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:18px;"><strong>Seus dados:</strong></span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Empresa:</strong> {cadastro->empresa}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Nome:</strong> {cadastro->nome}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>Telefone:</strong> {cadastro->fone_com} / {cadastro->fone_cel}</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;"><strong>E-mail:</strong> {cadastro->email}</span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table> -->
+	<!-- Footer -->
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;background-color:#232323;">
+		<tr>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Atenciosamente</span><br/>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#074182 !important;font-size:16px;">Equipe {config->EMPRESA}</span>
+			</td>
+			<td rowspan="2" style="text-align:right" >
+				<img src="{config->URL}img/logo/logo-rodape.png" alt="" style="width:118px !important;">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">Tel.: &#9679; {config->TELEFONE}</span><br/>
+				<a href="mailto:{config->EMAIL_CONTATO}" style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#666666 !important;font-size:14px;">{config->EMAIL_CONTATO}</a>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr>
+	</table>
+	<table cellspancing="0" cellpadding="0" border="0" width="600px" style="margin:0 auto;background-color:#171717;">
+		<tr>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+			<td style="width:60%;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;">{config->EMPRESA} Todos os direitos reservados.</span>
+			</td>
+			<td  style=";width:40%;text-align:right;">
+				<span style="font-family: 'Open Sans', sans-serif;font-weight:400;color:#FFF !important;font-size:14px;display:block;text-align:right">Desenvolvimento <a href="http://ajung.com.br" style="color:#FFF;">A. Jung</a></span>
+			</td>
+			<td style="width:15px;height:100%;">&nbsp;</td>
+		</tr> 
+	</table>
+	<!-- Footer -->
+</body>
+</html>

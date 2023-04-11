@@ -1,0 +1,46 @@
+<div class="thumbnail prod text-center">
+	<div class="img_prod">
+        
+        <!-- BEGIN BLOCK_SPLASH -->
+		<div class="img-splash">
+			<a href="{item->link}"><img src="{path}img/splash/{item->splash_imagem}" /></a>
+		</div>
+        <!-- END BLOCK_SPLASH -->
+        
+		<a href="{item->link}">{item->tag_imagem_listagem}</a>
+	</div>
+	
+    <h2 class="sku"><a href="{item->link}">Cód: {item->referencia}</a></h2>
+	<p class="title"><a href="{item->link}">{item->nome}</a></p>
+    {item->preco_detalhe}
+	<!--p class="hidden-xs chamada"><a href="{item->link}">{item->chamada_abreviado}</a></p-->
+	
+	<!--div class="d_caption">
+		<p class="caption">
+			<a href="{item->link}">{item->chamada_front}</a>
+		</p>
+	</div-->
+    <!-- BEGIN BLOCK_BT_ORCAR_ON -->
+    <form action="{index}pedido_add" method="POST">
+        <input type="hidden" value="1" name="add_item" />
+        <input type="hidden" value="{item->id}" name="item_id" />
+        <input type="hidden" value="{item->qtd_minima}" name="qtd" />
+        <input type="hidden" value="{itemcor->cor_id}" name="cor_id" />
+        <input type="hidden" value="{token}" name="token" />
+        <div class="cotacao">
+            <div class="row">
+                <!--div class="col-sm-12">
+                    <button type="submit" class="btn btn-cotar pull-left">COTAÇÃO</button>
+                </div-->
+                <!--<div class="col-sm-6">
+                    <p class="text-right">{item->chamada_cotacao}</p>
+                </div>-->
+            </div>
+        </div>
+    </form>
+    <!-- END BLOCK_BT_ORCAR_ON -->
+
+    <!-- BEGIN BLOCK_BT_ORCAR_OFF -->
+    <!--span class="prod_indisponivel">Indispon&iacute;vel <br />Temporariamente</span-->
+    <!-- END BLOCK_BT_ORCAR_OFF -->
+</div>

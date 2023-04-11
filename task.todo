@@ -1,0 +1,13 @@
+
+
+MELHORIAS ST 7.4:
+    ✔ 1) nao tá puxando foto na tpl do orçamento do barbosa @done (11/17/2020, 1:38:38 PM)
+    ✔ 2) vc pode habilitar para editar quantidade no editar orçamento do barbosa? @done (11/17/2020, 1:35:37 PM)
+    ✔ 3) no orçamento a coluna preço vem antes e no editar a coluna preço vem depois da quantidade. Podemos adotar somente a sequencia que está num ou noutro? @done (11/17/2020, 1:38:40 PM)
+    ✔ 4) alterara dados no campo de editar orçamento tem que estar nos dois campos não somente num.... ou seja se os dados do cliente estão errados como faço para alterar nesta tela? @done (11/17/2020, 2:26:37 PM)
+    ✔ 5) editar campos ao gerar pedido. Sei que podemos editar no proprio cliente mas se um dia pudermos editar nesta tela e ja salvar no cliente vai ficar du caralho @done (11/17/2020, 2:26:55 PM)
+    ✔ 6) multiplicação errada ao gerar pedido @done (11/17/2020, 4:33:01 PM)
+    ✔ 7) consegui cadastrar dois clientes com mesmo email e mesmo cnpj @done (11/17/2020, 1:34:59 PM)
+    ☐ 8) podemos por um aviso que a proposta está sem preço se deseja seguir mesmo assim? dai eu ajudo ao cliente a perceber se caso ele estiver criando proposta sem preço como eu anta fiz nesta....
+    ✔ 9) cadastrei dois clientes novos no admin mas não foram para base de emails (adri@ajung.com.br) @done (11/17/2020, 11:34:07 AM)
+    ✔ 10) não consigo salvar sobre a empresa @done (11/17/2020, 11:03:57 AM)

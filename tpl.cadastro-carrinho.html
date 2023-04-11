@@ -1,0 +1,114 @@
+<section class="cadastro-carrinho font_geral">
+	<div class="header-cadastro-carrinho">
+	</div>
+	
+	<div class="menu-cadastro-carrinho">
+		<div class="conteudo-menu-cadastro-carrinho">
+			<img src="{path}img/sobre_detalhe.png"/>
+			<h1>CADASTRO</h1>
+				<p><a href="{index}">HOME</a> / <a href="{index}brindes">PRODUTOS</a> / <a href="{index}pedido">CARRINHO</a> / <a href="">CONFIRMAÇÃO</a></p>
+		</div>
+	</div>
+	
+	<!--JÁ CADASTRADO-->
+		<div class="ja-cadastrado">
+			<div class="conteudo-ja-cadastrado">
+				<h1>JÁ SOU CADASTRADO</h1>
+				<br/>
+				<form>
+					<input type="text" class="cadastro-text" placeholder="Login"/>
+					<br/>
+					<input type="text" class="cadastro-text" placeholder="Senha"/>
+					<br/>
+                    <a href="#" data-toggle="modal" data-target="#esqueciSenha" style="cursor:pointer">Esqueci a senha</a>
+					<br/>
+					<br/>
+					<input type="submit" value="ENTRE" class="bt-login-cadastrado" />
+				</form>
+				<br clear="all"/>
+			</div>
+		</div>
+	<!--JÁ CADASTRADO-->
+	
+	
+	<!--CADASTRO-->
+	<div class="d-cadastro">
+		<div class="conteudo-cadastro">
+			<div class="d-form-cadastro">
+				<h1>PREENCHA O CADASTRO</h1>
+				<form>
+					<label>Nome:<span>*</span></label>
+					<br/>
+					<input type="text" class="cadastro-text"/>
+					<br/>
+					<label>E-mail:<span>*</span></label>
+					<br/>
+					<input type="text" class="cadastro-text"/>
+					<br/>
+					<label>Empresa:<span>*</span></label>
+					<br/>
+					<input type="text" class="cadastro-text"/>
+					<br/>
+					<label>Telefone:<span>*</span></label>
+					<br/>
+					<input type="text" class="cadastro-text" id="tel"/>
+					<br/>
+					<input type="text" class="cadastro-login" placeholder="LOGIN"/>
+					<br/>
+					<input type="text" class="cadastro-login" placeholder="SENHA"/>
+					<input type="text" class="cadastro-login re-senha" placeholder="RE-DIGITE A SENHA"/>
+					<br/>
+					<input type="checkbox" /><label class="label-check">Quero receber POST do BLOG<label>
+					<br/>
+					<input type="submit" class="submit-cadastro" value="ENVIAR" />
+					<br clear="all"/>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--CADASTRO-->
+
+
+</section>
+
+<script>
+// Bind no input e propertychange para pegar ctrl-v
+// e outras formas de input
+
+$(document).ready(function(){
+    $("#tel").bind('input propertychange',function(){
+       
+        // pego o valor do telefone
+        var texto = $(this).val();
+        // Tiro tudo que não é numero
+        texto = texto.replace(/[^\d]/g, '');
+        // Se tiver alguma coisa
+        if (texto.length > 0)
+        {
+        // Ponho o primeiro parenteses do DDD  
+        texto = "(" + texto;
+     
+            if (texto.length > 3)
+            {
+                // Fecha o parenteses do DDD
+                texto = [texto.slice(0, 3), ") ", texto.slice(3)].join('');
+            }
+            if (texto.length > 12)
+            {    
+                // Se for 13 digitos ( DDD + 9 digitos) ponhe o traço no quinto digito          
+                if (texto.length > 13)
+                    texto = [texto.slice(0, 10), "-", texto.slice(10)].join('');
+                else
+                 // Se for 12 digitos ( DDD + 8 digitos) ponhe o traço no quarto digito
+                    texto = [texto.slice(0, 9), "-", texto.slice(9)].join('');
+            } 
+                // Não adianta digitar mais digitos!
+                if (texto.length > 15)              
+                   texto = texto.substr(0,15);
+        }
+        // Retorna o texto
+       $(this).val(texto);   
+    });
+});
+
+</script>

@@ -1,0 +1,207 @@
+:root{
+  --dark_grey: #2f2f2f;
+  --cor_botao: #629A30;
+  --cor_fonte_botao: #FFF;
+  --white: #FFFFFF;
+  --black: #000000;
+}
+
+.conteudo-detalhe {
+  padding: 40px 0;
+  margin-top: 20px;
+}
+.conteudo-detalhe .conteudo-dados-prod .title {
+  font-size: 31px;
+  color: #666666;
+  font-weight: 200;
+  margin-bottom: 17px;
+}
+.conteudo-detalhe .conteudo-dados-prod .sku {
+  font-size: 25px;
+  color: #666666;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.conteudo-detalhe .conteudo-dados-prod .desc-sub {
+  color: #666666;
+  font-weight: 400;
+}
+
+.conteudo-detalhe .conteudo-dados-prod .desc-sub + table tbody tr td th, td{
+  white-space: nowrap;
+}
+
+.conteudo-detalhe .conteudo-dados-prod .d-table-select {
+  margin-bottom: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select span {
+  padding-right: 5px;
+  white-space: nowrap;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .form-control {
+  border: 0px;
+  width: 100%;
+  height: 34px;
+  padding-left: 10px;
+  border-radius: 0px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .div-select {
+  position: relative;
+  height: 45px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .d_select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .select_det {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  outline: none;
+  width: 100%;
+  height: 45px;
+  background: #FFF;
+  padding: 5px;
+  padding-left: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .d_select:before {
+  content: '\f078';
+  font-family: FontAwesome;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 45px;
+  border-radius: 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 37px;
+  cursor: pointer;
+  pointer-events: none;
+  background: #fff;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-table-select .qtd-prod {
+  border: 1px solid #ccc;
+}
+
+.conteudo-detalhe .conteudo-dados-prod .btn-orcar {
+  width: 100%;
+  border-radius: 0px;
+  background-color: var(--cor_botao);
+  color: var(--cor_fonte_botao);
+  font-weight: 400;
+  font-size: 16px;
+  padding: 10px 0px;
+  margin-bottom: 15px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento span {
+  color: #666666;
+  font-weight: 400;
+  font-size: 16px;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento .wa_btn_l {
+  width: 44px;
+  height: 44px;
+  background-image: url(../img/ico/whatsapp.png);
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+.conteudo-detalhe .conteudo-dados-prod .d-compartilhamento a {
+  margin-top: 15px;
+  display: inline-block;
+}
+.conteudo-detalhe .conteudo-dados-prod .table-espc {
+  font-size: 16px;
+  color: #666666;
+  font-weight: 400;
+}
+.conteudo-detalhe .d-img-det {
+  padding: 0px 2px;
+  margin-top: 8px;
+}
+.conteudo-detalhe .especificacao{
+  margin-top:25px;
+  margin-bottom:25px;
+  /* width:100%; */
+}
+.especificacao h6{
+  font-size:16px;
+  font-weight:700;
+  margin-bottom:9px;
+  color: #666666;
+}
+.especificacao p{
+  font-weight:600;
+  margin-bottom:8px;
+  color: #666666;
+}
+.especificacao p span{
+  font-weight:400;
+  color: #666666;
+}
+.d-relacionadas {
+  margin-top: 25px;
+}
+
+.flecha_next{
+  right: -37px;
+}
+
+.flecha_prev{
+  left: -39px;
+}
+@media(max-width: 991px){
+
+  .flecha_next{
+    right: 0px;
+  }
+  
+  .flecha_prev{
+    left: 0px;
+  }
+}
+/* REDES SOCIAIS */
+
+.icone-detalhe-share{
+  font-size: 25px;
+  border-radius: 100%;
+  border: 2px solid  #404041;
+  color: #404041;
+  padding: 10px;
+  font-weight: 600;
+  width: 48px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.preco_det{
+  padding: 0 0 5px 0;
+  margin-bottom: 10px;
+}
+span.preco, span.de{
+  font-size: 18px;
+  color: #000;
+}
+span.preco_de{
+  font-size: 14px;
+  text-decoration: line-through;
+  color: rgba(255, 0, 0, 0.3);
+}
+small.texto_preco{
+  font-size: 12px;
+  color: #666;
+}
+.sem_preco{
+  width:100%;
+  height: 48px;
+  padding: 0 0 5px 0;
+}
+@media(max-width:991px){
+  .sem_preco{
+    height: 68px;
+  }
+}

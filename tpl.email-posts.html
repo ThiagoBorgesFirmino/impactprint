@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link href="http://fonts.googleapis.com/css?family=Oxygen:400,300,700" rel="stylesheet" type="text/css">
+	<title>Post Blog</title>
+	<style>
+		body{margin:0; padding:0;}
+		span{font-size:10px; font-family: "Oxygen", sans-serif;}
+		a { font-family: "Oxygen", sans-serif;}
+		th{color:#FFFFFF;font-family: "Oxygen", sans-serif; font-size:10px;text-align:left; background:#424242;padding-bottom:5px;padding-top:5px;}
+	</style>
+</head>
+
+<body>
+	<center>
+	<table cellspacing="0" style="width:600px; background:#ededed; margin:0 auto;padding-top:10px;">
+		<tr>
+			<td style="width:10px">
+			</td>
+			<td>
+				<table cellspacing="0" style="width:100%; padding-bottom:5px;">
+					<tr>
+						<td>
+							<a href="{config->URL}"><img src="{config->URL}img/logo/logo-email.png" alt="" style="width:50%;display:block;border:none;"/></a>
+						</td>
+						<td style="width:280px;">
+						</td>
+						<td style="text-align:left">
+							<span class="dados_empresa" style="text-align:left;">
+							{config->EMPRESA}<br />
+							{config->LOGRADOURO}, {config->NUMERO}<br />
+							{config->BAIRRO} {config->CIDADE} {config->ESTADO}<br />
+							CEP: {config->CEP}<br />
+							{config->TELEFONE}<br />
+							E-mail: {config->EMAIL_CONTATO}
+							</span>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td style="width:10px">
+			</td>
+		</tr>
+	</table>
+		<table cellspacing="0" style="width:600px; background:#333333; margin:0 auto;padding:5px;">
+			<tr>
+				<td style="text-align:center;">
+					<span style="color:#FFFFFF; font-size:16px; font-weight:bold;">CONFIRA NOSSO BLOG</span>
+				<td>
+			</tr>
+		</table>
+		<table cellspacing="0" style="width:600px; border-left:1px solid #c0c0c0;border-right:1px solid #c0c0c0; margin:0 auto;padding-top:15px;padding-bottom:20px; border-bottom:2px solid #333333;">
+			<tr>
+				<td style="width:10px"></td>
+				<td style="text-align:left">
+					<span style="font-size:18px;font-weight:bold;">BLOG CREATIVE</span>
+					<br/>
+					<span style="font-size:12px;">Voc&ecirc; recebeu um replay do seu coment&aacute;rio.</span>
+				</td>
+				<td style="width:10px"></td>
+			</tr>
+		</table>
+		<!-- BEGIN BLOCK_ULTIMOS_POSTS -->
+		<table cellspacing="0" style="width:600px; border-left:1px solid #c0c0c0;border-right:1px solid #c0c0c0; margin:0 auto;padding-top:15px;padding-bottom:15px; border-bottom:2px solid #333333;">
+			<!-- BEGIN BLOCK_POSTS -->
+			<tr>
+				<td style="width:10px"></td>
+				<td style="text-align:left">
+					<a href='{config->URL}index.php/post/{post->id}/{post->titulo}' style='text-decoration:none;' target='_blank'>
+					<span style="font-size:20px;color:#000000	"><b>{post->titulo}</b></span>
+					<br/>
+					<span style="font-size:10px;color:#000000"><i>por {post->autor}</i></span>
+					<br/>
+					<br/>
+					<span style="color:#000000;font-size:14px;">{post->texto_formatado}</span>
+					</a>
+					<br/>
+					<br/>
+					<a href='{config->URL}index.php/post/{post->id}/{post->titulo}' style='text-decoration:none;' target='_blank'>
+					<span style="color:#f77e35;font-weight:bold;font-size:14px;"><u>Confira no Blog.</u></span>
+					</a>
+				</td>
+				<td style="width:10px"></td>
+			</tr>
+			<!-- END BLOCK_POSTS -->
+		</table>
+		<!-- END BLOCK_ULTIMOS_POSTS -->
+		<table cellspacing="0" style="width:600px; border-left:1px solid #c0c0c0;border-right:1px solid #c0c0c0; margin:0 auto;padding-top:15px;padding-bottom:15px; border-bottom:2px solid #333333;">
+			<tr>
+				<td style="width:10px"><td>
+				<td style="text-align:left"> 
+					<a style="color:#f77e35;font-weight:bold;font-size:14px;" href='{config->URL}index.php/blog' target='_blank'>Clique aqui para ver o blog completo</a>
+				<td>
+				<td style="width:10px"><td>
+			</tr>
+		</table>
+		<table cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px; background:#424242;">
+			<tr>
+				<td style="width:10px"></td>
+				<td style="text-align:left">
+					<span style="color:#FFFFFF; font-size:12px">
+						Atenciosamente,<br />
+						{vendedor->nome}<br />
+						{vendedor->email}<br />
+						{vendedor->fone_com} {vendedor->fone_cel}<br />
+						{config->EMPRESA}<br />
+					</span>
+				</td>
+				<td style="text-align:right"> 		
+					<a href="{config->URL}"><img class="footer_logo" src="{config->URL}img/logo_rp.png" alt="" style="display:block;border:none;width:120px;margin-left:318px;"/></a>
+				</td>
+				<td style="width:10px"></td>
+			</tr>
+		</table>
+		<table  cellspacing="0" style="width:600px; margin:0 auto;padding-top:5px;padding-top:5px; padding-bottom:5px; background:#3e3e3e;">
+			<tr>
+				<td style="text-align:center">
+					<span style="color:#FFFFFF;">A. Jung Manager - <a href="http://www.ajung.com.br">www.ajung.com.br</a></span>
+				</td>
+			</tr>
+		</table>
+		</center>
+</body>
+</html>

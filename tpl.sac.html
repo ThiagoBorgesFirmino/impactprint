@@ -1,0 +1,101 @@
+<div class="formulario-contato">
+	<div class="container padding_0">
+		<div class="row margin_0">
+			<div class="col-md-12 padding_0 conteudo-sac">
+				<div class="text-center">
+					<h1 class="_title">SAC</h1>
+					<hr class="linha"></hr>
+				</div>
+				<div class="col-md-12 frase-sac">
+					<!--p class="aviso-sac">
+						{config->FRASES-SAC}
+					</p-->
+				</div>
+				<div class="col-md-12 padding:0px;">
+				{contato}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<section class="sacc font_geral" style="display:none">
+
+
+	<!-- BEGIN BLOCK_DOWNLOADS -->
+	<div class="sacc-download">
+		<div class="sacc-download-conteudo">
+			<h1>DOWNLOAD</h1>
+			<br/>
+			
+			<!-- BEGIN BLOCK_SACC_DOWNLOAD -->
+			<table border='0' >
+				<tr>
+					<td>
+						<span>{download->nome}</span>
+					</td>
+					<td class="td_img_download" >
+						<a class="link-download" href="{index}sacc/?f={file}" title="{download->nome}"></a>
+					</td>
+				</tr>
+			</table>
+
+			<br clear="all"/>
+			<!-- END BLOCK_SACC_DOWNLOAD -->
+
+		</div>
+	</div>
+	<!-- END BLOCK_DOWNLOADS -->
+	
+</section>
+<script>
+
+// limpar formualario
+$(".bt-limpar").click(function(){
+	$(".formulario input:not([type=submit]), .formulario textarea").each(function(){
+		$(this).val("");
+	});
+});
+
+</script>
+
+
+<section class="right-part">
+	<h4>Endere&ccedil;o:</h4>
+	<address>
+		<span>Shopping JK iguatemi</span>
+		<span>Piso T&eacute;rreo - Lj. 148</span>
+		<span>Avenida Presidente Juscelino Kubitschek, 2041</span>
+		<span>Itaim Bibi</span>
+		<span>S&atilde;o Paulo - SP</span>
+		<span>04543-011</span>
+	</address>
+	<p><span>Tel:</span><a href="tel:11 3152 6660" title="11 3152 6660">11 3152 6660</a></p>
+	<p><span>Email:</span><a href="mailto:montecristojk@uol.com.br" title="Contato">montecristojk@uol.com.br</a>
+	</p><a href="http://montecristo.com.br/contato" title="Fale Conosco"><em>Fale Conosco</em></a>
+</section>
+<section class="left-part">
+	<h4>Como Chegar:</h4>
+	<iframe class="fullWidth" style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3656.3649793400177!2d-46.689712!3d-23.59124!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57474d7e987d%3A0x99253a0d1fee9a04!2sShopping+JK+Iguatemi!5e0!3m2!1spt-BR!2sbr!4v1407443798852" frameborder="0" width="660" height="590"></iframe>
+</section>
+
+
+<section class="right-part">
+		<h4>Endere&ccedil;o:</h4>
+		<address>
+			<span>Shopping Iguatemi SP</span>
+			<span>Piso T&eacute;rreo - Lj. C-37</span>
+			<span>Avenida Brigadeiro Faria Lima, 2232</span>
+			<span>Jardim Europa</span>
+			<span>S&atilde;o Paulo - SP</span>
+			<span>01457-040</span>
+		</address>
+		<p><span>Tel:</span><a href="tel:11 3032 8905" title="11 3032 8905">11 3032 8905</a></p>
+		<p><span>Email:</span><a href="mailto:contato@montecristo.com.br" title="Contato">contato@montecristo.com.br</a></p>
+		<a href="http://montecristo.com.br/contato" title="Fale Conosco"><em>Fale Conosco</em></a>
+	</section>
+	<section class="left-part">
+		<h4>Como Chegar:</h4>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.7582634320065!2d-46.68815299999999!3d-23.577123999999973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce576d78bdcf6d%3A0x2341095b30964b1d!2sShopping+Iguatemi!5e0!3m2!1spt-BR!2sbr!4v1407442806327" width="660" height="590" frameborder="0" style="border:0" class="fullWidth"></iframe> 		
+	</section>

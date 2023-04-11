@@ -1,0 +1,66 @@
+<div >
+	<div class="col-md-12 padding d-car-email text-center">
+		<h3 class="_title">Entre com o seu e-mail para finalizar o orçamento.</h3>
+	</div>
+	<div class="text-center d_container_cadastro cjs"  data-display="table" data-width="96%" data-padding="2%">
+
+		<div class="d_dados s_form_ajax cjs" data-display="inline-block" style="width:100%;" >
+			<input type="hidden" class="ajx" name="token" value="{token}" />
+			<input type="hidden" class="ajx" name="full_cad" value="" id="full_cad"/>
+
+				<label class="l-email">
+					<input type="email" autocomplete="off" placeholder="E-mail*" tabindex="1" name="cadastro[email]" value="" class="q_form_text ajx input_email form-control" style="text-transform:lowercase" />
+				</label>
+
+		</div>
+
+		<div id="h_form" class="d_dados s_form_ajax cjs" data-display="none" style="width:100%">
+
+				<label>
+					<input type="email" autocomplete="off" placeholder="Confirmar email*" tabindex="2" name="cadastro[confirma_email]" value="" class="q_form_text ajax  ajx input_confirmaemail form-control" style="text-transform:lowercase" />
+				</label>
+
+
+				<label>
+					<input type="text" autocomplete="off" placeholder="Nome*" tabindex="3" name="cadastro[nome]" value=""  class="q_form_text ajax ajx form-control  input_nome"/>
+				</label>
+
+
+				<label>
+				<input type="text" autocomplet="off" placeholder="Empresa*" tabindex="5" name="cadastro[empresa]" value="" class="q_form_text ajax ajx form-control input_empresa" style="text-decoration:lowercase"/>
+				</label>
+
+				<label>
+				<input type="text" autocomplet="off" placeholder="Telefone*" tabindex="6" name="cadastro[fone_res]" value="" class="q_form_text ajax ajx form-control input_telefone" id="cad_fone_res" onkeypress="return mascPhone(event, this);"  style="text-decoration:lowercase"/>
+				</label>
+
+				<label>
+				<input type="text" autocomplet="off" placeholder="Site" tabindex="7" name="cadastro[site]" value="" class="q_form_text ajax ajx form-control input_site" style="text-decoration:lowercase"/>
+				</label>
+
+				<label>
+				<textarea class="input-text form-control" rows="8" tabindex="8" name="cadastro[mensagem]" placeholder="Observações da cotação: Ex. Prazo de entrega, cores do logo..."></textarea>
+				</label>
+
+		</div>
+	</div>
+</div>
+			<div style="clear:both"></div>
+<script>
+	$(document).ready(function(){
+		var csj_count=100;
+		csj_style = "<style type='text/css' id='cjs_style'></style>";
+		$('head').append(csj_style);
+		$(".cjs").each(function(){
+			csj_class = "cjs_"+csj_count;
+			obj = $(this).data();
+			$(this).addClass(csj_class);
+			array = $.map(obj, function(value, index){return index.replace(/_/g,"-")+":"+value+";";});
+			csj_classes = "."+csj_class+"{"+array.join().replace(/,/g,"")+"}";
+			$("#cjs_style").append(csj_classes);
+			csj_count++;
+			$('[name="cadastro[fone_res]"]').mask('?(99)9999-99999');
+		});
+
+	});
+</script>

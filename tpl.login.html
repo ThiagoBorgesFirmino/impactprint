@@ -1,0 +1,72 @@
+<section>
+
+    {menu}
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Login</h1>
+        </div>
+    </div>
+
+    <div class="paglogin">
+        <div class="container">
+            <form method="POST" action="" id="formlogin">
+                <input type="hidden" name="enviar" value="1" />
+                <input type="hidden" value="{token}" name="token" />
+                <input type="hidden" value="1" name="cad_login" />
+                <input type="hidden" value="1" name="carrinho" />
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-4">
+                        <div id="d-erro" style="display: none" class="alert alert-danger">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Usuário" class="form-control" value="" name="login" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Senha" class="form-control" value="" name="senha" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Entrar</button>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <a href="#" data-toggle="modal" data-target="#esqueciSenha"><small>Esqueci a senha</small></a>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="{index}cadastro" class="btn btn-default btn-lg">Quero me cadastrar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#formlogin').ajaxForm({
+            dataType: 'json'
+            ,beforeSend: function(){
+                $('#formlogin').attr('disabled', true).css('opacity', .7);
+                $('#d-erro').hide().html('');
+            }
+            ,success: function(out){
+                // console.log(out);
+                if (out[0] == 1){
+                    window.location.href = new String(out[3]);
+                }
+                else {
+                    // set_erro();
+                    $('#d-erro').html(out[1]).slideDown();
+                    $('#formlogin').attr('disabled', false).css('opacity', 1);
+                }
+            }
+        });
+
+    });
+</script>

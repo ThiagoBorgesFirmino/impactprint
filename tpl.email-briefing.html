@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<style type="text/css">
+		body {
+			font-family:arial;
+			font-size:12px ;
+			text-align:left;
+		}
+		p.label {
+			font-family:arial;
+			font-size:10px ;
+			font-weight:bold;
+			margin:1px;
+			padding:1px;
+			text-align:left;
+		}
+		p.value {
+			font-family:arial;
+			font-size:12px ;
+			font-weight:bold;
+			margin:1px;
+			padding:1px;
+			margin-bottom:2px;
+			text-align:left;
+		}
+		</style>
+	</head>
+	<body>
+
+		<p>Solicita&ccedil;&atilde;o briefing - {$briefing->id}</p>
+
+		<!-- BEGIN BLOCK_ITEM_REFERENCIA -->
+		<div style="background-color:#eee;padding:10px">			
+			<img style="float:left" src="{config->URL}img/produtos/{item_ref->imagem}">
+			
+			<p class="label">{label->nome}</p>
+			<p class="value">{item_ref->nome}</p>
+			
+			<p class="label">{label->referencia}</p>
+			<p class="value">{item_ref->referencia}</p>
+
+			<p class="label">{label->descricao}</p>
+			<p class="value">{item_ref->descricao}</p>
+		</div>
+		<!-- END BLOCK_ITEM_REFERENCIA -->
+		
+		<p class="label">{label->nome}</p>
+		<p class="value">{briefing->nome}</p>
+
+		<p class="label">{label->empresa}</p>
+		<p class="value">{briefing->empresa}</p>
+
+		<p class="label">{label->email}</p>
+		<p class="value">{briefing->email}</p>
+
+		<p class="label">{label->telefone}</p>
+		<p class="value">{briefing->telefone}</p>
+
+		<p class="label">Tipo de a&ccedil;&atilde;o ou evento</p>
+		<p class="value">{briefing->tipo_acao_evento}</p>
+
+		<p class="label">P&uacute;blico</p>
+		<p class="value">{briefing->publico}</p>
+
+		<p class="label">Faixa Et&aacute;ria</p>
+		<p class="value">{briefing->faixa_etaria}</p>
+
+		<p class="label">Quantidade de brindes</p>
+		<p class="value">{briefing->qtd_brindes}</p>
+
+		<p class="label">Verba aproximada</p>
+		<p class="value">{briefing->verba_aproximada}</p>
+
+		<p class="label">Data da distribui&ccedil;&atilde;o</p>
+		<p class="value">{briefing->prazo_entrega}</p>
+
+		<p class="label">Observa&ccedil;&atilde;o</p>
+		<p class="value">{briefing->obs}</p>
+	</body>
+</html>

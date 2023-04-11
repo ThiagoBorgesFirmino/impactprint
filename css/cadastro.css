@@ -1,0 +1,16 @@
+﻿.cadastro { background-color: #666666; padding-top:40px; padding-bottom:40px; }
+.cadastro .panel { border:0px; border-radius:0px;  }
+.cadastro .panel-heading { border:0px; border-radius:0px; color:#fff; font-size:19px; font-family: 'Exo 2', sans-serif; font-weight: 600; text-align: center; background-color:#3399cc; text-transform:uppercase }
+.cadastro .panel .form-control { font-family: 'Exo 2', sans-serif; font-weight: 300; font-size:24px; border:0px; border-radius:0px; height:49px; color:#666666 }
+.cadastro .panel .radio label { font-family: 'Exo 2', sans-serif; font-weight: 300; font-size:24px; color:#666666; }
+.cadastro .panel input[type=radio] { margin-top: 12px !important; }
+.cadastro .btn-primary { color:#fff; text-transform:uppercase; }
+
+.paglogin { background-color: #66ccff; padding-top:40px; padding-bottom:40px; }
+.paglogin .panel { border:0px; border-radius:0px;  }
+.paglogin .panel-heading { border:0px; border-radius:0px; color:#fff; font-size:19px; font-family: 'Exo 2', sans-serif; font-weight: 600; text-align: center; background-color:#3399cc; text-transform:uppercase }
+.paglogin .panel .form-control { font-family: 'Exo 2', sans-serif; font-weight: 300; font-size:24px; border:0px; border-radius:0px; height:49px; color:#666666 }
+.paglogin .panel .radio label { font-family: 'Exo 2', sans-serif; font-weight: 300; font-size:24px; color:#666666; }
+.paglogin .panel input[type=radio] { margin-top: 12px !important; }
+.paglogin .btn { color:#fff; text-transform:uppercase; }
+.paglogin a { color:#fff; }

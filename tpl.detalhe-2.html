@@ -1,0 +1,251 @@
+<section class="detalhe font_geral">
+
+    <div class="container detalhe_produto">
+
+        <div class="row">
+
+            <div class="col-md-5 img">
+
+                <img src="{path}img/detalhe/seta-esquerda.png" class="arrows visible-sm-block visible-xs js-seta-esquerda seta_mobile prev" />
+                <img src="{path}img/detalhe/seta-direita.png" class="arrows arrow-right visible-sm-block visible-xs js-seta-direita seta_mobile next" />
+                <!--a class="fancybox" href="{path}img/produtos/{produto->imagem}" id="imagem_fancy"><img data-indice="0" src="{path}timthumb/timthumb.php?src={path}img/produtos/{produto->imagem}&w=514" id="imagem_principal" alt="{produto->nome}" title="{produto->nome}" width="100%;" /></a-->
+                <a class="fancybox js-imagemprincipal" href="{path}img/produtos/3/{produto->imagem}" id="imagem_fancy" data-indice="0" rel="fancybox_item" title="{produto->referencia} - {produto->nome}">
+                    <!--img data-indice="0" src="{path}img/produtos/{produto->imagem}" id="imagem_principal" alt="{produto->nome}" title="{produto->nome}" width="100%;" /-->
+                    {produto->tag_imagem_detalhe}
+                </a>
+                <div class="min_detalhe_img hidden-xs hidden-sm">
+                    <!-- BEGIN BLOCK_IMAGEM_DETALHE -->
+                    <a class="fancybox" href="{path}img/produtos/3/{imagem_detalhe}" rel="fancybox_item" title="{produto->referencia} - {produto->nome}">
+                        <img src="{path}img/produtos/1/{imagem_detalhe}" title="{produto->nome}" alt="{produto->nome}" class="link-detalhe img_detalhe js-detalheimg" data-indice='{indice}' data-timsrc="{imagemampliada}" data-src="{imagemzoom}" width="60px" height="60px" />
+                    </a>
+                    <!-- END BLOCK_IMAGEM_DETALHE -->
+                    {produto->video}
+                </div>
+                <br clear="all">
+            </div>
+            <div class="col-md-3 referencias">
+
+                <h1 class="produto-nome">{produto->nome}</h1>
+                <h2 id='item_referencia'>{produto->referencia}</h2>
+
+                <!-- BEGIN BLOCK_ESPECIAL_PRECO -->
+                <div class="preco_especial" style="">
+                    <h1 id="r_sifrao">R$ <span id="item_preco">{produto->preco_formatado}</span> <span>Unidade</span></h1>
+                </div>
+                <!-- END BLOCK_ESPECIAL_PRECO -->
+
+                <div class="conteudo_cor_ref_descricao" style="position:relative">
+                    <div class="cor_ref_descricao">
+
+                        <!-- BEGIN BLOCK_ITEM_CORES -->
+                        <div class="cor_prod" style="display:table; border-collapse:collapse;empty-cells: show;">
+                            <!-- BEGIN BLOCK_ITEM_COR -->
+                            {cores_linhas}
+                            <!-- END BLOCK_ITEM_COR -->
+                        </div>
+                        <!-- END BLOCK_ITEM_CORES -->
+
+                        <!-- BEGIN BLOCK_ITEM_CORES_BY_REF -->
+                        <div class="cor_prod" style="display:table; border-collapse:collapse;empty-cells: show;">
+                            <!-- BEGIN BLOCK_ITEM_COR_BY_REF_ROW -->
+                            <ul>
+                                <!-- BEGIN BLOCK_ITEM_COR_BY_REF -->
+                                {cores_by_ref}
+                                <!-- END BLOCK_ITEM_COR_BY_REF -->
+                            </ul>
+                            <!-- END BLOCK_ITEM_COR_BY_REF_ROW -->
+                        </div>
+                        <!-- END BLOCK_ITEM_CORES_BY_REF -->
+                    </div>
+                </div>
+                <!-- BEGIN BLOCK_ORCAMENTO_DISPONIVEL -->
+
+                <form action="{index}pedido_add" <!-- BEGIN BLOCK_VALIDA_COR -->  onsubmit="javascript: if($('#item_cor_id').val()==''){ $('.cor_prod ul li').css('border-color','#f2ff2f;');alert('Selecione uma cor.');return false;}" <!-- END BLOCK_VALIDA_COR --> method="POST">
+                <input type="hidden" value="1" name="add_item" />
+                <input type="hidden" value="{produto->id}" id="item_id" name="item_id" />
+                <input type="hidden" value="{item_cor_id}" id="item_cor_id" name="cor_id" />
+                <input type="hidden" value="{token}" name="token" />
+                <div class="form_qtd" >
+                    <!-- BEGIN BLOCK_CONVENCIONAL -->
+                    <div class="orcamento">
+                        <div class="price">
+                            <input type="text" class="qtd-prod so_num" name="qtd" placeholder="QUANTIDADE" value="{produto->qtd_minima}" />
+                        </div>
+                        <div class="orcar">
+                            <input type="submit" value="OR&Ccedil;AR" class="bt-orcar" />
+                        </div>
+                    </div>
+                    <!-- END BLOCK_CONVENCIONAL -->
+                    <!-- BEGIN BLOCK_ESPECIAL -->
+                    <div class="div_cliente_especial">
+
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="text" class="qtd-prod" name="qtd" placeholder="QUANTIDADE" value="{produto->qtd_minima}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border:2px solid #078b07;">
+                                    <input type="submit" value="SOLICITAR OR&Ccedil;AMENTO" class="bt-orcar" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- END BLOCK_ESPECIAL -->
+                </div>
+                </form>
+                <!-- END BLOCK_ORCAMENTO_DISPONIVEL -->
+                <div style="clear:both;"></div>
+
+
+            </div>
+            <div class="col-md-3">
+
+                <ul class="redes-sociais">
+                    <!-- BEGIN BLOCK_INFOADICIONAL -->
+                    <li class="info"><a href="#" data-toggle="tooltip" data-placement="bottom" title="{produto->infoadicional_tooltip}"></a></li>
+                    <!-- END BLOCK_INFOADICIONAL -->
+                    <li class="whats"><a href="#"></a></li>
+                    <li class="face"><a href="#" class="js-fb-share"></a></li>
+                    <li class="email"><a href=""></a></li>
+                </ul>
+                <br clear="all"/>
+                <div class="caracs hidden-sm hidden-xs">
+                    <div class="desc">
+                        <p class="desc-tit">Descrição:</p>
+                        <p class="desc-sub">{produto->descricao}</p>
+                    </div>
+                    {select_cor}
+                    {produto->especificacoes}
+
+                    <!-- BEGIN BLOCK_ITEM_XBZ -->
+						{produto->especificacoes}
+						<!-- END BLOCK_ITEM_XBZ -->
+						<!-- BEGIN BLOCK_ITEM_ASIA_TRUE -->
+						<br>
+						<h3>Especificações do produto:<br><br> </h3>	
+						<span class="span_desc">{produto->informacoes_tecnicas_frontend}</span>
+						
+						<!-- END BLOCK_ITEM_ASIA_TRUE -->
+
+                    <!-- BEGIN BLOCK_CATEGORIA_MAIS -->
+                    <div class='desc'>
+                        <p class='desc-tit'>Veja mais brindes</p>
+                        <p class='desc-sub'>
+                            {categoriamais}
+                        </p>
+                    </div>
+                    <!-- END BLOCK_CATEGORIA_MAIS -->
+                </div>
+
+                <div class="rede_social_mobile" >
+                    <table  cellspacing="0" border="0">
+                        <tr>
+                            <td>
+                                <a href="{config->FACEBOOK}" class="icon_rede rede_face js-fb-share" target="_blank"></a>
+                            </td>
+                            <td>
+                                <a href="{config->PINTEREST}" class="icon_rede rede_print pinterest" target="_blank"></a>
+                            </td>
+                            <td>
+                                <a href="" class="rede_indique"></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="hidden-sm hidden-xs">{produto->infos_adicionais}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="detalhe_prod hidden-sm hidden-xs">
+
+
+        <div style="display:table; width:100%; margin-top:60px;" id="detalhe_produto">
+            <div class="descricao_prod">
+                <div class="conteudo_descricao">
+
+                    <div class="rede_social">
+                        <table cellspacing="0" border="0" >
+                            <tr>
+                                <td>
+                                    <a href="{config->FACEBOOK}" class="icon_rede rede_face js-fb-share" target="_blank"></a>
+                                </td>
+                                <td>
+                                    <a href="{config->PINTEREST}" class="icon_rede rede_print pinterest" target="_blank"></a>
+                                </td>
+                                <td>
+                                    <a href="" class="rede_indique"></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br clear="all"/>
+                </div>
+
+            </div>
+
+            <br clear="all"/>
+        </div>
+        </form>
+    </div>
+
+    <div class="indique_box" style="display: none">
+        <span onclick="javascript: $('.indique_box').fadeOut();">X</span>
+        <form method="POST" action="{index}indiqueproduto" id="form_indique">
+            <input type="hidden" name="item_id" value="{produto->id}" />
+            <label>E-mail:<input type="text" name="email" class="text_indique_email"/></label>
+            <br />
+            <label>Nome:<input type="text" name="nome" class="text_indique"/></label>
+            <br />
+            <label>Seu nome:<input type="text" name="remetente" /></label>
+            <br />
+            <input type="submit" value="indicar"  class="button"/>
+            <br clear="all"/>
+            <br clear="all"/>
+            <span class="msg_indique"></span>
+        </form>
+    </div>
+    <!--DETALHE PRODUTO-->
+
+    <div class="page-header hidden-sm hidden-xs">
+        <div class="container">
+            <h1>Produtos relacionados</h1>
+        </div>
+    </div>
+
+    <!--PRODUTOS RELACIONADOS-->
+    <div class="relacionados hidden-sm hidden-xs">
+        <div class="container">
+            <div class="row">
+                <!-- BEGIN BLOCK_PRODUTOS -->
+                <div class="col-lg-3 col-md-6 com-sm-6">
+                    {produto}
+                </div>
+                <!-- END BLOCK_PRODUTOS -->
+            </div>
+        </div>
+    </div>
+    <!--PRODUTOS RELACIONADOS-->
+    <!--
+    {listagem_produtos}
+    {listagem_produtos_bread}
+    {categoria}
+    -->
+</section>
+
+<input type="hidden" id="urlshare" value="{produto->link}"/>
+<input type="hidden" id="urlshareimg" value="{produto->linkimagem}"/>
+
+<!-- {url_site}{listagem_produtos}
+    {listagem_produtos_bread}
+    {categoria}
+	{categoriamais}
+	{categoriaprincipal}
+	{categoriatrilha}
+	{tabela_precos}{imagemdetalheprincipal}{select_gravacao}-->
+
+    <!-- BEGIN BLOCK_IMAGEM_DETALHE_MOBILE -->
+    <!-- END BLOCK_IMAGEM_DETALHE_MOBILE -->

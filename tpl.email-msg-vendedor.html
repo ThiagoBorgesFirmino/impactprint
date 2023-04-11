@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title></title>
+	<style media="screen,print">
+	
+		body {
+			text-align:center;
+			margin:0px;
+			padding:0px;
+		}
+
+		h1 {
+			font-size:16px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			background-color:#ececec;
+		}
+
+		h2 {
+			font-size:14px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			border-bottom:1px solid #ececec;
+		}
+
+		h3 {
+			font-size:12px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:center;
+			border-top:1px solid #ececec;
+		}
+
+		h4 {
+			font-size:14px;
+			font-family:arial;
+			padding:3px;
+			margin:0px;
+			text-align:right;
+			border-top:1px solid #ececec;
+		}
+
+		p {
+			font-family:arial;
+			font-size:12px;
+			color:#999;
+			padding:1px;
+			margin:0px;
+		}
+
+		p.maior {
+			font-size:14px;
+			font-weight:bold;
+		}
+
+		table {
+			border-collapse:collapse;
+		}
+
+		table.grid tr th{
+			font-size:10px;
+			font-family:arial;
+			font-weight:bold;
+			padding:1px;
+			margin:0px;
+			text-align:left;
+			background-color:#ececec;
+		}
+
+		table.grid tr td{
+			font-size:10px;
+			font-family:arial;
+			padding:1px;
+			margin:0px;
+			text-align:left;
+			border-bottom:1px solid #cecece;
+		}
+
+		table.small tr td{
+			font-size:11px;
+			font-family:arial;
+			padding:1px;
+			margin:0px;
+		}
+
+	</style>
+</head>
+<body>
+    <div style="width:600px;text-align:left;margin:auto;border:1px solid #e1e1e1;padding:3px;">
+		<table width="100%">
+			<tr>
+				<td><img src="{config->URL}admin/images/logo_cliente_admin.jpg" alt="" /></td>
+				<td align="right">
+					<p class="maior">{config->EMPRESA}</p>
+					<p>{config->LOGRADOURO}, {config->NUMERO}<br />
+					{config->BAIRRO} {config->CIDADE} {config->ESTADO}<br />
+					CEP: {config->CEP}</p>
+					<p>{config->TELEFONE}</p>
+					<p>E-mail: {config->EMAIL_CONTATO}</p>
+				</td>
+			</tr>
+		</table>
+		<table width="100%">
+			<tr>
+				<td width="50%" valign="top">
+					<h2>De</h2>
+					<p>Nome: <b>{cadastro->nome}</b></p>
+					<p>Email: <b>{cadastro->email}</b></p>
+					<p>Razão Social: <b>{cadastro->empresa}</b></p>
+					<p>Telefones: <b>{cadastro->fone_com}</b> <b>{cadastro->fone_res}</b> <b>{cadastro->fone_cel}</b> <b>{cadastro->fone_nextel}</b></p>
+				</td>
+				<td width="50%" valign="top">									 
+					<h2>Para</h2>
+					<p>Nome: <b>{vendedor->nome}</b></p>
+					<p>Email: <b>{vendedor->email}</b></p>
+					<p>Telefone: <b>{vendedor->fone_com} {vendedor->fone_cel}</b></p>
+				</td>
+			</tr>
+		</table>        
+		<b>mensagem:</b>
+		<h3>{mensagem}</h3>
+		<br />
+		<br />
+		<p style="border-top:1px solid #eee;text-align:right">
+			<small>ajung manager - www.ajung.com.br</small>
+		</p>
+	</body>
+</html>

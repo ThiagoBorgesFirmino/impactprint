@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=1" />
+		<title>Proposta</title>
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Source+Sans+Pro:200,300,400,600,700,900&display=swap" rel="stylesheet">
+		<style>
+			body {margin:0px;padding:0px;background:#ececec;}
+			a{text-decoration: none;}
+			*{font-family: 'Source Sans Pro', sans-serif;font-size:14px;}
+		</style>
+	</head>
+
+<body>
+	<center>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" bgcolor="#FFF" style="width:610px;margin:0 auto;background-color:#FFF;padding-top:5px;padding-bottom:5px;border-top-left-radius:10px;border-top-right-radius:10px;">
+			<tr>
+				<td style="text-align:center;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:200;font-size:16px;color:#636363;">{proposta->info_saudacao_personalizada}</span><br/>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" bgcolor="#FFF" style="width:610px;margin:0 auto;background-color:#FFF;text-align:center;padding-top:15px;padding-bottom:15px;">
+			<tr>
+				<td>
+					<a href="{config->URL}" title="{config->EMPRESA}"><img src="{config->URL}img/logo/logo-email.png?a=123" width="280"  alt="{config->EMPRESA}" style="margin-bottom:15px;width:280px;"/></a>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" bgcolor="#FFF" style="width:610px;margin:0 auto;background-color:#FFF;text-align:center;padding-top:20px;padding-bottom:20px;">
+			<tr>
+				<td style="text-align:center;">
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;font-size:14px;color:#636363;">Obrigado(a) por sua solicitação.</span><br/>
+					<span style="font-family: 'Open Sans', sans-serif;font-weight:400;font-size:14px;color:#636363;">Estamos a sua disposição.</span>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" bgcolor="#FFF" style="width:610px;margin:0 auto;background-color:#FFF;padding-top:5px;padding-bottom:5px;">
+			<tr>
+				<td style="width:15px;"></td>
+				<td style="text-align:left;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:200;font-size:16px;color:#636363;">Orçamento: {pedido->id}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:200;font-size:16px;color:#636363;">Data: {proposta->data_cadastro_format}</span>
+				</td>
+				<td style="width:15px;"></td>
+			</tr>
+		</table>
+		<table cellspacing="0" cellpadding='0' width="610" bgcolor="#FFF" style="width:610px; margin:0 auto;background-color:#FFF;">
+			<tr>				
+				<td style="padding:10px;">
+					<table style="width:100%;">
+						<tr>
+							<td valign="top" style="width:50%;vertical-align:top;">
+								
+								<span>
+									<strong style="font-family: Calibri;color:#282829 !important;font-size:15px;">Aos cuidados de</strong><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Empresa: {cadastro->empresa}</span><br/>
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">CNPJ: {cadastro->cnpj_formatado}</span><br/>
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Contato: {cadastro->nome}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Email: {cadastro->email}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Telefone: {cadastro->fone_com} {cadastro->fone_cel}</span>
+								</span>
+							</td>
+							<td valign="top" style="vertical-align:top;">
+								<span>
+									<strong style="font-family: Calibri;color:#282829 !important;font-size:15px;">Dados do Atendimento</strong><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">{vendedor->empresa}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Cnpj: {vendedor->cnpj}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Contato: {vendedor->nome}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Email: {vendedor->email}</span><br />
+									<span style="font-family: Calibri;color:#282829 !important;font-size:14px;">Telefone: {vendedor->fone_com} {vendedor->fone_cel}</span>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</td>				
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" style="width:610px;margin:0 auto;background-color:#FFF;padding-bottom:5px;">
+			<tr>
+				<td style="width:15px"></td>
+				<td style="text-align:left;">
+					<h1 style="font-family: 'Source Sans Pro', sans-serif;font-weight:700;font-size:16px;color:#636363;display:block;margin-bottom:10px;">ITENS DA PROPOSTA</h1>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:400;font-size:14px;color:#636363;display:block;margin-left:15px;">Para mais fotos e detalhes sobre os produtos clique na foto.</span>
+				</td>
+				<td style="width:15px"></td>
+			</tr>
+		</table>
+		<!-- BEGIN BLOCK_PRODUTOS -->
+		<table border="0" cellpadding="0" cellspacing="0" width="610" style="width:610px;margin:0 auto;background-color:#fff;padding-top:15px;border-top:1px solid #ccc;">
+			<tr>
+				<td width="195" style="width:185px;background:#DE1F26;padding:5px 0px 5px 15px;text-align:left;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#FFF;">ITEM {count}</span>
+				</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="610" style="width:610px;margin:0 auto;background-color:#f7f7f7;padding-top:15px;padding-bottom:15px;">
+			<tr>
+				<td style="padding-left:15px;padding-bottom:10px;">
+					<a href="{produto->link}"><img src="{propostaitem->imagem_proposta}" width="170" height="170" style="display:block;border:0;width:170px;height:170px;" /></a>
+				</td>
+				<td style="vertical-align:middle;padding-left:8px;padding-right:8px;text-align:left;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:800;font-size:12px;color:#636363;">{propostaitem->referencia} - {propostaitem->nome}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:400;font-size:12px;color:#636363;">{propostaitem->descricao_html}{gravacao_info}</span>
+				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="5" cellspacing="0" width="610" style="width:610px;margin:0 auto;background-color:#FFF;border-bottom:1px solid #ccc;padding-bottom:15px;">
+			<tr style="text-align:center; background: #cccc;">
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:800;font-size:14px;color:#636363;margin-top:3px;margin-bottom:3px;">Quantidade</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:800;font-size:14px;color:#636363;margin-top:3px;margin-bottom:3px;">Valor Unitário</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:800;font-size:14px;color:#636363;margin-top:3px;margin-bottom:3px;">Valor Total</span></td>
+			</tr>
+			<!-- BEGIN BLOCK_PROPOSTA_QTD -->
+			<tr style="text-align:center; ">
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">{propostaitem->item_qtd}</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->preco}</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->sub_total}</span></td>
+			</tr>
+			<!-- END BLOCK_PROPOSTA_QTD -->
+			<!-- BEGIN BLOCK_PROPOSTA_QTD2 -->
+				<tr style="text-align:center;  background: #f0f0f0;">
+					<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">{propostaitem->item_qtd2}</span></td>
+					<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->preco2}</span></td>
+					<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->sub_total2}</span></td>
+				</tr>
+			<!-- END BLOCK_PROPOSTA_QTD2 -->
+			<!-- BEGIN BLOCK_PROPOSTA_QTD3 -->
+			<tr style="text-align:center; ">
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">{propostaitem->item_qtd3}</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->preco3}</span></td>
+				<td><span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;display:inline-block;margin-top:3px;margin-bottom:3px;">R$ {propostaitem->sub_total3}</span></td>
+			</tr>
+			<!-- END BLOCK_PROPOSTA_QTD3 -->
+		</table>
+		<!-- BEGIN BLOCK_PAGE_BREAK -->
+		<div class="pagebreak"style="margin:0 auto;text-align:center;background:#FFF;width:610px;"></div>
+		<!-- END BLOCK_PAGE_BREAK -->
+		<!-- END BLOCK_PRODUTOS -->	
+		<table cellspacing="0" cellpadding="0" width="610" bgcolor="#FFF" border="0" style="width:610px; margin:0 auto;padding-top:5px;padding-bottom:5px;background-color:#fff;border-top:1px solid #f2f2f2;">
+			<tr>
+				<td style="width:10px"></td>
+				<td>
+					<table>
+						<tr> 
+							<td valign="top" style="width: 166px; text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Op&ccedil;&atilde;o de frete:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_frete}</span></td>
+						</tr>
+						<tr>
+							<td valign="top" style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Validade da proposta:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_validade_proposta}</span></td>
+						</tr>
+						<tr>
+							<td valign="top" style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Prazo de entrega:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_prazo_entrega}</span></td>
+						</tr>
+						<tr>
+							<td valign="top" style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Observa&ccedil;&otilde;es:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_obs}</span></td>
+						</tr>
+						<tr>
+							<td valign="top" style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Observa&ccedil;&otilde;es Adicionais:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_obs_adicionais}</span></td>
+						</tr>
+						<tr>
+							<td valign="top" style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Forma de pagamento:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_forma_pagamento}</span></td>
+						</tr>
+						<!-- BEGIN BLOCK_LOCAL_ENTREGA -->
+						<tr>
+							<td style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Local de entrega:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_local_entrega}</span></td>
+						</tr>		
+						<!-- END BLOCK_LOCAL_ENTREGA -->
+						<!-- BEGIN BLOCK_LOCAL_COBRANCA -->
+						<tr>
+							<td style="text-align:right;padding-right:10px;"><small style="font-family: Calibri;color:#282829 !important;font-size:14px"><b>Local de cobran&ccedil;a:</b></small></td>
+							<td><span style="font-family: Calibri;color:#282829 !important;font-size:14px">{proposta->info_local_cobranca}</span></td>
+						</tr>
+						<!-- END BLOCK_LOCAL_COBRANCA -->
+					</table>
+				</td>
+				<td style="width:10px"></td>
+			</tr>
+		</table>
+		
+		<table cellspancing="0" cellpadding="0" style="width:610px;margin:0 auto;background-color:#f9f9f9;padding: 15px;">
+			<tr>
+				<td style="width:60%;text-align:left;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">Atenciosamente,</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;">{vendedor->nome}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;">Telefone: {vendedor->fone_res}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">E-mail: {vendedor->email}</span>
+				</td>
+				<td style="text-align:left;">
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">{config->TELEFONE}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">{config->LOGRADOURO}, {config->NUMERO} - {config->BAIRRO}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:300;font-size:14px;color:#636363;">CEP: {config->CEP} - {config->CIDADE} - {config->ESTADO}</span><br/>
+					<span style="font-family: 'Source Sans Pro', sans-serif;font-weight:600;font-size:14px;color:#636363;">{config->EMPRESA}</span>
+				</td>
+			</tr>
+		</table>
+		<table cellspancing="10" cellpadding="4" width="610" style="width:610px;margin:0 auto;padding:5px 0px; background-color:#2d2d2d;border-bottom-left-radius:10px;border-bottom-right-radius:10px;">
+			<tr>
+				<td><span style="font-family: 'Open Sans', sans-serif;font-weight:300;font-size:12px; color:#fff;">{config->EMPRESA} Todos os direitos reservados.</span></td>
+				<td><span style="font-family: 'Open Sans', sans-serif;font-weight:300;font-size:12px;display:block;text-align:right; color:#fff;">Desenvolvimento <a href="http://ajung.com.br">A. Jung</a></span></td>
+			</tr>
+		</table>
+
+
+		<!-- BEGIN BLOCK_PRODUTOS_RESUMO -->
+		<!-- END BLOCK_PRODUTOS_RESUMO -->
+		<!-- BEGIN BLOCK_DETALHE_2 -->
+		<!--{imagem_d2}-->
+		<!-- END BLOCK_DETALHE_2 -->
+		<!-- BEGIN BLOCK_DETALHE_1 -->
+		<!--{imagem_d1}-->
+		<!-- END BLOCK_DETALHE_1 -->
+	</center>
+</body>
+</html>

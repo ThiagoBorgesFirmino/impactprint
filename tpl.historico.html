@@ -1,0 +1,88 @@
+<section class="minhas-compras">
+
+	<div class="page-header">
+        <div class="container">
+            <h1>Hist&oacute;rico</h1>
+        </div>
+    </div>
+
+    <div class="container">
+    	<div class="row">
+			<!-- BEGIN BLOCK_PEDIDO -->
+			<div class="div_historico_pedido">
+				<table class="table">
+					<thead class="thead-inverse">
+						<th colspan="3">PROPOSTA</th>
+					</thead>
+					<tbody>
+                        <tr>
+                            <td width="130px"><strong>Data:</strong> {pedido->data_formatada}</td>
+                            <td><strong>Status:</strong> {pedidostatus->descricao}</td>
+                            <td class="text-right">
+                                <button class="btn h_proposta" data-id="{pedido->id}"><span class="glyphicon glyphicon-eye-open"></span> Ver proposta</button>
+                                &nbsp;&nbsp;<button class="btn btn-primary" onclick="javascript:loadItens({pedido->id});"><span class="glyphicon glyphicon-plus"></span> Detalhes</button>
+                            </td>
+                        </tr>
+					</tbody>
+				</table>
+				<br />
+				<div class="compras-produtos js-itens-{pedido->id}" style="display: none"></div>
+			</div>
+			<!-- END BLOCK_PEDIDO -->
+		</div>
+	</div>
+	
+	<script>
+		function loadItens(id){
+
+			display = $(".js-itens-"+id).css('display');
+			
+			if($(".js-itens-"+id).html()==''){
+				$(".js-itens-"+id).html('Aguarde ...');
+			}
+			
+			if(display=='none'){
+				$(".js-itens-"+id).show('slow');
+				if($(".js-itens-"+id).html()=='' || $(".js-itens-"+id).html()=='Aguarde ...'){
+					$.ajax({
+						url: '{index}minhascompras/?get_itens='+id
+						,success:function(out){
+							$(".js-itens-"+id).html(out);
+						}
+					});
+				}
+			}else{
+				$(".js-itens-"+id).hide('slow');					
+			}
+		}
+		
+		$(document).ready(function(){
+			$(".h_proposta").bind("click",function(){
+				id = $(this).data('id');
+				$.ajax({
+					url: '{index}minhascompras/?get_proposta='+id
+					,dataType : 'json'
+					,success:function(out){
+						if(out['status']==1){
+							$.fancybox(
+								out['msg'],
+							{
+								padding     : 0,				 
+								openEffect  : 'elastic',
+								openSpeed   : 350,
+								closeEffect : 'elastic',
+								closeSpeed  : 350,
+								closeBtn    : false 
+							});
+						}
+						
+						if(out['status']==0){
+							alert(out['msg']);
+						}
+					}
+				});
+			});
+		});
+
+	</script>
+</section>

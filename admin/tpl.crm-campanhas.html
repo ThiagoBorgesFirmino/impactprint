@@ -1,0 +1,182 @@
+<h1>Campanhas</h1>
+
+<input type="hidden" name="newscampanha_id"/> 
+<input type="hidden" name="email_teste"/> 
+
+<table class="grid">
+	<tr>
+		<th width="25px">ID</th>
+		<th>Nome</th>
+		<th width="120px">&nbsp;</th>
+		<th width="50px">&nbsp;</th>
+		<th width="50px">&nbsp;</th>
+		<th width="20px">&nbsp;</th>
+	</tr>
+
+	<!-- BEGIN BLOCK_NEWSCAMPANHA -->
+	<tr>
+		<td>{newscampanha->id}</td>
+		<td>{newscampanha->assunto}</td>
+		<td align="center"><a href="{index}crm_campanhas_view/{newscampanha->id}" class="preview">Pré-visualizar</a></td>
+		<td align="left">Enviar apenas 1 para:
+			<input type="text" class="text-small" id="email_teste_{newscampanha->id}" value="{config->EMAIL_CONTATO}" />
+			<a href="javascript:enviarApenas1({newscampanha->id})"  class="preview">enviar</a>
+		</td>
+		<td align="center"><a href="{index}crm_campanhas_send/{newscampanha->id}" class="send">Enviar</a></td>
+		<td align="center"><a onclick="return confirm('Tem certeza que deseja excluir?')" href="{index}crm_campanhas_del/{newscampanha->id}"><img src="{path}admin/assets/x.gif"/></a></td>
+	</tr>
+	<!-- END BLOCK_NEWSCAMPANHA -->
+
+</table>
+
+<br />
+
+<div class="box-block">
+	<h2>Criar campanha</h2>
+	<div style="float:left; width:49%">
+		<h3>Pra quem vai o e-mail?:</h3>
+		<p><input type="radio" checked name="newscampanha[lista_sql]" value='SELECT id, nome, email FROM newscadastro WHERE st_ativo = "S"' /> Cadastros ativos na base de newsletter</p>
+	</div>
+	<div style="float:left; width:49%">
+		<h3>Qual o tipo de comunicação?:</h3>
+		<select name="newstemplate_id" id="newstemplate_id">
+			<option value="0">--</option>
+			<!-- BEGIN BLOCK_NEWSTEMPLATE -->
+			<option value="{newstemplate->id}">{newstemplate->nome}</option>
+			<!-- END BLOCK_NEWSTEMPLATE -->
+		</select>
+	</div>
+</div>
+
+<br style="clear:both" />
+<br />
+
+<div id='divVars'></div>	
+<div id='divPreview'></div>
+
+<div id="divFinalizar" style="display:none">
+	<h2>Assunto do e-mail:</h2>
+	<input type="text" class="text" name="newscampanha[assunto]" size="60" onkeyup="assunto_change(this)" onkeydown="assunto_change(this)"/>
+	<br />
+	<br />
+	<input type="button" class="button" id="btnFinalizar" value="Finalizar" onclick="document.forms.formPrincipal.setAttribute('action','crm_campanhas');enviar('salvar')" disabled />
+</div>
+
+<script>
+
+	function templateChange(template_id){
+
+		//alert(1);
+
+		$.ajax(
+			{
+				type: "POST",
+				url: "{index}crm_campanhas_load_vars/"+template_id,
+				success: function(msg){
+					//alert(msg);
+					$('#divVars').html(msg);
+					updatePreview();
+				}
+			}
+		);
+	}
+
+	document.getElementById('newstemplate_id').onchange = function(){
+		var _options = document.getElementById('newstemplate_id').options;
+		for(var i =0, n=_options.length; i < n; i++){
+			if(_options[i].selected){
+				templateChange(_options[i].value);
+			}
+		}
+	}
+
+	function refProdutoChange(objInput, objIndice){
+
+		if(objInput.value!=''){
+			 $.ajax(
+				{
+					type: "POST",
+					url: "{index}crm_campanhas_load_vars_item/?item_ref="+objInput.value+'&indice='+objIndice,
+					success: function(msg){
+						//alert(msg);
+						$('#divRef'+objIndice).html(msg);
+						updatePreview();
+					}
+				}
+			);
+		}
+		else {
+			$('#divRef'+objIndice).html('');
+		}
+	}
+
+	function updatePreview(){
+
+		//alert(1);
+		//$('#form1').resetForm();
+		//document.getElementById('action').value = 'preview';
+		//alert(1);
+
+		document.getElementById('divFinalizar').style.display='none';
+
+		// bind form using 'ajaxForm'
+		$('#formPrincipal').ajaxSubmit({
+			target: '#divPreview',   // target element(s) to be updated with server response
+			url: "{index}crm_campanhas_preview/",
+			//url: "cad.crm.php",
+			success: function (responseText, statusText){
+					//alert(responseText);
+					//alert(responseText);
+					document.getElementById('divFinalizar').style.display='';
+				}
+			}
+		);
+		//$('#form1').ajaxSubmit();
+		//alert(2);
+	}
+
+	function uploadImg(objFile, indice){
+	
+		$('#formPrincipal').ajaxSubmit({
+			target: '#imgUpload'+indice,
+			url: "{index}crm_campanhas_upload_img/",
+			beforeSubmit: function(a,f,o) {
+				o.dataType = 'html'
+			},
+			success: function(data) {
+				
+				var arr = data.split('@');
+
+				for( var i=0;i<arr.length;i++){
+					var part = arr[i].split(';');
+					if(part[0]==indice){
+						document.getElementById('imagem['+indice+'][src]').value = part[1];
+					}				
+				}
+				
+				updatePreview();
+			}
+		});
+
+	}
+
+	function assunto_change(obj_assunto){
+		if(obj_assunto.value != ''){
+			document.getElementById('btnFinalizar').disabled = false;
+		}
+		else {
+			document.getElementById('btnFinalizar').disabled = true;		
+		}
+	}
+
+	function enviarApenas1(i){
+
+		var obj = document.getElementById('email_teste_'+i);
+
+		document.forms.formPrincipal.elements['newscampanha_id'].value = i;
+		document.forms.formPrincipal.elements['email_teste'].value = obj.value;
+
+		enviar('crm_campanhas_send_1');
+	}
+
+</script>

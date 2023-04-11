@@ -1,0 +1,53 @@
+<section style="padding:40px 0px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="padding:20px 0px;">
+				<h1>{catalogo->titulo}</h1>
+			</div>
+			<div class="col-md-12 padding_0">
+				<div class="img_catalogo left col-md-12 hidden-sm hidden-xs">
+					<!--img src="{path}{catalogo->pathfile}/{catalogoimagemum->imagem}" alt="[{catalogoimagemum->imagem}]" width="696" height="906" id="imgprincipal"/-->
+					<img src="{path}{catalogo->pathfile}/{catalogoimagemum->imagem}" alt="[{catalogoimagemum->imagem}]" style="width:100%" id="imgprincipal"/>
+				</div>
+				<div class="slide_prod_mobile left col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;">
+					<div class="swiper-container swiper-catalogo">
+						<div class="swiper-wrapper">
+							<!-- BEGIN BLOCK_CATALOGO -->
+								<div class="swiper-slide">
+									<a href="#" data-imagem="{path}{catalogo->pathfile}/{catalogoimagem->imagem}" class="imgslide" ><img src="{path}{catalogo->pathfile}/{catalogoimagem->imagem}"  style="width:100%"/></a>
+								</div>
+							<!-- END BLOCK_CATALOGO -->	
+						</div>
+							<div class="swiper-pagination"></div>
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--{width}{none}{border}-->
+	<script>		
+		var swiper = new Swiper('.swiper-catalogo', {
+			pagination: '.swiper-pagination',
+			slidesPerView: 5,
+			paginationClickable: true,
+			spaceBetween: 30,
+			mousewheelControl: true,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			breakpoints:{
+				991:{
+					slidesPerView: 1
+				}
+			}
+		});
+		
+		$('.imgslide').bind('click', function(){
+			urlslide = $(this).data('imagem');
+			$('#imgprincipal').attr('src',urlslide);
+
+			return false;
+		});
+	</script>

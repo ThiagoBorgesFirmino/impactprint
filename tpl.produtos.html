@@ -1,0 +1,83 @@
+<div class="banners" style="display:none">
+	<!-- BEGIN BLOCK_BANNER_AMAMOS -->
+		<img src="{slidebanner->bannerprodutoamamos}" width="100%" />
+		<!-- END BLOCK_BANNER_AMAMOS -->
+		<!-- BEGIN BLOCK_BANNER_PRODUTOS -->
+		<img src="{slidebanner->bannerproduto}" width="100%" />
+		<!-- END BLOCK_BANNER_PRODUTOS -->
+        <!-- BEGIN BLOCK_BANNER_PROMOCAO -->
+        <img src="{slidebanner->bannerpromocao}" width="100%" />
+        <!-- END BLOCK_BANNER_PROMOCAO -->
+        <!-- BEGIN BLOCK_IMAGEM_CATEGORIA -->
+        <img src="{imagemcategoria}"  width="100%" />
+        <!-- END BLOCK_IMAGEM_CATEGORIA -->
+</div>
+
+<div class="d-listagem">
+	<div class="container padding_0">
+		<div class="row margin_0" style="padding: 10px 18px;">
+			<div class="col-md-12 col-sm-12 col-xs-12 padding_0">
+				<div class="d-submenu">
+					<h1 class="_title hidden-sm hidden-xs">{h1}</h1>
+					<table class="visible-sm visible-xs"  style="width:80%;margin:0 auto" onclick="javascript:$('.d_menu_listagem').slideToggle();">
+						<tr>
+							<td>{h2}</td>
+						</tr>
+					</table>
+					
+					<span class="_subtitle">{busca}</span>
+					<div style="position:relative;">
+						{menulistagem}
+					</div>
+					<!-- BEGIN BLOCK_CATEGORIAS -->
+					<div class="col-md-12 d_menu_listagem padding_0" id="menunav3">
+						<ul class="list-unstyled list-inline" {listagem_produtos}  >
+							<!-- BEGIN BLOCK_CATEGORIAS_ITEM -->
+								<li class="{menucategoriaselected}  li_menu_prod"><a href="{menucategoria->link}">{menucategoria->nome}</a></li>
+								<!-- <li class="{menucategoriaselected}"><a href="{menucategoriapai->link}/{menucategoria->tag_nome}">{menucategoria->nome} -</a></li> -->
+							<!-- END BLOCK_CATEGORIAS_ITEM -->
+							<li class="{produtotodos}"><a href="{menucategoriapai->link}">TODOS</a></li>
+						</ul>
+					</div>
+					<!-- END BLOCK_CATEGORIAS -->
+				</div>
+
+				<div class="col-md-12 col-sm-12 col-xs-12 padding_0 d-listagem-prod">
+					<!-- BEGIN BLOCK_PRODUTOS -->
+						<div class="col-md-3 col-sm-6 col-xs-6 prod-listagem" style=" margin-bottom:40px;">
+							{produto}
+						</div>
+					<!-- END BLOCK_PRODUTOS -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<section class="font_geral" style="display:none">
+		<!-- BEGIN BLOCK_COL -->
+		<!-- BEGIN BLOCK_ROW -->
+		<!-- END BLOCK_ROW -->
+		<!-- END BLOCK_COL -->
+		<!-- BEGIN BLOCK_TITULO_BUSCA -->
+		<!-- END BLOCK_TITULO_BUSCA -->
+		<!-- BEGIN BLOCK_FILTRO_COR_ITEM -->
+        <!-- END BLOCK_FILTRO_COR_ITEM -->
+        <!-- BEGIN BLOCK_FILTRO_COR -->
+        <!-- END BLOCK_FILTRO_COR -->
+	{script_cat}
+	<!--{cor} {categoriatrilha}-->
+</section>
+
+<div class="js-filtro">
+    <input type="hidden" name="categoria_id" value="{categoria_id}"/>
+    <input type="hidden" name="cor_id"/>
+</div>
+
+<!--
+{categoria}
+{token}
+-->
