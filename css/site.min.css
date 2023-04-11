@@ -8,14 +8,15 @@
 :root{
   --cor_toposite: #FFF;
   --color_01: #DE1F26;
-  --color_02: #000;
-  --color_menu: #af0e0e;
-  --color_footer: #F5F5F5;
-  --color_subfooter: #717171;
+  --color_02: #ea6c00;
+  --color_02_mobi: #454545;
+  --color_menu: #ea6c00;
+  --color_footer: #fefefe;
+  --color_subfooter: #ea6c00;
   --color_font_footer: #000000;
   --color_font_topo: #000000;
-  --cor_icone: #DE1F26;
-  --carrinho: #DE1F26;
+  --cor_icone: #484848;
+  --carrinho: #454545;
   --white: #FFFFFF;
   --black: #000000;
 }
@@ -9038,7 +9039,7 @@ li {
 ._title a {
   font-size: 21px;
   font-weight: 700;
-  color: #af0e0e;
+  color: #484848;
   margin: 0px;
 }
 ._contact_title {
@@ -9117,7 +9118,7 @@ li {
   margin: 0 auto;
 }
 .topo-site .logo-header{
-  width: 50%;
+  width: 75%;
   margin:0 auto;
   position: relative;
   top: 6px;
@@ -9179,7 +9180,7 @@ FORMATACAO ORIGINAL
   }
 }
 .topo-site .d-buscar {
-  width: 65%;
+  width: 100%;
   position: relative;
   margin-top: 16px;
   box-shadow: rgb(100 100 100 / 19%) 0px 3px 6px 0px;
@@ -9439,7 +9440,7 @@ FORMATACAO ORIGINAL
   /* background-image: url(../img/assets/background-footer.jpg);
   background-repeat: no-repeat;
   background-size: auto; */
-  /* border-top: 2px solid #000; */
+  border-top: 2px solid #000;
   background-color: var(--color_footer);
 }
 .container-footer .conteudo_redes_footer {
@@ -9474,7 +9475,7 @@ FORMATACAO ORIGINAL
   color: var(--color_font_footer);
   font-weight: 400;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 .container-footer .nav-menu-rodape > a:last-child {
   margin-bottom: 0px;
@@ -10036,7 +10037,7 @@ FORMATACAO ORIGINAL
     /* Stay on top */
     top: 0;
     left: 0;
-    background-color: var(--color_02);
+    background-color: var(--color_02_mobi);
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
@@ -10073,7 +10074,7 @@ FORMATACAO ORIGINAL
     margin: 0px;
     border: 0px;
     left: -100%;
-    background-color: var(--color_02)
+    background-color: var(--color_02_mobi)
   }
   .dropdown-mobile li {
     padding: 7px 27px;
@@ -10118,7 +10119,6 @@ FORMATACAO ORIGINAL
 
 .img-logo-footer{
   width: 80%; 
-  margin-top: 20px;
 }
 
 .img-logo-top{

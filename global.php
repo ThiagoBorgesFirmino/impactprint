@@ -32,7 +32,7 @@ if($_SERVER['SERVER_NAME']=='impactprint.local'){
     define('JS_DEV'        , '0');
     
 
-} elseif($_SERVER['SERVER_NAME']==''){
+} elseif($_SERVER['SERVER_NAME']=='impactprint.ajungdev.com.br'){
 
     error_reporting(0);
 
@@ -41,7 +41,7 @@ if($_SERVER['SERVER_NAME']=='impactprint.local'){
     define( 'BD_HOST'	 , 'localhost');
 	define( 'BD_USER'	 , 'admin');
 	define( 'BD_PASS'	 , 'TIAjung11');
-    define( 'BD_DATABASE', '');
+    define( 'BD_DATABASE', 'impactprint');
 	
     define("PATH_IMG","https://ajg.im". DIRECTORY_SEPARATOR ."img". DIRECTORY_SEPARATOR );
     define('PATH_SITE'  , '/');

@@ -1047,7 +1047,17 @@ class Site {
                 $cor = new cor($fetch->cor_id);
                 $tmp = new item($fetch->id);
 
-                $select_cor .= '<option value="'.$cor->id.'" data-src="'.PATH_SITE.'img/produtos/'.$tmp->imagem.'" data-timsrc="'.PATH_SITE.'img/produtos/orignal/'.$tmp->imagem.'" data-corid="'.$cor->id.'" data-itemid="'.$tmp->id.'" data-itemreferencia="'.$tmp->referencia.'" data-preco="'.$tmp->getPrecoFormatado().'">'.$cor->nome.'</option>';
+				
+				$imagemProduto = $tmp->imagem;
+
+
+				if(file_exists("img/produtos/".$imagemProduto)){
+					$imagemSelect = PATH_SITE."timthumb/timthumb.php?src=".PATH_SITE."img/produtos/".$imagemProduto."?w=".config::get('IMG1_TAMANHO');
+				}else{
+					$imagemSelect = PATH_IMG."produtos/".$imagemProduto."?w=".config::get('IMG1_TAMANHO');
+				}
+
+                $select_cor .= '<option value="'.$cor->id.'" data-src="'.$imagemSelect.'" data-timsrc="'.$imagemSelect.'" data-corid="'.$cor->id.'" data-itemid="'.$tmp->id.'" data-itemreferencia="'.$tmp->referencia.'" data-preco="'.$tmp->getPrecoFormatado().'">'.$cor->nome.'</option>';
                	$temcor = true;
 				
             }
